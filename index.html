@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<link rel="icon" href="https://www.codexworld.com/wp-content/uploads/2014/09/favicon.ico" type="image/x-icon" />
+	<meta name="description" content="Live Demo at CodexWorld - Add Remove Input Fields Dynamically using jQuery">
+	<meta name="keywords" content="demo, codexworld demo, project demo, live demo, tutorials, programming, coding">
+	<meta name="author" content="CodexWorld">
+	<title>Live Demo - Add Remove Input Fields Dynamically using jQuery</title>
+
+
+	<script src="https://demos.codexworld.com/includes/js/jquery.min.js"></script>
+
+
+
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- jQuery library 
+<script src="js/jquery.min.js"></script> -->
+
+	<script>
+		$(document).ready(function () {
+			var maxField = 10; //Input fields increment limitation
+			var addButton = $('.add_button'); //Add button selector
+			var wrapper = $('.field_wrapper'); //Input field wrapper
+			var fieldHTML = '<div class="itemContainer"><input type="text" name="field_name[]" value=""/><a href="javascript:void(0);" class="remove_button"><img src="remove-icon.png"/></a></div>'; //New input field html 
+			var x = 1; //Initial field counter is 1
+
+			// Once add button is clicked
+			$(addButton).click(function () {
+				//Check maximum number of input fields
+				if (x < maxField) {
+					x++; //Increase field counter
+					$(wrapper).append(fieldHTML); //Add field html
+				} else {
+					alert('A maximum of ' + maxField + ' fields are allowed to be added. ');
+				}
+			});
+
+			// Once remove button is clicked
+			$(wrapper).on('click', '.remove_button', function (e) {
+				e.preventDefault();
+				$(this).parent('div').remove(); //Remove field html
+				x--; //Decrease field counter
+			});
+		});
+	</script>
+</head>
+
+<body>
+
+	<section class="banner_sec">
+		<div class="containerDM-fluid">
+			<div class="baner_content">
+				<h1><span>Live Demo:</span> Add Remove Input Fields Dynamically using jQuery </h1>
+			</div>
+		</div>
+	</section>
+	<section class="home_blogArea">
+
+
+		<div class="containerDM-fluid">
+			<div class="demo_pnlouter">
+				<div class="rowDM">
+					<div class="col-lg-12-DM">
+
+
+<style>
+.itemContainer{
+	justify-content: space-between;
+	background-color: aquamarine;
+	border: 1px solid #000;
+}
+
+
+</style>
+
+
+
+						<form action='' method='post' style='width:900px;background:khaki'>
+
+
+							<input style='width:100%' name="eng"
+								value="Would you mind if I borrow your book for a few days?"
+								style='width:100%;margin:-3px;border:2px inset #eee' />
+							<br /><br />
+							<input style='width:100%' name="tr"
+								value="Kitabınızı birkaç günlüğüne ödünç almamda bir sakınca var mı?"
+								style='width:100%' />
+
+						</form>
+
+
+
+						<div class="custom-wrap">
+							<form action="submit.php" method="post">
+								<div class="field_wrapper" style="display: flex;">
+								
+
+										<div class="main" style="display: flex;">
+											<div class="itemContainer">
+												<input type="text" name="field_name[]" value="bir sakınca var mı?"><a href="javascript:void(0);" class="remove_button"><img src="remove-icon.png"></a>
+											</div>
+											<div class="itemContainer">
+												<input type="text" name="field_name[]" value="ben"><a href="javascript:void(0);" class="remove_button"><img src="remove-icon.png"></a>
+											</div>	
+											
+											
+											
+											<div class="itemContainer">
+												<input type="text" name="field_name[]" value="odunc almamda"><a href="javascript:void(0);" class="remove_button"><img src="remove-icon.png"></a>
+											</div>
+											
+											<div class="itemContainer">
+												<input type="text" name="field_name[]" value="senin"><a href="javascript:void(0);" class="remove_button"><img src="remove-icon.png"></a>
+											</div>
+											
+											<div class="itemContainer">
+												<input type="text" name="field_name[]" value="kitabini"><a href="javascript:void(0);" class="remove_button"><img src="remove-icon.png"></a>
+											</div>
+											
+											<div class="itemContainer">
+												<input type="text" name="field_name[]" value="bir kac"><a href="javascript:void(0);" class="remove_button"><img src="remove-icon.png"></a>
+											</div>
+											
+											<div class="itemContainer">
+												<input type="text" name="field_name[]" value="gunlugune"><a href="javascript:void(0);" class="remove_button"><img src="remove-icon.png"></a>
+											</div>
+											
+										
+										
+											
+
+										</div>
+
+
+										<a href="javascript:void(0);" class="add_button" title="Add field"><img
+												src="add-icon.png" /></a>
+
+
+
+									</div>
+								
+								<input type="submit" name="submit" value="SUBMIT" />
+							</form>
+						</div>
+
+
+						<div class="main" style="display: flex;">
+							<div class="itemContainer">
+								<input type="text" name="field_name[]" value="Would you mind (KALIP)?"><a href="javascript:void(0);" class="remove_button"><img src="remove-icon.png"></a>
+							</div>
+							<div class="itemContainer">
+								<input type="text" name="field_name[]" value="if (almamda anlami verir)<= I  "><a href="javascript:void(0);" class="remove_button"><img src="remove-icon.png"></a>
+							</div>	
+							
+							
+							
+							<div class="itemContainer">
+								<input type="text" name="field_name[]" value="borrow "><a href="javascript:void(0);" class="remove_button"><img src="remove-icon.png"></a>
+							</div>
+							
+							<div class="itemContainer">
+								<input type="text" name="field_name[]" value="your"><a href="javascript:void(0);" class="remove_button"><img src="remove-icon.png"></a>
+							</div>
+							
+							<div class="itemContainer">
+								<input type="text" name="field_name[]" value="book"><a href="javascript:void(0);" class="remove_button"><img src="remove-icon.png"></a>
+							</div>
+							
+							<div class="itemContainer">
+								<input type="text" name="field_name[]" value="for <= a few "><a href="javascript:void(0);" class="remove_button"><img src="remove-icon.png"></a>
+							</div>
+							
+							<div class="itemContainer">
+								<input type="text" name="field_name[]" value="days"><a href="javascript:void(0);" class="remove_button"><img src="remove-icon.png"></a>
+							</div>
+							
+						
+						
+							
+
+						</div>
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+</body>
+
+</html>
