@@ -1,0 +1,26 @@
+{
+	"name" : "stnc/wpfw",
+	"type" : "project",
+	"description" : "STNC PHP Framework 4.0",
+	"homepage" : "https://github.com/stnc",
+	"authors" : [{
+			"name" : "Selman TUNÇ ",
+			"email" : "selmantunc@gmail.com",
+			"homepage" : "http://selmantunc.com",
+			"role" : "Developer,ecommerce "
+		}
+	],
+	"require" : {
+		"php" : ">=5.6.4",
+        "nette/utils": "^4.0"
+	},
+    
+	"autoload" : {
+		"psr-4" : {
+			"Lib\\" : "src/Library",
+			"Core\\" : "src/Core",
+			"Engine\\" : "src/Engine"
+		}
+	}
+	
+}
