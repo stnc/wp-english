@@ -39,7 +39,7 @@ include("_header-show.php");
                 <div class="card" style="max-width:100%">
                     <div class="card-body">
 
-                        <h5 class="card-title"> <?php esc_html_e('Company Add', 'the-stnc-map') ?></h5>
+                        <h5 class="card-title"> <?php esc_html_e('Language Add', 'the-stnc-map') ?></h5>
 
 
 
