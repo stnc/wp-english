@@ -34,9 +34,9 @@ include("_header-show.php");
         <input type="hidden" value="<?php echo $floors_locations_id ?>" name="floors_locations_id" id="floors_locations_id">
         <div class="stnc-row">
 
-            <div class="stnc-col-4">
+            <div class="stnc-col-8">
 
-                <div class="card">
+                <div class="card" style="max-width:100%">
                     <div class="card-body">
 
                         <h5 class="card-title"> <?php esc_html_e('Company Add', 'the-stnc-map') ?></h5>
@@ -46,7 +46,7 @@ include("_header-show.php");
 
 
                         <div class="form-group">
-                            <label for="level"> <strong><?php esc_html_e('Company Categories', 'the-stnc-map') ?></strong> </label>
+                            <label for="level"> <strong><?php esc_html_e('Level', 'the-stnc-map') ?></strong> </label>
                             <select name="level">
                                 <?php foreach ($categoriesList as $categories) : ?>
                                     <option <?php if ($categories->id == $level) echo 'selected'; ?> value="<?php echo $categories->id ?>">
@@ -75,7 +75,7 @@ include("_header-show.php");
 
             </div>
 
-            <div class="stnc-col-4">
+            <!-- <div class="stnc-col-4">
                 <div class="card">
                     <div class="card-body">
 
@@ -83,10 +83,10 @@ include("_header-show.php");
 
                     </div>
                 </div>
-            </div>
+            </div> -->
 
 
-            <div class="stnc-col-4">
+            <div class="stnc-col-2">
 
                 <br>
                 <br>
