@@ -94,7 +94,7 @@ border-radius: 5px;">
     $mobile_phone_permission_check = true;
     $web_site_permission_check = true;
     $company_description_permission_check = true;
-    $address_permission_check = true;
+    $main_language_permission_check = true;
     $data = str_replace([" ", "\\"], "", $building->web_permission);
     $web_permission = json_decode($data, true, JSON_UNESCAPED_SLASHES);
 
@@ -149,10 +149,10 @@ border-radius: 5px;">
         }
 
         if (
-            $web_permission[0]["address_permission"] != "" &&
-            $web_permission[0]["address_permission"]
+            $web_permission[0]["main_language_permission"] != "" &&
+            $web_permission[0]["main_language_permission"]
         ) {
-            $address_permission_check = false;
+            $main_language_permission_check = false;
         }
     }
 
@@ -166,7 +166,7 @@ border-radius: 5px;">
     }
     ?>
 
-    <div class="grid-display element-item company<?php echo $building->company_category_id; ?> build<?php echo $building->building_id; ?>  ">
+    <div class="grid-display element-item company<?php echo $building->level; ?> build<?php echo $building->building_id; ?>  ">
       <div class="row">
           <div class="img-area stnc-col-3 cl-left">
             <figure>
@@ -223,11 +223,11 @@ border-radius: 5px;">
                 <?php endif; ?>
                 <?php endif; ?>
                 
-                <?php if ($address_permission_check): ?>  
-                <?php if ($building->address != ""): ?>
+                <?php if ($main_language_permission_check): ?>  
+                <?php if ($building->main_language != ""): ?>
                 <li>
                   <i class="fa fa-map-marker"></i>
-                  <span class="tlp-location"><?php echo $building->address; ?></span>
+                  <span class="tlp-location"><?php echo $building->main_language; ?></span>
                 </li>
                 <?php endif; ?>
                 <?php endif; ?>

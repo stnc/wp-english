@@ -29,17 +29,17 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
         $web_site = $floorInfoData->web_site;
         $map_location = $floorInfoData->map_location;
         $company_description =  $floorInfoData->company_description;
-        $address =  $floorInfoData->address;
+        $main_language =  $floorInfoData->main_language;
         $id =  $floorInfoData->id;
         $media_id =  $floorInfoData->media_id;
         $web_permission =  $floorInfoData->web_permission;
         $is_empty =  $floorInfoData->is_empty;
-        $company_category_id =  $floorInfoData->company_category_id;
+        $level =  $floorInfoData->level;
         $is_show =  $floorInfoData->is_show;
         $data =  str_replace([" ", '\\'], "", $web_permission);
         $web_permission =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
 
-        $table=$wpdb->prefix.'stnc_building_ext_categories';
+        $table=$wpdb->prefix.'hisar_level_categories';
         $sql_company_list = 'SELECT * FROM ' . $table .'  WHERE status=1' ;
 
         $categoriesList = $wpdb->get_results($sql_company_list);
@@ -63,12 +63,12 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
         $web_site = isset($_POST["web_site"]) ? sanitize_text_field($_POST["web_site"]) : " ";
         $map_location = isset($_POST["map_location"]) ? sanitize_text_field($_POST["map_location"]) : '{"left":12,"top":112,"width":82.42500305175781,"height":30,"x":12,"y":112,"right":94.42500305175781,"bottom":142}';
         $company_description = isset($_POST["company_description"]) ? sanitize_text_field($_POST["company_description"]) : " ";
-        $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
+        $main_language = isset($_POST["main_language"]) ? sanitize_text_field($_POST["main_language"]) : " ";
         $media_id = isset($_POST["media_id"]) ? sanitize_text_field($_POST["media_id"]) : " ";
         $building_id = isset($_GET["building_id"]) ? sanitize_text_field($_GET["building_id"]) : " ";
         $floor_id = isset($_GET["floor_id"]) ? sanitize_text_field($_GET["floor_id"]) : " ";
         $media_id = isset($_POST["media_id"]) ? sanitize_text_field($_POST["media_id"]) : 0;
-        $company_category_id = isset($_POST["company_category_id"]) ? sanitize_text_field($_POST["company_category_id"]) :16;
+        $level = isset($_POST["level"]) ? sanitize_text_field($_POST["level"]) :16;
         $web_permission = isset($_POST["web_permission"]) ? $_POST["web_permission"] : '';
         $is_show = isset($_POST["is_show"]) ? 0: 1;
 
@@ -100,7 +100,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
             array(
                 'building_id' =>  $building_id,
                 'floor_id' =>  $floor_id,
-                'company_category_id' =>  $company_category_id,
+                'level' =>  $level,
                 'door_number' =>   $door_number,
                 'company_name' => $company_name,
                 'square_meters' => $square_meters,
@@ -109,7 +109,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
                 'mobile_phone' => $mobile_phone,
                 'web_site' =>   $web_site,
                 'company_description' =>   $company_description,
-                'address' =>   $address,
+                'main_language' =>   $main_language,
                 'media_id' =>    $media_id,
                 'web_permission' =>    $web_permission,
                 'add_date' =>   $date,
@@ -121,7 +121,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
 
         if ($success) {
          if  ($office_empty === 1) :  
-            stnc_wp_floor_plans_send_email($door_number,$company_name,$square_meters,$email,$phone,$web_site,$map_location,$company_description,$address, $building_id, $floor_id, "added");
+            stnc_wp_floor_plans_send_email($door_number,$company_name,$square_meters,$email,$phone,$web_site,$map_location,$company_description,$main_language, $building_id, $floor_id, "added");
          endif ;
         $_SESSION['stnc_map_flash_msg'] =  __( 'Record Updated', 'the-stnc-map' );
         wp_redirect('/wp-admin/admin.php?page=stnc_building_company&st_trigger=show&building_id='.$building_id.'&floor_id='. $floor_id.'&id='.$_GET['id'], 302);
@@ -142,15 +142,15 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
         $web_site = isset($_POST["web_site"]) ? sanitize_text_field($_POST["web_site"]) : " ";
         $map_location = isset($_POST["map_location"]) ? sanitize_text_field($_POST["map_location"]) : '{"left":12,"top":112,"width":82.42500305175781,"height":30,"x":12,"y":112,"right":94.42500305175781,"bottom":142}';
         $company_description = isset($_POST["company_description"]) ? sanitize_text_field($_POST["company_description"]) : " ";
-        $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
+        $main_language = isset($_POST["main_language"]) ? sanitize_text_field($_POST["main_language"]) : " ";
         $media_id = isset($_POST["media_id"]) ? sanitize_text_field($_POST["media_id"]) : " ";
-        $company_category_id = isset($_POST["company_category_id"]) ? sanitize_text_field($_POST["company_category_id"]) : 0;
+        $level = isset($_POST["level"]) ? sanitize_text_field($_POST["level"]) : 0;
         $is_show = isset($_POST["is_show"]) ? 0: 1;
-        $web_permission = '[{\"door_number_permission\":false,\"square_meters_permission\":false,\"email_permission\":false,\"phone_permission\":false,\"mobile_phone_permission\":false,\"web_site_permission\":false,\"company_description_permission\":false,\"address_permission\":false}]';
+        $web_permission = '[{\"door_number_permission\":false,\"square_meters_permission\":false,\"email_permission\":false,\"phone_permission\":false,\"mobile_phone_permission\":false,\"web_site_permission\":false,\"company_description_permission\":false,\"main_language_permission\":false}]';
         $data =  str_replace([" ", '\\'], "", $web_permission);
         $web_permission =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
         $is_empty = 0;
-        $table=$wpdb->prefix.'stnc_building_ext_categories';
+        $table=$wpdb->prefix.'hisar_level_categories';
         $sql_company_list = 'SELECT * FROM ' . $table .'  WHERE status=1' ;
         $categoriesList = $wpdb->get_results($sql_company_list);
         include ('add_edit.php');
@@ -170,9 +170,9 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
         $web_site = isset($_POST["web_site"]) ? sanitize_text_field($_POST["web_site"]) : " ";
         $map_location = '{"left":12,"top":112,"width":82.42500305175781,"height":30,"x":12,"y":112,"right":94.42500305175781,"bottom":142}';
         $company_description = isset($_POST["company_description"]) ? sanitize_text_field($_POST["company_description"]) : " ";
-        $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
+        $main_language = isset($_POST["main_language"]) ? sanitize_text_field($_POST["main_language"]) : " ";
         $media_id = isset($_POST["media_id"]) ? sanitize_text_field($_POST["media_id"]) : 0;
-        $company_category_id = isset($_POST["company_category_id"]) ? sanitize_text_field($_POST["company_category_id"]) : 16;
+        $level = isset($_POST["level"]) ? sanitize_text_field($_POST["level"]) : 16;
         $is_show = isset($_POST["is_show"]) ? 0: 1;
         $web_permission = isset($_POST["web_permission"]) ? "" : '';
 // print_r(  json_decode($_POST["web_permission"], true) );
@@ -183,7 +183,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
             array(
                 'building_id' =>   $building_id,
                 'floor_id' =>   $floor_id,
-                'company_category_id' =>   $company_category_id,
+                'level' =>   $level,
                 'door_number' =>   $door_number,
                 'company_name' => $company_name,
                 'email' =>   $email,
@@ -193,7 +193,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
                 'web_site' =>   $web_site,
                 'map_location' =>   $map_location,
                 'company_description' =>   $company_description,
-                'address' =>   $address,
+                'main_language' =>   $main_language,
                 'media_id' =>      $media_id ,
                 'web_permission' =>    $web_permission,
                 'add_date' =>   $date,
@@ -228,7 +228,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
         $web_site = $floorInfoData->web_site;
         $map_location = $floorInfoData->map_location;
         $company_description =  $floorInfoData->company_description;
-        $address =  $floorInfoData->address;
+        $main_language =  $floorInfoData->main_language;
         $id =  $floorInfoData->id;
         $media_id =  $floorInfoData->media_id;
         $web_permission =  $floorInfoData->web_permission;
@@ -249,7 +249,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
                 'web_site' =>   $web_site,
                 'map_location' =>   $map_location,
                 'company_description' =>   $company_description,
-                'address' =>   $address,
+                'main_language' =>   $main_language,
                 'media_id' =>      $media_id ,
                 'is_empty' =>     0 ,
                 'web_permission' =>    $web_permission,
@@ -264,7 +264,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
                 'door_number' =>   $door_number,
                 'square_meters' => $square_meters,
                 'map_location' =>   $map_location,
-                'address' =>   $address,
+                'main_language' =>   $main_language,
                 'company_name' =>  "",
                 'email' =>    "",
                 'phone' =>    "",
@@ -272,7 +272,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
                 'web_site' =>   "",
                 'company_description' =>   "",
                 'media_id' =>     "",
-                'web_permission' =>   '[{\"door_number_permission\":false,\"square_meters_permission\":false,\"email_permission\":false,\"phone_permission\":false,\"mobile_phone_permission\":false,\"web_site_permission\":false,\"company_description_permission\":false,\"address_permission\":false}]',
+                'web_permission' =>   '[{\"door_number_permission\":false,\"square_meters_permission\":false,\"email_permission\":false,\"phone_permission\":false,\"mobile_phone_permission\":false,\"web_site_permission\":false,\"company_description_permission\":false,\"main_language_permission\":false}]',
                 'add_date' =>  "",
                 'is_empty' => 1,
             ),
@@ -281,7 +281,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
        // echo $wpdb->last_query;
     
         if ($success) {
-            stnc_wp_floor_plans_send_email($door_number,$company_name,$square_meters,$email,$phone,$web_site,$map_location,$company_description,$address, $building_id,$floor_id,"empty");
+            stnc_wp_floor_plans_send_email($door_number,$company_name,$square_meters,$email,$phone,$web_site,$map_location,$company_description,$main_language, $building_id,$floor_id,"empty");
             $_SESSION['stnc_map_flash_msg'] =  __( 'Record Save', 'the-stnc-map' );
             wp_redirect('/wp-admin/admin.php?page=stnc_building_company&st_trigger=show&building_id='.$building_id.'&floor_id='. $floor_id.'&id='. $floors_locations_id, 302);
             die;

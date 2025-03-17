@@ -419,7 +419,7 @@ if ($data -> media_id!=0){
             <hr>
             <div><mark class="dont"><?php esc_html_e( 'Web Site', 'the-stnc-map' ) ?>:</mark> <?php echo $data->web_site;?></div>
             <hr>
-            <div><mark class="dont"><?php esc_html_e( 'Adresss', 'the-stnc-map' ) ?>:</mark> <?php echo $data->address;?></div>
+            <div><mark class="dont"><?php esc_html_e( 'Adresss', 'the-stnc-map' ) ?>:</mark> <?php echo $data->main_language;?></div>
             <hr>  
 			
 			<div><mark class="dont"></mark> <a href="/wp-admin/admin.php?page=stnc_building_company&st_trigger=show&building_id=<?php echo $data->building_id;?>&floor_id=<?php echo $data->floor_id;?>&id=<?php echo $data->id;?>"><?php esc_html_e( 'Edit', 'the-stnc-map' ) ?></a>   </div>

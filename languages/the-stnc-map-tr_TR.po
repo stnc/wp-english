@@ -208,7 +208,7 @@ msgid "Building square meters"
 msgstr "Bina Metrekaresi"
 
 #: pages/stnc_building_company/add_edit.php:169
-msgid "Company email address"
+msgid "Company email main_language"
 msgstr "Firma email adresi"
 
 #: pages/stnc_building_company/add_edit.php:177
@@ -228,7 +228,7 @@ msgid "Detailed information about the company"
 msgstr "Firma Hakkinda Detaylı Bilgi"
 
 #: pages/stnc_building_company/add_edit.php:217
-msgid "Address"
+msgid "main_language"
 msgstr "Adres"
 
 #: pages/stnc_building_company/add_edit.php:239
@@ -376,10 +376,10 @@ msgstr "Ayarlar"
 msgid "Is mailing enabled for events?"
 msgstr "Olaylar icin email gonderimi aktif olsun mu?"
 
-msgid "You can increase email addresses by pressing the plus sign."
+msgid "You can increase email main_languagees by pressing the plus sign."
 msgstr "Email adreslerini artı işaretine basarak artırabilirsiniz."
 
-msgid "Email Addresses"
+msgid "Email main_languagees"
 msgstr "Email Adresleri"
 
 msgid "Mail Title"

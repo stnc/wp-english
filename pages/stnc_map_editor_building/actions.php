@@ -97,7 +97,7 @@ function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
         $web_site = isset($_POST["web_site"]) ? sanitize_text_field($_POST["web_site"]) : " ";
         $map_location = isset($_POST["map_location"]) ? sanitize_text_field($_POST["map_location"]) : '{"left":12,"top":112,"width":82.42500305175781,"height":30,"x":12,"y":112,"right":94.42500305175781,"bottom":142}';
         $company_description = isset($_POST["company_description"]) ? sanitize_text_field($_POST["company_description"]) : " ";
-        $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
+        $main_language = isset($_POST["main_language"]) ? sanitize_text_field($_POST["main_language"]) : " ";
         $scheme_media_id = isset($_POST["scheme_media_id"]) ? sanitize_text_field($_POST["scheme_media_id"]) : " ";
         include ('add_edit.php');
     }
@@ -115,7 +115,7 @@ function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
         $web_site = isset($_POST["web_site"]) ? sanitize_text_field($_POST["web_site"]) : " ";
         $map_location = '{"left":12,"top":112,"width":82.42500305175781,"height":30,"x":12,"y":112,"right":94.42500305175781,"bottom":142}';
         $company_description = isset($_POST["company_description"]) ? sanitize_text_field($_POST["company_description"]) : " ";
-        $address = isset($_POST["address"]) ? sanitize_text_field($_POST["address"]) : " ";
+        $main_language = isset($_POST["main_language"]) ? sanitize_text_field($_POST["main_language"]) : " ";
         $building_id = isset($_GET["building_id"]) ? sanitize_text_field($_GET["building_id"]) : " ";
         $floor_id = isset($_GET["kat"]) ? sanitize_text_field($_GET["kat"]) : " ";
         $scheme_media_id = isset($_POST["scheme_media_id"]) ? sanitize_text_field($_POST["scheme_media_id"]) : 0;
@@ -134,7 +134,7 @@ function stnc_wp_floor_adminMenu_stnc_map_editor_stnc()
                 'web_site' =>   $web_site,
                 'map_location' =>   $map_location,
                 'company_description' =>   $company_description,
-                'address' =>   $address,
+                'main_language' =>   $main_language,
                 'scheme_media_id' =>      $scheme_media_id ,
                 'add_date' =>   $date,
             ),
