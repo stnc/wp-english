@@ -56,9 +56,10 @@ require_once "pages/shortcut-classic/company-frontpage.php";
 
 require_once "pages/shortcut-minimal/company-frontpage.php";
 
-require_once 'codestar-framework/codestar-framework.php';
-// require_once 'codestar-framework/samples/admin-options.php';
-require_once 'pages/options/my-options.php';
+//codestart cancel
+// require_once 'codestar-framework/codestar-framework.php';
+// // require_once 'codestar-framework/samples/admin-options.php';
+// require_once 'pages/options/my-options.php';
 
 require_once 'email/_mail_.php';
 

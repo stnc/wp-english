@@ -146,26 +146,45 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 			// 	$result = $mysqldate;
 			// 	break;
 
-			case 'email':
-				$result = $item['email'];
-				break;	
-				
-				case 'web_site':
-				$result = $item['web_site'];
+			case 'main_language':
+				$result = $item['main_language'];
 				break;
 
-			case 'company_name':
-				$result = $item['company_name'];
+			case 'translate':
+				$result = $item['translate'];
 				break;
 
 
-				case 'bina':
-			    $result = $item['bina'];
-			   break;
 
-		     case 'company_description':
-					$result = $item['company_description'];
-					break;
+			case 'level':
+				$result = $this->levelControl($item['level']) ;
+				break;
+		}
+
+		return $result;
+	}
+
+
+	private  function levelControl($item)
+	{
+		$result = '';
+		switch ($item) {
+
+			case 1:
+				$result = "Basit";
+				break;
+
+			case 2:
+				$result = "Orta";
+				break;
+
+			case 3:
+				$result = "Kolay";
+				break;
+
+			case 4:
+				$result = "Kompleks";
+				break;
 		}
 
 		return $result;
@@ -180,16 +199,13 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 	{
 		return array(
 			// 'cb'     => '<input type="checkbox"/>',
-		
-			'company_name'   => __('Company', 'admin-table-tut'),
-			'company_description'   => __('Company Detail', 'admin-table-tut'),
-			'email'  => __('Email', 'admin-table-tut'),
-			'phone' => __('Phone', 'admin-table-tut'),
-		
-			'web_site'   => __('Web Site', 'admin-table-tut'),
-			
-			'bina'   => __('Build', 'admin-table-tut'),
-		
+
+			'main_language' => __('main_language', 'admin-table-tut'),
+
+			'translate'   => __('tr', 'admin-table-tut'),
+
+			'level'   => __('level', 'admin-table-tut'),
+
 		);
 	}
 
@@ -209,16 +225,16 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 	 * @param array $item A singular item (one full row's worth of data)
 	 * @return string Text to be placed inside the column <td> (movie title only)
 	 **************************************************************************/
-	function column_company_name($item)
+	function column_main_language($item)
 	{
 		$delete_nonce = wp_create_nonce('sp_delete_stncMapFloors');
 
-		$title = '<strong>' . $item['company_name'] . '</strong>';
-      	$showLang = __( 'Show', 'the-stnc-map' ) ;
-      	$editLangs = __( 'Edit', 'the-stnc-map' ) ;
+		$title = '<strong>' . $item['main_language'] . '</strong>';
+		$showLang = __('Show', 'the-stnc-map');
+		$editLangs = __('Edit', 'the-stnc-map');
 		$actions = [
-			'view' => sprintf('<a href="?page=%s&action=%s&stncMapFloors=%s&_wpnonce=%s">%s</a>', esc_attr($_REQUEST['page']), 'view', absint($item['id']), $delete_nonce,	$showLang ),
-			'edit' => sprintf('<a href="?page=stnc_building_company&st_trigger=show&building_id=%s&floor_id=%s&id=%s">%s</a>',absint($item['building_id']),absint($item['floor_id']),  absint($item['id']), $editLangs )
+			'view' => sprintf('<a href="?page=%s&action=%s&stncMapFloors=%s&_wpnonce=%s">%s</a>', esc_attr($_REQUEST['page']), 'view', absint($item['id']), $delete_nonce,	$showLang),
+			'edit' => sprintf('<a href="?page=stnc_building_company&st_trigger=show&id=%s&_wpnonce=%s">%s</a>',  absint($item['id']), $delete_nonce, $editLangs)
 		];
 
 		return $title . $this->row_actions($actions);
@@ -283,17 +299,20 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 
 		global $wpdb;
 
-	
+
 		if (isset($_POST['s'])) {
 			$search = $_POST['s'];
 
 			$search = trim($search);
 
-		    $sql = "SELECT loc.*,build.name AS build_name,floors.name AS floors_name,CONCAT(build.name , ' - ',  floors.name) as bina  
-			FROM {$wpdb->prefix}stnc_map_floors_locations AS loc 
-			INNER JOIN {$wpdb->prefix}stnc_map_building AS build  ON  loc.building_id=build.id 
-			INNER JOIN  {$wpdb->prefix}stnc_map_floors AS floors  ON  loc.floor_id=floors.id and loc.is_empty=0 
-			WHERE company_name LIKE '%$search%' OR company_description LIKE '%$search%' ";
+
+
+
+
+
+			$sql = "			SELECT w.* FROM  {$wpdb->prefix}hisar_words AS w 
+			INNER JOIN {$wpdb->prefix}hisar_level_categories AS cat  ON  cat.id=w.level 
+			WHERE main_language LIKE '%$search%' OR translate LIKE '%$search%' ";
 			if (!empty($_REQUEST['orderby'])) {
 				$sql .= ' ORDER BY ' . esc_sql($_REQUEST['orderby']);
 				$sql .= !empty($_REQUEST['order']) ? ' ' . esc_sql($_REQUEST['order']) : ' ASC';
@@ -303,16 +322,14 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 			$sql .= ' OFFSET ' . ($page_number - 1) * $per_page;
 			$result = $wpdb->get_results($sql, 'ARRAY_A');
 		} else {
-			  $sql = "SELECT loc.*,build.name AS build_name,floors.name AS floors_name,CONCAT(build.name , '- ',  floors.name) as bina  
-			 FROM {$wpdb->prefix}stnc_map_floors_locations AS loc 
-			 INNER JOIN {$wpdb->prefix}stnc_map_building AS build  ON  loc.building_id=build.id 
-			 INNER JOIN  {$wpdb->prefix}stnc_map_floors AS floors  ON  loc.floor_id=floors.id and loc.is_empty=0 ";
-	
+			$sql = "			SELECT w.* FROM  {$wpdb->prefix}hisar_words AS w 
+			  INNER JOIN {$wpdb->prefix}hisar_level_categories AS cat  ON  cat.id=w.level  ";
+
 			if (!empty($_REQUEST['orderby'])) {
 				$sql .= ' ORDER BY ' . esc_sql($_REQUEST['orderby']);
 				$sql .= !empty($_REQUEST['order']) ? ' ' . esc_sql($_REQUEST['order']) : ' ASC';
 			} else {
-				$sql .= ' ORDER BY loc.id ASC';
+				$sql .= ' ORDER BY w.id ASC';
 			}
 
 			$sql .= " LIMIT $per_page";
@@ -335,7 +352,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 	{
 		global $wpdb;
 
-		$sql = "SELECT COUNT(*) FROM {$wpdb->prefix}stnc_map_floors_locations";
+		$sql = "SELECT COUNT(*) FROM {$wpdb->prefix}hisar_words";
 
 		return $wpdb->get_var($sql);
 	}
@@ -385,55 +402,55 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 			global $wpdb;
 			// In our file that handles the request, verify the nonce.
 			$nonce = esc_attr($_REQUEST['_wpnonce']);
-			 $id = filter_input(INPUT_GET, 'stncMapFloors', FILTER_DEFAULT);
+			$id = filter_input(INPUT_GET, 'stncMapFloors', FILTER_DEFAULT);
 			$data = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}stnc_map_floors_locations WHERE id = $id");
 			// print_r(	$data );
 
 
-		//https://stackoverflow.com/questions/63659504/how-to-get-attachment-id-of-a-file-uploaded-in-wordpress-post
-if ($data -> media_id!=0){
-	$oynat= wp_get_attachment_url( $data -> media_id );
-	$oynat.= '<a href="'.$oynat.'">AÇ</a>';
-} else {
-	$oynat= " Eklenmiş Dosya Bulunmuyor";
-}
-			 
+			//https://stackoverflow.com/questions/63659504/how-to-get-attachment-id-of-a-file-uploaded-in-wordpress-post
+			if ($data->media_id != 0) {
+				$oynat = wp_get_attachment_url($data->media_id);
+				$oynat .= '<a href="' . $oynat . '">AÇ</a>';
+			} else {
+				$oynat = " Eklenmiş Dosya Bulunmuyor";
+			}
+
 
 			//echo  do_shortcode('[evp_embed_video url="'.   $oynat.'"  autoplay="true" width="640" template="mediaelement" preload="auto" ]');
 
 
 
-			?>
-<div id="advanced" class="postbox ">
-    <div class="inside">
-        <div class="card shadow1" style="max-width:100%!important">
-            <h2> <strong><?php echo $data ->company_description;?></strong> --  Info</h2>
+?>
+			<div id="advanced" class="postbox ">
+				<div class="inside">
+					<div class="card shadow1" style="max-width:100%!important">
+						<h2> <strong><?php echo $data->company_description; ?></strong> -- Info</h2>
 
-            <div><mark class="dont"><?php esc_html_e( 'Company', 'the-stnc-map' ) ?> :</mark> <?php echo $data ->company_description;?></div>
-            <hr>
-            <div><mark class="dont"><?php esc_html_e( 'Detail Info', 'the-stnc-map' ) ?>:</mark> <?php echo $data->company_name;?></div>
-            <hr>
-            <div><mark class="dont"><?php esc_html_e( 'Phone', 'the-stnc-map' ) ?>:</mark> <?php echo $data->phone;?></div>
-            <hr>
-            <div><mark class="dont"><?php esc_html_e( 'Email', 'the-stnc-map' ) ?>:</mark> <?php echo $data->email;?></div>
-            <hr>
-            <div><mark class="dont"><?php esc_html_e( 'Web Site', 'the-stnc-map' ) ?>:</mark> <?php echo $data->web_site;?></div>
-            <hr>
-            <div><mark class="dont"><?php esc_html_e( 'Adresss', 'the-stnc-map' ) ?>:</mark> <?php echo $data->main_language;?></div>
-            <hr>  
-			
-			<div><mark class="dont"></mark> <a href="/wp-admin/admin.php?page=stnc_building_company&st_trigger=show&building_id=<?php echo $data->building_id;?>&floor_id=<?php echo $data->floor_id;?>&id=<?php echo $data->id;?>"><?php esc_html_e( 'Edit', 'the-stnc-map' ) ?></a>   </div>
-            <hr>
-            <!-- <div><mark class="dont">Eklenen Dosya:</mark><?php echo $oynat?></div> -->
-        </div>
-    </div>
-</div>
+						<div><mark class="dont"><?php esc_html_e('Company', 'the-stnc-map') ?> :</mark> <?php echo $data->company_description; ?></div>
+						<hr>
+						<div><mark class="dont"><?php esc_html_e('Detail Info', 'the-stnc-map') ?>:</mark> <?php echo $data->company_name; ?></div>
+						<hr>
+						<div><mark class="dont"><?php esc_html_e('Phone', 'the-stnc-map') ?>:</mark> <?php echo $data->phone; ?></div>
+						<hr>
+						<div><mark class="dont"><?php esc_html_e('Email', 'the-stnc-map') ?>:</mark> <?php echo $data->email; ?></div>
+						<hr>
+						<div><mark class="dont"><?php esc_html_e('Web Site', 'the-stnc-map') ?>:</mark> <?php echo $data->web_site; ?></div>
+						<hr>
+						<div><mark class="dont"><?php esc_html_e('Adresss', 'the-stnc-map') ?>:</mark> <?php echo $data->main_language; ?></div>
+						<hr>
 
-<?php
-		
-		
+						<div><mark class="dont"></mark> <a href="/wp-admin/admin.php?page=stnc_building_company&st_trigger=show&building_id=<?php echo $data->building_id; ?>&floor_id=<?php echo $data->floor_id; ?>&id=<?php echo $data->id; ?>"><?php esc_html_e('Edit', 'the-stnc-map') ?></a> </div>
+						<hr>
+						<!-- <div><mark class="dont">Eklenen Dosya:</mark><?php echo $oynat ?></div> -->
+					</div>
+				</div>
+			</div>
 
-			
+		<?php
+
+
+
+
 			exit;
 		}
 
@@ -480,22 +497,23 @@ if ($data -> media_id!=0){
 	 */
 	protected function display_tablenav($which)
 	{
-?>
-<div class="tablenav <?php echo esc_attr($which); ?>">
+		?>
+		<div class="tablenav <?php echo esc_attr($which); ?>">
 
-    <?php if ($this->has_items()) : ?>
-    <div class="alignleft actions bulkactions">
-        <?php //$this->bulk_actions($which); ?>
-    </div>
-    <?php
+			<?php if ($this->has_items()) : ?>
+				<div class="alignleft actions bulkactions">
+					<?php //$this->bulk_actions($which); 
+					?>
+				</div>
+			<?php
 			endif;
 			// $this->extra_tablenav($which);
 			$this->pagination($which);
 			?>
 
-    <br class="clear" />
-</div>
-<?php
+			<br class="clear" />
+		</div>
+	<?php
 	}
 
 	/**
@@ -542,26 +560,26 @@ if ($data -> media_id!=0){
 	{
 	?>
 
-<div class="<?php echo (esc_attr($args['container']['class'])); ?>">
-    <label for="<?php echo (esc_attr($args['select']['id'])); ?>"
-        class="<?php echo (esc_attr($args['label']['class'])); ?>">
-    </label>
-    <select name="<?php echo (esc_attr($args['select']['name'])); ?>"
-        id="<?php echo (esc_attr($args['select']['id'])); ?>">
-        <?php
+		<div class="<?php echo (esc_attr($args['container']['class'])); ?>">
+			<label for="<?php echo (esc_attr($args['select']['id'])); ?>"
+				class="<?php echo (esc_attr($args['label']['class'])); ?>">
+			</label>
+			<select name="<?php echo (esc_attr($args['select']['name'])); ?>"
+				id="<?php echo (esc_attr($args['select']['id'])); ?>">
+				<?php
 				foreach ($args['options'] as $id => $title) {
 				?>
-        <option <?php if ($args['select']['selected'] === $id) { ?> selected="selected" <?php } ?>
-            value="<?php echo (esc_attr($id)); ?>">
-            <?php echo esc_html(\ucwords($title)); ?>
-        </option>
-        <?php
+					<option <?php if ($args['select']['selected'] === $id) { ?> selected="selected" <?php } ?>
+						value="<?php echo (esc_attr($id)); ?>">
+						<?php echo esc_html(\ucwords($title)); ?>
+					</option>
+				<?php
 				}
 				?>
-    </select>
-</div>
+			</select>
+		</div>
 
-<?php
+	<?php
 	}
 
 	/**
@@ -573,13 +591,10 @@ if ($data -> media_id!=0){
 	{
 
 		return array(
-			'email'  => array('email', false),
-			'company_name'   => array('company_name', false),
-			'phone'   => array('phone', false),
-			'company_description'   => array('company_description', false),
-			// 'add_date' => array('add_date', false),
-			'web_site' => array('web_site', false),
-			'bina' => array('bina', false),
+			'main_language'  => array('main_language', false),
+			'translate'   => array('translate', false),
+			'level'   => array('level', false),
+
 		);
 	}
 }
@@ -616,9 +631,9 @@ function stnc_wp_floor_render_list_page()
 	$testListTable->prepare_items();
 
 	?>
-<div class="wrap">
+	<div class="wrap">
 
-<a style=" background-color: #4CAF50;
+		<a style=" background-color: #4CAF50;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -627,28 +642,28 @@ function stnc_wp_floor_render_list_page()
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
-  cursor: pointer;" href="/wp-admin/admin.php?page=stnc_empty_building_list"><?php esc_html_e( 'Empty Offices', 'the-stnc-map' ) ?></a>
+  cursor: pointer;" href="/wp-admin/admin.php?page=stnc_empty_building_list"><?php esc_html_e('Empty Offices', 'the-stnc-map') ?></a>
 
-    <div id="icon-users" class="icon32"><br /></div>
-    <h2> <?php esc_html_e( 'Company list', 'the-stnc-map' ) ?></h2>
+		<div id="icon-users" class="icon32"><br /></div>
+		<h2> <?php esc_html_e('Company list', 'the-stnc-map') ?></h2>
 
-    <div
-        style="background:#ECECEC;border:1px solid #CCC;padding:0 10px;margin-top:5px;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;">
-        <p><?php esc_html_e( 'Company list', 'the-stnc-map' ) ?> </p>
+		<div
+			style="background:#ECECEC;border:1px solid #CCC;padding:0 10px;margin-top:5px;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;">
+			<p><?php esc_html_e('Company list', 'the-stnc-map') ?> </p>
 
-    </div>
+		</div>
 
-    <!-- Forms are NOT created automatically, so you need to wrap the table in one to use features like bulk actions -->
-    <form id="movies-filter" method="post">
-        <!-- For plugins, we also need to ensure that the form posts back to our current page -->
-        <input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
-        <!-- Now we can render the completed list table -->
-        <?php
-   $searchLang=  __( 'Company list', 'the-stnc-map' ) ;
-			$testListTable->search_box( $searchLang, 'search_id');
+		<!-- Forms are NOT created automatically, so you need to wrap the table in one to use features like bulk actions -->
+		<form id="movies-filter" method="post">
+			<!-- For plugins, we also need to ensure that the form posts back to our current page -->
+			<input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
+			<!-- Now we can render the completed list table -->
+			<?php
+			$searchLang =  __('Company list', 'the-stnc-map');
+			$testListTable->search_box($searchLang, 'search_id');
 			$testListTable->display() ?>
-    </form>
+		</form>
 
-</div>
+	</div>
 <?php
 }
