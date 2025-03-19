@@ -95,7 +95,11 @@ border-radius: 5px;">
     $web_site_permission_check = true;
     $company_description_permission_check = true;
     $main_language_permission_check = true;
-    $data = str_replace([" ", "\\"], "", $building->web_permission);
+
+    $trans = array(" " => "","\\" => "");
+    $data =  strtr($building->web_permission, $trans);
+
+
     $web_permission = json_decode($data, true, JSON_UNESCAPED_SLASHES);
 
     if ($web_permission != "") {

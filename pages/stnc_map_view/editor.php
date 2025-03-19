@@ -56,7 +56,8 @@
             </div>
             </div>
         
-
+            $trans = array(" " => "","\\" => "");
+                                   $data =  strtr($result->map_location, $trans);
                 <span class="badge bg-secondary"><?php esc_html_e( 'Company List', 'the-stnc-map' ) ?></span>
 
                 <table class="table table-striped">

@@ -29,11 +29,15 @@
                                 $image = "<img src=''.$media_id[0].'' width='175'>";
                             }
                             
-                            $data = str_replace(
-                                [" ", "\\"],
-                                "",
-                                $result->map_location
-                            );
+                 
+
+
+                            $trans = array(" " => "","\\" => "");
+                            $data =  strtr($result->map_location, $trans);
+
+                            
+
+
                             $position = json_decode(
                                 $data,
                                 true,
@@ -166,11 +170,13 @@
                             <tbody>
                                 <?php foreach ($results as $key => $result):
                                     $key++;
-                                    $data = str_replace(
-                                        [" ", "\\"],
-                                        "",
-                                        $result->map_location
-                                    );
+                        
+
+                                    $trans = array(" " => "","\\" => "");
+                                    $data =  strtr($result->map_location, $trans);
+                                
+
+
                                     $position = json_decode(
                                         $data,
                                         true,

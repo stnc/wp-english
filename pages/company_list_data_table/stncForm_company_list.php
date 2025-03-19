@@ -102,7 +102,8 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 	 */
 	private function human_readable($title)
 	{
-		return ucwords(str_replace('_', ' ', $title));
+		//return ucwords(str_replace('_', ' ', $title));
+		return ucwords(strtr($title, "_", " "));
 	}
 
 	/**
