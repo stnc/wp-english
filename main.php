@@ -56,12 +56,6 @@ require_once "pages/shortcut-classic/company-frontpage.php";
 
 require_once "pages/shortcut-minimal/company-frontpage.php";
 
-//codestart cancel
-// require_once 'codestar-framework/codestar-framework.php';
-// // require_once 'codestar-framework/samples/admin-options.php';
-// require_once 'pages/options/my-options.php';
-
-require_once 'email/_mail_.php';
 
 
 // Load plugin text-domain https://daext.com/blog/how-to-make-a-wordpress-plugin-translatable/

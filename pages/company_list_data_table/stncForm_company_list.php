@@ -646,11 +646,11 @@ function stnc_wp_floor_render_list_page()
   cursor: pointer;" href="/wp-admin/admin.php?page=stnc_empty_building_list"><?php esc_html_e('Empty Offices', 'the-stnc-map') ?></a>
 
 		<div id="icon-users" class="icon32"><br /></div>
-		<h2> <?php esc_html_e('Company list', 'the-stnc-map') ?></h2>
+		<h2> <?php esc_html_e('Word list', 'the-stnc-map') ?></h2>
 
 		<div
 			style="background:#ECECEC;border:1px solid #CCC;padding:0 10px;margin-top:5px;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;">
-			<p><?php esc_html_e('Company list', 'the-stnc-map') ?> </p>
+			<p><?php esc_html_e('Word list', 'the-stnc-map') ?> </p>
 
 		</div>
 
@@ -660,7 +660,7 @@ function stnc_wp_floor_render_list_page()
 			<input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
 			<!-- Now we can render the completed list table -->
 			<?php
-			$searchLang =  __('Company list', 'the-stnc-map');
+			$searchLang =  __('Word list', 'the-stnc-map');
 			$testListTable->search_box($searchLang, 'search_id');
 			$testListTable->display() ?>
 		</form>
