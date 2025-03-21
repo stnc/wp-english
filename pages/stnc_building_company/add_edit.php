@@ -33,15 +33,16 @@ include("_header-show.php");
         <div class="stnc-row">
 
             <div class="stnc-col-8">
-
+            <h5 class="card-title"> <?php esc_html_e('Language Add', 'the-stnc-map') ?></h5>
                 <div class="card" style="max-width:100%">
                     <div class="card-body">
 
-                        <h5 class="card-title"> <?php esc_html_e('Language Add', 'the-stnc-map') ?></h5>
+                  
 
 
 
                         <div class="form-group">
+                            <span>Ne tur bir konusma metni? </span>
                         <?php if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) { ?>
                             <?php foreach ($categoriesSpeakLevelList as $categories) : 
                                    $checkControl=hisar_searchArray(  $nlist,$categories->level_id );
