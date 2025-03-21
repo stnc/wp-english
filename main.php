@@ -35,7 +35,7 @@ function do_output_buffer() {
 
 include ('register-menus.php');
 include ('loader_css_js.php');
-include ('installTable.php');
+// include ('installTable.php');
 
 require_once "helper.php";
 

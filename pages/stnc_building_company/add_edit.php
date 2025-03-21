@@ -1,7 +1,7 @@
 <?php
 
 
-$id =   isset($_GET['id']) ? sanitize_text_field($_GET['id']) : "";
+ $id =   isset($_GET['id']) ? sanitize_text_field($_GET['id']) : "";
 
 
 $title = "Add";

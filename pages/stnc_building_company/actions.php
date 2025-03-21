@@ -66,41 +66,58 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
 
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'update')) {
         // session_start();
-        $id = sanitize_text_field($_GET['id']);
+        // print_r("gelir");
+    
+        $id1 = sanitize_text_field($_GET['id']);
+        // print_r(  $id1);
+     
         $translate = isset($_POST["translate"]) ? sanitize_text_field($_POST["translate"]) : " ";
         $main_language = isset($_POST["main_language"]) ? sanitize_text_field($_POST["main_language"]) : " ";
-        $level = isset($_POST["level"]) ? sanitize_text_field($_POST["level"]) : 16;
+        $level = isset($_POST["level"]) ? sanitize_text_field($_POST["level"]) : 1;
+//         echo "<pre>";
+//         print_r(  $translate);
+//         echo "<br>";
+//         print_r(  $main_language);
+// //   die;
 
 
-        if (isset($_POST['speakLevelList'])) {
-            $wpdb->delete("{$wpdb->prefix}hisar_level_categories_record", array('word_id' =>  $id));
-            foreach ($_POST['speakLevelList'] as $key => $value) {
-                $wpdb->insert(
-                    $wpdb->prefix . "hisar_level_categories_record",
-                    array(
-                        'word_id' =>   sanitize_text_field($id),
-                        'level_id' =>  sanitize_text_field($value),
-                    ),
-                );
-            }
-        }
 
-        $success = $wpdb->update(
+        $success1 = $wpdb->update(
             $stncForm_tableNameMain,
             array(
                 'level' =>  $level,
                 'translate' =>   $translate,
                 'main_language' =>   $main_language,
             ),
-            array('id' => $_GET['id'])
+            array('id' =>  $id1)
         );
 
-        if ($success) {
-            $_SESSION['stnc_map_flash_msg'] =  __('Record Updated', 'the-stnc-map');
-            wp_redirect('/wp-admin/admin.php?page=stnc_building_company&st_trigger=edit&id=' . sanitize_text_field($_GET['id']), 302);
-            die;
+        var_dump( $success1);
+
+
+
+        if (isset($_POST['speakLevelList'])) {
+            // print_r("gelir3");
+            $wpdb->delete("{$wpdb->prefix}hisar_level_categories_record", array('word_id' =>  $id1));
+            foreach ($_POST['speakLevelList'] as $key => $value) {
+                // print_r("gelir4");
+                $wpdb->insert(
+                    $wpdb->prefix . "hisar_level_categories_record",
+                    array(
+                        'word_id' =>   sanitize_text_field($id1),
+                        'level_id' =>  sanitize_text_field($value),
+                    ),
+                );
+            }
         }
-        // include ('add_edit.php');
+
+
+        // if ($success1) {
+            print_r("gelir last");
+            $_SESSION['stnc_map_flash_msg'] =  __('Record Updated', 'the-stnc-map');
+            wp_redirect('/wp-admin/admin.php?page=stnc_building_company&st_trigger=edit&id=' .  $id1, 302);
+            die;
+        // }
     }
 
 
