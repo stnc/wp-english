@@ -5,11 +5,11 @@ $id =   isset($_GET['id']) ? sanitize_text_field($_GET['id']) : "";
 
 
 $title = "Add";
-$form = '<form action="/wp-admin/admin.php?page=stnc_building_company&st_trigger=store&building_id=' . $_GET['building_id'] . '&floor_id=' . $_GET['floor_id'] . '" method="post">';
+$form = '<form action="/wp-admin/admin.php?page=stnc_building_company&st_trigger=store" method="post">';
 
-if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) {
+if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) {
     $title = esc_html_e('Show', 'the-stnc-map');
-    $form = '<form action="/wp-admin/admin.php?page=stnc_building_company&st_trigger=update&building_id=' . $_GET['building_id'] . '&floor_id=' . $_GET['floor_id'] . '&id=' . $_GET['id'] . '" method="post">';
+    $form = '<form action="/wp-admin/admin.php?page=stnc_building_company&st_trigger=update&id=' . $id . '" method="post">';
 }
 
 include("_header-show.php");
@@ -29,9 +29,7 @@ include("_header-show.php");
 
         <?php echo $form  ?>
 
-        <input type="hidden" name="floor_id" value="<?php echo  isset($_GET["floor_id"]) ?>">
         <input type="hidden" value="<?php echo $media_id ?>" name="media_id" id="media_id">
-        <input type="hidden" value="<?php echo $floors_locations_id ?>" name="floors_locations_id" id="floors_locations_id">
         <div class="stnc-row">
 
             <div class="stnc-col-8">
@@ -43,17 +41,44 @@ include("_header-show.php");
 
 
 
+                        <div class="form-group">
+                        <?php if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) { ?>
+                            <?php foreach ($categoriesSpeakLevelList as $categories) : 
+                                   $checkControl=hisar_searchArray(  $nlist,$categories->level_id );
+                
+                                ?>
+                                
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" <?php if ($checkControl){echo 'checked';}  ?> name="speakLevelList[]" for="speakLevelList<?php echo $categories->level_id ?>" value="<?php echo $categories->level_id ?>">
+                                        <label class="form-check-label" for="speakLevelList<?php echo $categories->level_id ?>"><?php echo $categories->name ?></label>
+                                    </div>
+                      
+                            <?php endforeach ?>
+                        <?php } else { ?>
+                            <?php foreach ($categoriesSpeakLevelList as $categories) : ?>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" <?php if ($categories->level_id == $level) echo 'checked'; ?> name="speakLevelList[]" for="speakLevelList<?php echo $categories->id ?>" value="<?php echo $categories->level_id ?>">
+                                    <label class="form-check-label" for="speakLevelList<?php echo $categories->level_id ?>"><?php echo $categories->name ?></label>
+                                </div>
+                            <?php endforeach ?>
 
+                        <?php } ?>
+                        </div>
+
+
+                        <hr>
 
                         <div class="form-group">
                             <label for="level"> <strong><?php esc_html_e('Level', 'the-stnc-map') ?></strong> </label>
                             <select name="level">
                                 <?php foreach ($categoriesList as $categories) : ?>
-                                    <option <?php if ($categories->id == $level) echo 'selected'; ?> value="<?php echo $categories->id ?>">
-                                        <?php echo $categories->name ?></option>
+                                    <option <?php if ($categories->id == $level) echo 'selected'; ?> for="level" value="<?php echo $categories->id ?>"><?php echo $categories->name ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
+
+
+
                         <hr>
 
                         <div class="form-group">

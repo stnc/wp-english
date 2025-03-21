@@ -24,6 +24,9 @@
                     <li class="nav-item">
                        <a class="nav-link active" aria-current="page" href="/wp-admin"><?php esc_html_e( 'WP Dashbord', 'the-stnc-map' ) ?></a>
                      </li>
+                       <li class="nav-item">
+                       <a class="nav-link active" aria-current="page" href="http://education.test/wp-admin/admin.php?page=stnc_building_company&st_trigger=new"><?php esc_html_e( 'Add', 'the-stnc-map' ) ?></a>
+                     </li>
                     
                 </ul>
 
@@ -37,3 +40,7 @@
     </nav>
 </header>
 
+<div class="form-group">
+
+
+</div>

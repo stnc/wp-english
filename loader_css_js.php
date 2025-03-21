@@ -14,18 +14,15 @@ if (isset($_GET["page"]) && $_GET["page"] === "stnc_map_homepage") {
 
 if (isset($_GET["page"]) && $_GET["page"] === "stnc_building_company") {
     stnc_wp_floor_all_scritps();
-    add_action("admin_enqueue_scripts", "stnc_wp_floor_map_script_in_admin");
 }
 
 if (isset($_GET["page"]) && $_GET["page"] === "stnc_map_view") {
     // stnc_wp_floor_front() ;
     stnc_wp_floor_all_scritps();
-    add_action("admin_enqueue_scripts", "stnc_wp_floor_map_script_in_admin");
 }
 
 if (isset($_GET["page"]) && $_GET["page"] === "stnc_map_editor_building") {
     stnc_wp_floor_all_scritps();
-    add_action("admin_enqueue_scripts", "stnc_wp_floor_map_script_in_admin");
 }
 
 
@@ -44,11 +41,6 @@ function stnc_wp_floor_script_in_admin($hook)
     wp_enqueue_media();
 }
 
-function stnc_wp_floor_map_script_in_admin($hook)
-{   global $ver;
-    wp_register_script( "stnc-map",plugin_dir_url(__FILE__) . "assets/admin/js/plain-draggable.js","", $ver, true);
-    wp_enqueue_script("stnc-map");
-}
 
 
 

@@ -235,7 +235,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 		$editLangs = __('Edit', 'the-stnc-map');
 		$actions = [
 			'view' => sprintf('<a href="?page=%s&action=%s&stncMapFloors=%s&_wpnonce=%s">%s</a>', esc_attr($_REQUEST['page']), 'view', absint($item['id']), $delete_nonce,	$showLang),
-			'edit' => sprintf('<a href="?page=stnc_building_company&st_trigger=show&id=%s&_wpnonce=%s">%s</a>',  absint($item['id']), $delete_nonce, $editLangs)
+			'edit' => sprintf('<a href="?page=stnc_building_company&st_trigger=edit&id=%s&_wpnonce=%s">%s</a>',  absint($item['id']), $delete_nonce, $editLangs)
 		];
 
 		return $title . $this->row_actions($actions);
