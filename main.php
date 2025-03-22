@@ -40,7 +40,18 @@ include ('loader_css_js.php');
 require_once "helper.php";
 
 include ('pages/homepage/homepage.php');
-include ('pages/stnc_building_company/actions.php');
+
+
+
+
+
+include ('pages/_kelimator/main_actions.php');
+include ('pages/_kelimator/explode_actions.php');
+
+
+
+
+
 include ('pages/stnc_map_editor_building/actions.php');
 include ('pages/stnc_map_view/actions.php');
 include ('pages/stnc_map_view/ajax.php');

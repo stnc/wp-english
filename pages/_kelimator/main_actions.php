@@ -42,7 +42,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
         $sql_tense_List = 'SELECT * FROM ' . $table_tense_list . '  WHERE status=1';
         $vocable_tense_list = $wpdb->get_results($sql_tense_List);
 
-        include('add_edit.php');
+        include('main_view.php');
     }
 
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'store')) {
@@ -136,7 +136,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
             $nlist[] = $value["level_id"];
         }
 
-        include('add_edit.php');
+        include('main_view.php');
     }
 
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'update')) {
