@@ -70,13 +70,36 @@ include("_header-show.php");
                         <hr>
 
                         <div class="form-group">
-                            <label for="level"> <strong><?php esc_html_e('Level', 'the-stnc-map') ?></strong> </label>
-                            <select name="level">
+                            <label for="level_cat_id"> <strong><?php esc_html_e('Level', 'the-stnc-map') ?></strong> </label>
+                            <select name="level_cat_id">
                                 <?php foreach ($categoriesList as $categories) : ?>
-                                    <option <?php if ($categories->id == $level) echo 'selected'; ?> for="level" value="<?php echo $categories->id ?>"><?php echo $categories->name ?></option>
+                                    <option <?php if ($categories->level_id == $level_cat_id) echo 'selected'; ?> for="level_cat_id" value="<?php echo $categories->level_id ?>"><?php echo $categories->name ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
+
+
+
+                        
+                        <div class="form-group">
+                            <label for="vocable_level"> <strong><?php esc_html_e('vocable level', 'the-stnc-map') ?></strong> </label>
+                            <select name="vocable_level">
+                                <?php foreach ($vocable_level_List as $value) : ?>
+                                    <option <?php if ($value->vocable_level_id == $vocable_level) echo 'selected'; ?> for="level" value="<?php echo $value->vocable_level_id ?>"><?php echo $value->name ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="tense_id"> <strong><?php esc_html_e('Tense', 'the-stnc-map') ?></strong> </label>
+                            <select name="tense_id">
+                                <?php foreach ($vocable_tense_list as $value) : ?>
+                                    <option <?php if ($value->tense_id == $tense_id) echo 'selected'; ?> for="level" value="<?php echo $value->tense_id ?>"><?php echo $value->name_eng ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+
 
 
 
