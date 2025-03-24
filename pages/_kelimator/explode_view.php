@@ -33,14 +33,25 @@ if (isset($_SESSION['stnc_map_flash_msg'])) {
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
+    <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
 
+<script>
+Sortable.create('data_main_language', {
+  handle: '.glyphicon-move',
+  animation: 150
+});
 
+</script>
+<style>
+    .glyphicon-move {
+  cursor: move;
+  cursor: -webkit-grabbing;
+}
+</style>
 
-
-
-<form action="/wp-admin/admin.php?page=helix_explode&st_trigger=update&id=<?php echo  $id ?>" method="post">
+<form action="/wp-admin/admin.php?page=helix_explode&st_trigger=store&id=<?php echo  $id ?>" method="post">
     <main class="flex-shrink-0" style="margin-top:88px">
-        <section class="container">
+        <section class="container" id="dracula">
 
             <div class="row">
                 <div class="col-lg-10">
@@ -48,7 +59,7 @@ if (isset($_SESSION['stnc_map_flash_msg'])) {
                         <div class="card-header">Main Language</div>
                         <div class="card-body">
                             <h5 class="card-title"><?php echo  $main_language  ?></h5>
-                            <div class="row g-2 data_main_language">
+                            <div class="row g-2 data_main_language"  id="data_main_language">
                                 <?php echo $main_language_json ?>
 
                             </div>
@@ -76,7 +87,7 @@ if (isset($_SESSION['stnc_map_flash_msg'])) {
                         <div class="card-header">Translate</div>
                         <div class="card-body">
                             <h5 class="card-title"><?php echo  $translate  ?></h5>
-                            <div class="row g-2 data_translate_language">
+                            <div class="row g-2 data_translate_language" >
                                 <?php echo $translate_language_json ?>
 
                             </div>

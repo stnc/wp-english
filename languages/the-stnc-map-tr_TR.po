@@ -50,7 +50,7 @@ msgstr ""
 #: pages/stnc_map_editor_building/_header-show.php:50
 #: pages/stnc_map_view/_header-editor.php:102
 #: pages/stnc_map_view/_header-show.php:103
-msgid "STNC building floors"
+msgid "Kelime Generator"
 msgstr "Erciyes Teknopark Bina"
 
 #: pages/homepage.php:82

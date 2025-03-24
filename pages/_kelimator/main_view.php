@@ -167,7 +167,15 @@ include("_header-show.php");
                     <button type="submit" value="Kaydet" id="savebtn-stncMap" class="btn btn-success"> <?php esc_html_e('Save', 'the-stnc-map') ?></button>
                     <?php if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) : 
                         		$delete_nonce = wp_create_nonce('sp_delete_stncMapFloors'); ?>
-                   <a  href="/wp-admin/admin.php?page=helix_explode&st_trigger=edit&id=<?php echo  $id ;?>&_wpnonce=<?php echo  $delete_nonce ;?>" id="savebtn-stncMap2" class="btn btn-primary">Patlat</a>
+
+                 <?php if ($is_json == 1) :  ?>
+                   <a  href="/wp-admin/admin.php?page=helix_explode&st_trigger=edit&id=<?php echo  $id ;?>&_wpnonce=<?php echo  $delete_nonce ;?>" id="savebtn-stncMap2" class="btn btn-primary">Parcalanmis Kelimeyi Duzenle</a>
+                 <?php endif; ?> 
+                 
+                 <?php if ($is_json == 0) :  ?>
+                   <a  href="/wp-admin/admin.php?page=helix_explode&st_trigger=new&id=<?php echo  $id ;?>&_wpnonce=<?php echo  $delete_nonce ;?>" id="savebtn-stncMap2" class="btn btn-primary">Kelimeyi Parcala</a>
+                 <?php endif; ?> 
+                 
                    <?php endif ?>
                 </div>
             </div>

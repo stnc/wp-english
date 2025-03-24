@@ -7,7 +7,7 @@ jQuery(document).ready(function ($) {
     var maxField = 15; //Input fields increment limitation
     var addButton = jQuery('.add_button'); //Add button selector
     var wrapper = jQuery('.data_main_language'); //Input field wrapper
-    var fieldHTML = '<div class="mb-3 col-md-4"><input type="text" class="form-control" name="main_language[]" value=""/><a href="javascript:void(0);"  class="remove_button "><img src="/wp-content/uploads/2025/03/remove-icon.png"/></a></div>'; //New input field html 
+    var fieldHTML = '<div class="mb-3 col-md-4"><input type="text" class="form-control" name="main_language_json[]" value=""/><a href="javascript:void(0);"  class="remove_button "><img src="/wp-content/uploads/2025/03/remove-icon.png"/></a></div>'; //New input field html 
     var x = 1; //Initial field counter is 1
 
     // Once add button is clicked
@@ -37,7 +37,7 @@ jQuery(document).ready(function ($) {
 
     var addButton_translate= jQuery('.add_button_translate'); //Add button selector
     var wrapper_translate = jQuery('.data_translate_language'); //Input field wrapper
-    var fieldHTML_translate = '<div class="mb-3 col-md-4"><input type="text" class="form-control" name="translate_language[]" value=""/><a href="javascript:void(0);"  class="remove_button "><img src="/wp-content/uploads/2025/03/remove-icon.png"/></a></div>'; //New input field html 
+    var fieldHTML_translate = '<div class="mb-3 col-md-4"><input type="text" class="form-control" name="translate_language_json[]" value=""/><a href="javascript:void(0);"  class="remove_button "><img src="/wp-content/uploads/2025/03/remove-icon.png"/></a></div>'; //New input field html 
     var x = 1; //Initial field counter is 1
 
     // Once add button is clicked

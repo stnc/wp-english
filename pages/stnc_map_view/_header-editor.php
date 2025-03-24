@@ -106,7 +106,7 @@
                 </ul>
 
                 <div class="text-center">
-                <h1 class="stnc-title fw-bold"><?php esc_html_e( 'STNC building floors', 'the-stnc-map' ) ?></h1>
+                <h1 class="stnc-title fw-bold"><?php esc_html_e( 'Kelime Generator', 'the-stnc-map' ) ?></h1>
                 </div>
 
 

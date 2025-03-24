@@ -103,6 +103,11 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
         $vocable_level =  $data->vocable_level_id;
         $main_language =  $data->main_language;
         $translate =  $data->translate;
+        $is_json =  $data->is_json;
+
+// print_r(    $is_json);
+// die;
+
         // $data =  str_replace([" ", '\\'], "", $web_permission);
         // $web_permission =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
 
