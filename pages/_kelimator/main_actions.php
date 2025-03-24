@@ -4,7 +4,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
     // session_start();
     //  stnc_building_company
     global $wpdb;
-    $stncForm_tableNameMain = $wpdb->prefix . 'hisar_words';
+    $stncForm_tableNameMain = $wpdb->prefix . 'helix_words';
 
     date_default_timezone_set('Europe/Istanbul');
     $date = date('Y-m-d h:i:s');
@@ -23,22 +23,22 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
         // $web_permission = '[{\"door_number_permission\":false,\"square_meters_permission\":false,\"email_permission\":false,\"phone_permission\":false,\"mobile_phone_permission\":false,\"web_site_permission\":false,\"translate_permission\":false,\"main_language_permission\":false}]';
         // $data =  str_replace([" ", '\\'], "", $web_permission);
         // $web_permission =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
-        $table = $wpdb->prefix . 'hisar_level_categories';
+        $table = $wpdb->prefix . 'helix_level_categories';
         $sql_company_list = 'SELECT * FROM ' . $table . '  WHERE status=1';
         $categoriesList = $wpdb->get_results($sql_company_list);
 
 
-        $table_vocable_level_List = $wpdb->prefix . 'hisar_vocable_level';
+        $table_vocable_level_List = $wpdb->prefix . 'helix_vocable_level';
         $sql_vocable_level_List = 'SELECT * FROM ' . $table_vocable_level_List . '  WHERE status=1';
         $vocable_level_List = $wpdb->get_results($sql_vocable_level_List);
 
 
 
-        $table = $wpdb->prefix . 'hisar_speak_level_categories';
+        $table = $wpdb->prefix . 'helix_speak_level_categories';
         $sql_SpeakLevelList = 'SELECT * FROM ' . $table . '  WHERE status=1';
         $categoriesSpeakLevelList = $wpdb->get_results($sql_SpeakLevelList);
 
-        $table_tense_list = $wpdb->prefix . 'hisar_tense';
+        $table_tense_list = $wpdb->prefix . 'helix_tense';
         $sql_tense_List = 'SELECT * FROM ' . $table_tense_list . '  WHERE status=1';
         $vocable_tense_list = $wpdb->get_results($sql_tense_List);
 
@@ -55,6 +55,8 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
         $translate = isset($_POST["translate"]) ? sanitize_text_field($_POST["translate"]) : " ";
 
         $main_language = isset($_POST["main_language"]) ? sanitize_text_field($_POST["main_language"]) : " ";
+
+
 
         $success =   $wpdb->insert(
             $stncForm_tableNameMain,
@@ -73,7 +75,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
             if (isset($_POST['speakLevelList'])) {
                 foreach ($_POST['speakLevelList'] as $key => $value) {
                     $wpdb->insert(
-                        $wpdb->prefix . "hisar_level_categories_record",
+                        $wpdb->prefix . "helix_level_categories_record",
                         array(
                             'word_id' =>   sanitize_text_field($lastid),
                             'level_id' =>  sanitize_text_field($value),
@@ -104,29 +106,29 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
         // $data =  str_replace([" ", '\\'], "", $web_permission);
         // $web_permission =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
 
-        $table = $wpdb->prefix . 'hisar_level_categories';
+        $table = $wpdb->prefix . 'helix_level_categories';
         $sql_company_list = 'SELECT * FROM ' . $table . '  WHERE status=1';
         $categoriesList = $wpdb->get_results($sql_company_list);
 
-        $table = $wpdb->prefix . 'hisar_speak_level_categories';
+        $table = $wpdb->prefix . 'helix_speak_level_categories';
         $sql_SpeakLevelList = 'SELECT * FROM ' . $table . '  WHERE status=1';
         $categoriesSpeakLevelList = $wpdb->get_results($sql_SpeakLevelList);
 
 
 
-        $table_tense_list = $wpdb->prefix . 'hisar_tense';
+        $table_tense_list = $wpdb->prefix . 'helix_tense';
         $sql_tense_List = 'SELECT * FROM ' . $table_tense_list . '  WHERE status=1';
         $vocable_tense_list = $wpdb->get_results($sql_tense_List);
 
 
 
-        $table_vocable_level_List = $wpdb->prefix . 'hisar_vocable_level';
+        $table_vocable_level_List = $wpdb->prefix . 'helix_vocable_level';
         $sql_vocable_level_List = 'SELECT * FROM ' . $table_vocable_level_List . '  WHERE status=1';
         $vocable_level_List = $wpdb->get_results($sql_vocable_level_List);
 
 
 
-        $table = $wpdb->prefix . 'hisar_level_categories_record';
+        $table = $wpdb->prefix . 'helix_level_categories_record';
         $sql_level_categories_record = 'SELECT level_id FROM ' . $table . '  WHERE word_id=' . $editId;
         $level_categories_record = $wpdb->get_results($sql_level_categories_record, 'ARRAY_A');
 
@@ -177,11 +179,11 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
 
         if (isset($_POST['speakLevelList'])) {
             // print_r("gelir3");
-            $wpdb->delete("{$wpdb->prefix}hisar_level_categories_record", array('word_id' =>  $id1));
+            $wpdb->delete("{$wpdb->prefix}helix_level_categories_record", array('word_id' =>  $id1));
             foreach ($_POST['speakLevelList'] as $key => $value) {
                 // print_r("gelir4");
                 $wpdb->insert(
-                    $wpdb->prefix . "hisar_level_categories_record",
+                    $wpdb->prefix . "helix_level_categories_record",
                     array(
                         'word_id' =>   sanitize_text_field($id1),
                         'level_id' =>  sanitize_text_field($value),
@@ -189,7 +191,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
                 );
             }
         } else {
-            $wpdb->delete("{$wpdb->prefix}hisar_level_categories_record", array('word_id' =>  $id1));
+            $wpdb->delete("{$wpdb->prefix}helix_level_categories_record", array('word_id' =>  $id1));
         }
 
 
@@ -202,7 +204,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
     }
 }
 
-function hisar_searchArray($arr, $value)
+function helix_searchArray($arr, $value)
 {
 
     if (in_array($value, $arr)) {

@@ -16,6 +16,11 @@ if (isset($_GET["page"]) && $_GET["page"] === "stnc_building_company") {
     stnc_wp_floor_all_scritps();
 }
 
+
+if (isset($_GET["page"]) && $_GET["page"] === "helix_explode") {
+    stnc_wp_floor_all_scritps();
+}
+
 if (isset($_GET["page"]) && $_GET["page"] === "stnc_map_view") {
     // stnc_wp_floor_front() ;
     stnc_wp_floor_all_scritps();
@@ -28,7 +33,7 @@ if (isset($_GET["page"]) && $_GET["page"] === "stnc_map_editor_building") {
 
 function stnc_wp_floor_MainMenu_enqueue_style()
 {   global $ver;
-    wp_enqueue_style( "stnc-style-boot",plugins_url("assets/admin/css/bootstrap.min.css", __FILE__) ,"",$ver );
+    // wp_enqueue_style( "stnc-style-boot",plugins_url("assets/admin/css/bootstrap.min.css", __FILE__) ,"",$ver );
     wp_enqueue_style( "stnc-style-style2", plugins_url("assets/admin/css/stnc-admin.css", __FILE__) ,"",$ver);
 }
 

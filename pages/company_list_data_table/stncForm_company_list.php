@@ -311,8 +311,8 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 
 
 
-			$sql = "			SELECT w.* FROM  {$wpdb->prefix}hisar_words AS w 
-			INNER JOIN {$wpdb->prefix}hisar_level_categories AS cat  ON  w.level_cat_id=cat.level_id
+			$sql = "			SELECT w.* FROM  {$wpdb->prefix}helix_words AS w 
+			INNER JOIN {$wpdb->prefix}helix_level_categories AS cat  ON  w.level_cat_id=cat.level_id
 			WHERE main_language LIKE '%$search%' OR translate LIKE '%$search%' ";
 			if (!empty($_REQUEST['orderby'])) {
 				$sql .= ' ORDER BY ' . esc_sql($_REQUEST['orderby']);
@@ -323,8 +323,8 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 			$sql .= ' OFFSET ' . ($page_number - 1) * $per_page;
 			$result = $wpdb->get_results($sql, 'ARRAY_A');
 		} else {
-			$sql = "			SELECT w.* FROM  {$wpdb->prefix}hisar_words AS w 
-			  INNER JOIN {$wpdb->prefix}hisar_level_categories AS cat  ON  w.level_cat_id=cat.level_id ";
+			$sql = "			SELECT w.* FROM  {$wpdb->prefix}helix_words AS w 
+			  INNER JOIN {$wpdb->prefix}helix_level_categories AS cat  ON  w.level_cat_id=cat.level_id ";
 
 			if (!empty($_REQUEST['orderby'])) {
 				$sql .= ' ORDER BY ' . esc_sql($_REQUEST['orderby']);
@@ -353,7 +353,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 	{
 		global $wpdb;
 
-		$sql = "SELECT COUNT(*) FROM {$wpdb->prefix}hisar_words";
+		$sql = "SELECT COUNT(*) FROM {$wpdb->prefix}helix_words";
 
 		return $wpdb->get_var($sql);
 	}

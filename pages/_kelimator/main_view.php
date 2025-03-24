@@ -15,6 +15,13 @@ if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) {
 include("_header-show.php");
 ?>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+    integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+
 <main class="flex-shrink-0" style="margin-top:88px">
     <div class="stnc-container-fluid">
 
@@ -45,10 +52,8 @@ include("_header-show.php");
                             <span>Ne tur bir konusma metni? </span>
                         <?php if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) { ?>
                             <?php foreach ($categoriesSpeakLevelList as $categories) : 
-                                   $checkControl=hisar_searchArray(  $nlist,$categories->level_id );
-                
+                                   $checkControl=helix_searchArray(  $nlist,$categories->level_id );
                                 ?>
-                                
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" <?php if ($checkControl){echo 'checked';}  ?> name="speakLevelList[]" for="speakLevelList<?php echo $categories->level_id ?>" value="<?php echo $categories->level_id ?>">
                                         <label class="form-check-label" for="speakLevelList<?php echo $categories->level_id ?>"><?php echo $categories->name ?></label>
@@ -70,37 +75,36 @@ include("_header-show.php");
                         <hr>
 
                         <div class="form-group">
-                            <label for="level_cat_id"> <strong><?php esc_html_e('Level', 'the-stnc-map') ?></strong> </label>
-                            <select name="level_cat_id">
+                            <label  class="form-label" for="level_cat_id"> <strong><?php esc_html_e('Level', 'the-stnc-map') ?></strong> </label>
+                            <select name="level_cat_id"  class="form-select">
                                 <?php foreach ($categoriesList as $categories) : ?>
                                     <option <?php if ($categories->level_id == $level_cat_id) echo 'selected'; ?> for="level_cat_id" value="<?php echo $categories->level_id ?>"><?php echo $categories->name ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
 
-
+                        <hr>
 
                         
                         <div class="form-group">
-                            <label for="vocable_level"> <strong><?php esc_html_e('vocable level', 'the-stnc-map') ?></strong> </label>
-                            <select name="vocable_level">
+                            <label class="form-label" for="vocable_level"> <strong><?php esc_html_e('vocable level', 'the-stnc-map') ?></strong> </label>
+                            <select class="form-select" name="vocable_level">
                                 <?php foreach ($vocable_level_List as $value) : ?>
                                     <option <?php if ($value->vocable_level_id == $vocable_level) echo 'selected'; ?> for="level" value="<?php echo $value->vocable_level_id ?>"><?php echo $value->name ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
 
+                        <hr>
 
                         <div class="form-group">
-                            <label for="tense_id"> <strong><?php esc_html_e('Tense', 'the-stnc-map') ?></strong> </label>
-                            <select name="tense_id">
+                            <label class="form-label" for="tense_id"> <strong><?php esc_html_e('Tense', 'the-stnc-map') ?></strong> </label>
+                            <select class="form-select" name="tense_id">
                                 <?php foreach ($vocable_tense_list as $value) : ?>
                                     <option <?php if ($value->tense_id == $tense_id) echo 'selected'; ?> for="level" value="<?php echo $value->tense_id ?>"><?php echo $value->name_eng ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>
-
-
 
 
                         <hr>
@@ -158,24 +162,13 @@ include("_header-show.php");
                     <?php // endif ; 
                     ?>
                 </div>
-                <br>
-
-
-
-
-                <!-- <a href="/wp-admin/admin.php?page=stnc_building_company&st_trigger=show&building_id=<?php echo $_GET['building_id'] ?>&floor_id=<?php echo $_GET['floor_id'] ?>&id=<?php echo $nextCompany ?>" class="btn btn-warning">
-                 <?php esc_html_e('Next Company', 'the-stnc-map') ?></a>
-
-
-                <a href="/wp-admin/admin.php?page=stnc_building_company&st_trigger=show&building_id=<?php echo $_GET['building_id'] ?>&floor_id=<?php echo $_GET['floor_id'] ?>&id=<?php echo $prevCompany ?>" class="btn btn-warning"> <?php esc_html_e('Previous Company', 'the-stnc-map') ?></a> -->
-
-                <textarea id="web_permission" name="web_permission" style="display:none"></textarea>
-                <br>
-                <br>
-                <br>
+  
                 <div class="form-group">
                     <button type="submit" value="Kaydet" id="savebtn-stncMap" class="btn btn-success"> <?php esc_html_e('Save', 'the-stnc-map') ?></button>
-                    <!-- <a  href="#" id="savebtn-stncMap2" class="btn btn-primary">json</a> -->
+                    <?php if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) : 
+                        		$delete_nonce = wp_create_nonce('sp_delete_stncMapFloors'); ?>
+                   <a  href="/wp-admin/admin.php?page=helix_explode&st_trigger=edit&id=<?php echo  $id ;?>&_wpnonce=<?php echo  $delete_nonce ;?>" id="savebtn-stncMap2" class="btn btn-primary">Patlat</a>
+                   <?php endif ?>
                 </div>
             </div>
         </div>

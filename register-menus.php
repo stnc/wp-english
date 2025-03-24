@@ -24,6 +24,7 @@ function stnc_wp_floor_MainMenu(){
 
 //admin.php?page=settings62
  add_submenu_page( null, 'Build', __( 'fixed map', 'the-stnc-map' ), 'manage_options', 'stnc_building_company', 'stnc_wp_floor_adminMenu_stnc_building_company',null ); ////burası alt kısım onun altında olacak olan bolum için 
+ add_submenu_page( null, 'Build', __( 'fixed map', 'the-stnc-map' ), 'manage_options', 'helix_explode', 'stnc_wp_floor_adminMenu_explode',null ); ////burası alt kısım onun altında olacak olan bolum için 
 
  add_submenu_page( null, 'Build', __( 'fixed map', 'the-stnc-map' ), 'manage_options', 'stnc_map_editor_building', 'stnc_wp_floor_adminMenu_stnc_map_editor_stnc',null ); ////binannın Build planı haritası ekleme düzenleme yeri
  add_submenu_page( null, 'Build', __( 'fixed map', 'the-stnc-map' ), 'manage_options', 'stnc_map_update', 'stnc_wp_floor_plans_adminMenu_update',null ); ////binannın Build planı haritası ekleme düzenleme yeri
