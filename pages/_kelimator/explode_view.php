@@ -50,7 +50,7 @@ Sortable.create('data_main_language', {
 </style>
 
 <form action="/wp-admin/admin.php?page=helix_explode&st_trigger=store&id=<?php echo  $id ?>" method="post">
-    <main class="flex-shrink-0" style="margin-top:88px">
+    <main class="flex-shrink-0" style="">
         <section class="container" id="dracula">
 
             <div class="row">

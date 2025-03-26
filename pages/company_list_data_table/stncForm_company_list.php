@@ -157,9 +157,9 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 
 
 
-			case 'level':
-				$result = $this->levelControl($item['level']) ;
-				break;
+			// case 'level':
+			// 	$result = $this->levelControl($item['level']) ;
+			// 	break;
 		}
 
 		return $result;
@@ -205,7 +205,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 
 			'translate'   => __('tr', 'admin-table-tut'),
 
-			'level'   => __('level', 'admin-table-tut'),
+			// 'level'   => __('level', 'admin-table-tut'),
 
 		);
 	}
@@ -234,7 +234,7 @@ class Stnc_wp_floor_List_Table extends WP_List_Table
 		$showLang = __('Show', 'the-stnc-map');
 		$editLangs = __('Edit', 'the-stnc-map');
 		$actions = [
-			'view' => sprintf('<a href="?page=%s&action=%s&stncMapFloors=%s&_wpnonce=%s">%s</a>', esc_attr($_REQUEST['page']), 'view', absint($item['id']), $delete_nonce,	$showLang),
+			// 'view' => sprintf('<a href="?page=%s&action=%s&stncMapFloors=%s&_wpnonce=%s">%s</a>', esc_attr($_REQUEST['page']), 'view', absint($item['id']), $delete_nonce,	$showLang),
 			'edit' => sprintf('<a href="?page=stnc_building_company&st_trigger=edit&id=%s&_wpnonce=%s">%s</a>',  absint($item['id']), $delete_nonce, $editLangs)
 		];
 

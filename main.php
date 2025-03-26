@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name:  Teknopark Binalar
+Plugin Name:  Kelimator
 Plugin URI:	https://github.com/stnc/wp-kat-planlari		
-Description: Erciyes Teknopark Kat Planları
+Description: Kelimator ; kelime islemci 
 Version: 2.4.0
 Author: Selman TUNC
 Text Domain: the-stnc-map

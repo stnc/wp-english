@@ -1,46 +1,38 @@
-<header>
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-secondary fixed-top bg-black">
-        <div class="container-fluid">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+    integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: antiquewhite;" href="/wp-admin/admin.php?page=stnc_map_homepage"><?php esc_html_e('Kelimator Homepage', 'the-stnc-map') ?></a>
-                    </li>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 
 
-
-
-                    <li class="nav-item">
+  <style>
+.navbar {
+    background-color: black;
+}</style>
+<div class="container-">
+    <header class="d-flex justify-content-center py-3"></header>
+  <nav class="navbar navbar-expand-sm navbar-dark">
+            <div class="container">
+                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#n_bar" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="n_bar">
+                    <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" style="color: antiquewhite;" href="/wp-admin/admin.php?page=stnc_map_homepage"><?php esc_html_e('Kelimator Homepage', 'the-stnc-map') ?></a>
+</li>
+<li class="nav-item">
                         <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin/admin.php?page=stnc_building_list"><?php esc_html_e('Kelimeler Listesi', 'the-stnc-map') ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin"><?php esc_html_e('WP Dashbord', 'the-stnc-map') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="http://education.test/wp-admin/admin.php?page=stnc_building_company&st_trigger=new"><?php esc_html_e('Add', 'the-stnc-map') ?></a>
+                        <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin/admin.php?page=stnc_building_company&st_trigger=new"><?php esc_html_e('Add', 'the-stnc-map') ?></a>
                     </li>
-
-                </ul>
-
-                <div class="text-center">
-                    <h1 class="stnc-title fw-bold"><?php esc_html_e('Kelime Generator', 'the-stnc-map') ?></span></h1>
+                    </ul>
                 </div>
-
-
             </div>
-        </div>
-    </nav>
-</header>
-
-<div class="form-group">
-
-
-</div>
+            </header>
+  </div>

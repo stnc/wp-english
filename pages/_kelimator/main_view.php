@@ -4,25 +4,22 @@
  $id =   isset($_GET['id']) ? sanitize_text_field($_GET['id']) : "";
 
 
-$title = "Add";
+// $title = "Add";
 $form = '<form action="/wp-admin/admin.php?page=stnc_building_company&st_trigger=store" method="post">';
 
 if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) {
-    $title = esc_html_e('Show', 'the-stnc-map');
+    //$title = esc_html_e('Show', 'the-stnc-map');
     $form = '<form action="/wp-admin/admin.php?page=stnc_building_company&st_trigger=update&id=' . $id . '" method="post">';
 }
 
 include("_header-show.php");
 ?>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
-    integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
 
 
-<main class="flex-shrink-0" style="margin-top:88px">
+<main class="flex-shrink-0" style="">
     <div class="stnc-container-fluid">
 
         <?php
