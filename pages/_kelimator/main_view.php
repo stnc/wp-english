@@ -111,6 +111,13 @@ include("_header-show.php");
 
                             <textarea class="form-control" name="main_language" id="main_language" rows="3"><?php echo $main_language ?></textarea>
                         </div>
+
+
+                        <div class="form-group">
+                            <label for=""><strong><?php esc_html_e('Ceviri nin dil dosyasi url si ', 'the-stnc-map') ?></strong></label>
+<span>input eklenecek ve db ye alan eklenecek </span>
+                          
+                        </div>
                         <hr>
 
                         <div class="form-group">
