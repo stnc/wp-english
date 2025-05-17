@@ -65,6 +65,20 @@ Sortable.create('data_main_language', {
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="card" id="kelimatorButton" style="max-width: 100%;">
+                        <div class="card-header">card olarak</div>
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo  $main_language  ?></h5>
+                            <div class="row g-2 data_main_language"  id="data_main_language">
+                                <?php echo $button_html_json ?>
+
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
 
 

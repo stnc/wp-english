@@ -36,3 +36,11 @@
             </div>
             </header>
   </div>
+
+  <script>
+        // jQuery(document).ready(function() {
+        //     jQuery('.tooltipstered').tooltipster({
+        //         content: jQuery('<span><img src="my-image.png" /> <strong>This text is in bold case !</strong></span>')
+        //     });
+        // });
+    </script>

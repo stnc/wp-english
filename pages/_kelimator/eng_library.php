@@ -190,6 +190,50 @@ return '<div class="mb-3 col-md-4">
     </div>';
 }
 
+
+function subscribe_link($atts){
+    $default = array(
+        'value' => '#',
+    );
+
+    $a = shortcode_atts($default, $atts);
+
+    return '<a style="color: black;" href="'.$a['value'].'">'.$a['value'].'</a>' ;
+}
+
+
+add_shortcode('helix_conjunction', 'subscribe_link');
+
+
+
+
+
+
+function helix_shortcode_exists($value){
+
+ 
+    if ( shortcode_exists( 'gallery' ) ){
+        return do_shortcode( $value );
+    } else {
+        return $value;
+    }
+
+
+
+}
+
+
+
+function button_html($value, $no)
+{
+return '<div class="mb-2 col-md-2">
+
+    <span id="demo-default" class="tooltipstered   helixColor'.  $no .'">'.do_shortcode( $value ).' </span>
+    </div>';
+}
+
+
+
 function html_translate($value)
 {
 return '<div class="mb-3 col-md-4">

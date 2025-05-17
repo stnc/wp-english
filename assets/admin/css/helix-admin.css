@@ -393,3 +393,91 @@ width: 74.609375px; */
     background-color:#000;
     color:#fff;
 }
+
+
+#kelimatorButton span {
+  display: block;
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+
+  background: #ff5e3c;
+  color: #fff;
+  font-size: 0.8em;
+  line-height: 1em;
+  font-weight: 700;
+  padding: 10px 10px;
+  text-align: center;
+
+
+
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  + -o-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#kelimatorButton span.helixColor0{
+  background: #2563eb;
+}
+
+#kelimatorButton span.helixColor1{
+  background: #8BF257;
+}
+
+#kelimatorButton span.helixColor2{
+  background: #EB7725;
+}
+
+
+#kelimatorButton span.helixColor3{
+  background: #EBDA25;
+}
+
+
+#kelimatorButton span.helixColor4{
+  background: #CD25EB;
+}
+
+
+#kelimatorButton span.helixColor5{
+  background: #72ED46;
+}
+
+
+#kelimatorButton span.helixColor6{
+  background: #EB4574;
+}
+
+
+#kelimatorButton span.helixColor7{
+  background: #EB8245;
+}
+
+#kelimatorButton span.helixColor8{
+  background: #BD64F0;
+}
+
+#kelimatorButton span.helixColor9{
+  background: #EBCF61;
+}
+
+#kelimatorButton span.helixColor10{
+  background: #93EB61;
+}
+
+#kelimatorButton span.helixColor11{
+  background: #EB6193;
+}
+
+
+
+#kelimatorButton span.helixColor12{
+  background: #EB548E;
+}
+
+#kelimatorButton span.helixColor13{
+  background: #EB8654;
+}

@@ -34,15 +34,23 @@ if (isset($_GET["page"]) && $_GET["page"] === "stnc_map_editor_building") {
 function stnc_wp_floor_MainMenu_enqueue_style()
 {   global $ver;
     // wp_enqueue_style( "stnc-style-boot",plugins_url("assets/admin/css/bootstrap.min.css", __FILE__) ,"",$ver );
-    wp_enqueue_style( "stnc-style-style2", plugins_url("assets/admin/css/stnc-admin.css", __FILE__) ,"",$ver);
+    wp_enqueue_style( "helix-style-style2", plugins_url("assets/admin/css/helix-admin.css", __FILE__) ,"",$ver);
+    // wp_enqueue_style( "helix-tooltipstercss", plugins_url("assets/admin/css/tooltipster.bundle.min.css", __FILE__) ,"",$ver);
 }
 
 function stnc_wp_floor_script_in_admin($hook)
 {   global $ver;
-    wp_register_script( "stnc-bootstrap", plugin_dir_url(__FILE__) . "assets/admin/js/bootstrap.bundle.min.js", "",$ver,true);
-    wp_enqueue_script("stnc-bootstrap");
-    wp_register_script( "stnc-my",   plugin_dir_url(__FILE__) . "assets/admin/js/my.js", ["jquery"] );
-    wp_enqueue_script("stnc-my");
+    wp_register_script( "helix-bootstrap", plugin_dir_url(__FILE__) . "assets/admin/js/bootstrap.bundle.min.js", "",$ver,true);
+    wp_enqueue_script("helix-bootstrap");
+
+    // wp_register_script( "helix-tooltipster", plugin_dir_url(__FILE__) . "assets/admin/js/tooltipster.bundle.min.js", "",$ver,true);
+    // wp_enqueue_script("helix-tooltipster");
+
+
+
+    wp_register_script( "helix-my",   plugin_dir_url(__FILE__) . "assets/admin/js/my.js", ["jquery"] );
+    wp_enqueue_script("helix-my");
+
     wp_enqueue_media();
 }
 

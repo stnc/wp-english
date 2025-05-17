@@ -128,8 +128,10 @@ function stnc_wp_floor_adminMenu_explode()
 
         $main_language_decode = json_decode($main_language_data,  false, 512, JSON_BIGINT_AS_STRING);
         $main_language_json = "";
+        $button_html_json = "";
         foreach ($main_language_decode as $key => $value) {
             $main_language_json .=  main_language_html($value);
+            $button_html_json .=  button_html($value, $key);
         }
 
 
