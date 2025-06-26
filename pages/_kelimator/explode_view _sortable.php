@@ -32,53 +32,26 @@ if (isset($_SESSION['stnc_map_flash_msg'])) {
     integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<script src="https://cdn.jsdelivr.net/gh/dbunic/REDIPS_drag@master/redips-drag-min.js"></script>
-  
+
+    <script src="https://sortablejs.github.io/Sortable/Sortable.js"></script>
 
 <script>
 
-// create container
-var redips = {};
-
-// initialization
-redips.init = function () {
-    // set reference to the REDIPS.drag library
-    var rd = REDIPS.drag;
-    // REDIPS.drag initialization
-    rd.init();
-};
-
-// read values from "data-" attributes of dataName
-redips.getData = function (dataName) {
-	// variables
-  var tbl = document.getElementById('table1'),	// reference to the main table
-  		div = tbl.getElementsByTagName('DIV'),		// collect all DIV elements from main table
-      dataValue,
-      arr = [],
-      i;
-      
-  // loop through DIV collection
-  for (i = 0; i < div.length; i++) {
-  	// read data value from current DIV element
-    dataValue = div[i].dataset[dataName];
-    // add value to the array if dataValue exists in HTML attribute
-  	// and array already doesnt contain that value
-    if (dataValue !== undefined && arr.indexOf(dataValue) === -1) {
-			arr.push(dataValue);
-    }
-  }
-  // display uniq values from "data-" attributes
-  alert(dataName + ' - ' + arr.toString());
-};
 
 
-// add onload event listener
-if (window.addEventListener) {
-    window.addEventListener('load', redips.init, false);
-}
-else if (window.attachEvent) {
-    window.attachEvent('onload', redips.init);
-}
+var gridDemo = document.getElementById('gridDemo');
+
+new Sortable(gridDemo, {
+	animation: 150,
+	ghostClass: 'blue-background-class'
+});
+
+
+var listName = document.getElementById('grid').value;
+var wrapper = document.createElement('div');
+wrapper.setAttribute("id", listName);
+Sortable.create(listName, options);
+
 
 </script>
 <style>
@@ -87,49 +60,14 @@ else if (window.attachEvent) {
   cursor: -webkit-grabbing;
 }
 
-
-/* drag objects */
-.redips-drag {
-    cursor: move;
-    margin: auto;
-    background-color: white;
-    text-align: center;
-    font-size: 22pt; /* needed for cloned object */
-    width: 38px;
-    height: 35px;
-    line-height: 35px;
-    /* round corners */
-    border-radius: 4px; /* Opera, Chrome */
-    -moz-border-radius: 4px; /* FF */
-}
-
-/* tables */
-div#redips-drag table {
-    background-color: #ddd;
-    border-collapse: collapse;
-    margin: 10px;
-}
-
-/* table cells */
-div#redips-drag td {
-    border: 1px white solid;
-    height: 50px;
-    text-align: center;
-    font-size: 10pt;
-}
-
-/* green objects */
-.green {
-    border: 2px solid #499B33;
-}
-
-/* orange objects */
-.orange {
-    border: 2px solid #BF6A30;
-}
-
-body {
-    font-family: arial;
+.grid-square {
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	background-color: #fff;
+	border: solid 1px rgb(0,0,0,0.2);
+	padding: 10px;
+	margin: 12px;
 }
 
 
@@ -137,56 +75,31 @@ body {
 </style>
 
 
-
-
-<!-- drag container -->
-<div id="redips-drag">
-    <!-- table1 - content table -->
-    <table id="table1">
-        <colgroup>
-            <col width="50"/>
-            <col width="50"/>
-            <col width="50"/>
-            <col width="50"/>
-            <col width="50"/>
-            <col width="50"/>
-            <col width="50"/>
-            <col width="50"/>
-            <col width="50"/>
-            <col width="50"/>
-        </colgroup>
-        <tbody>
-            <tr>
-                <td><div id="a1" class="redips-drag orange" data-border="border1.jpg" data-division="division1.jpg">a1</div></td>
-                <td><div id="a2" class="redips-drag orange" data-border="border2.jpg" data-division="division1.jpg">a2</div></td>
-                <td><div id="a3" class="redips-drag orange" data-border="border2.jpg" data-division="division2.jpg">a3</div></td>
-                <td><div class="redips-drag orange">O</div></td>
-                <td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-
+<div id="grid" class="row">
+			<h4 class="col-12">Grid Example</h4>
+			<div id="gridDemo" class="col">
+				<div class="grid-square">Item 1</div><!--
+			 --><div class="grid-square">Item 2</div><!--
+			 --><div class="grid-square">Item 3</div><!--
+			 --><div class="grid-square">Item 4</div><!--
+			 --><div class="grid-square">Item 5</div><!--
+			 --><div class="grid-square">Item 6</div><!--
+			 --><div class="grid-square">Item 7</div><!--
+			 --><div class="grid-square">Item 8</div><!--
+			 --><div class="grid-square">Item 9</div><!--
+			 --><div class="grid-square">Item 10</div><!--
+			 --><div class="grid-square">Item 11</div><!--
+			 --><div class="grid-square">Item 12</div><!--
+			 --><div class="grid-square">Item 13</div><!--
+			 --><div class="grid-square">Item 14</div><!--
+			 --><div class="grid-square">Item 15</div><!--
+			 --><div class="grid-square">Item 16</div><!--
+			 --><div class="grid-square">Item 17</div><!--
+			 --><div class="grid-square">Item 18</div><!--
+			 --><div class="grid-square">Item 19</div><!--
+			 --><div class="grid-square">Item 20</div>
+			</div>
+		</div>
 
 <form action="/wp-admin/admin.php?page=helix_explode&st_trigger=store&id=<?php echo  $id ?>" method="post">
     <main class="flex-shrink-0" style="">
