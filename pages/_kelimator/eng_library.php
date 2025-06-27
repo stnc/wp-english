@@ -246,9 +246,12 @@ return '<div class="mb-3 col-md-3">
 
 }
 
-function colon_html($value)
+function colon_html($count)
 {
-return '  <col width="50">';
+
+        return '  <col width="50">';
+    
+
 
 }
 ?>

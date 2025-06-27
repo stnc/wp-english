@@ -34,26 +34,117 @@ if (isset($_SESSION['stnc_map_flash_msg'])) {
 
 <script src="https://cdn.jsdelivr.net/gh/dbunic/REDIPS_drag@master/redips-drag-min.js"></script>
   
-
-
-
-
-
-<table border="1" cellpadding="10">
-<?php
-$rows = 3;
-$cols = 3;
-
-for ($i = 0; $i < $rows; $i++) {
-    echo "<tr>";
-    for ($j = 0; $j < $cols; $j++) {
-        $cellNumber = ($i * $cols) + $j + 1;
-        echo "<td>Hücre $cellNumber</td>";
-    }
-    echo "</tr>";
+<style>
+table {
+  border-collapse: collapse;
+  margin: 20px;
+  font-family: sans-serif;
 }
-?>
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: center;
+}
+th {
+  background-color: #007BFF;
+  color: white;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+</style>
+
+
+<table>
+<colgroup>
+            <col width="50">
+            <col width="50">
+            <col width="50">
+            <col width="50">
+            
+            
+            
+           
+        </colgroup>
+        <tbody>
+  <?php
+
+
+$colors = array("red1", "green1", "blue1", "yellow1","red2", "green2", "blue2", "yellow2", "red3", "green3", "blue3", "yellow3", "red4", "green4", "blue4", "yellow4");
+echo count($colors) . "<br>";
+
+
+
+
+// 4 elemanlı gruplara ayır
+$gruplar = array_chunk($colors, 4);
+
+// Grupları yazdır
+foreach ($gruplar as $index => $grup) {
+    echo "<tr>";
+
+
+            foreach ($grup as $index2 => $val) {
+                echo " <td>$val </td> ";
+            } 
+
+echo "</tr>";
+}
+
+
+
+  ?>
+     </tbody>
 </table>
+
+
+
+--------
+
+
+<table>
+<colgroup>
+            <col width="50">
+            <col width="50">
+            <col width="50">
+            <col width="50">
+            
+            
+            
+           
+        </colgroup>
+        <tbody>
+  <?php
+
+
+$colors = array("red1", "green1", "blue1", "yellow1","red2", "green2", "blue2", "yellow2", "red3", "green3", "blue3", "yellow3", "red4", "green4", "blue4", "yellow4");
+echo count($colors) . "<br>";
+
+
+foreach ($colors as $key => $value) {
+  $i= $key + 1;
+//   echo "<tr>";
+      if ($i % 5 == 0) {
+
+       
+        echo "<tr>
+        <td>$value </td>
+
+      </tr>";
+      } 
+        echo "
+        <td>$value . $i</td>
+
+      ";
+      
+    // echo "</tr>";
+  }
+  ?>
+     </tbody>
+</table>
+
+
+
 
 
 
@@ -176,10 +267,7 @@ for ($i = 0; $i < $rows; $i++) {
 
                             <table id="table1">
         <colgroup>
-            <col width="50">
-            <col width="50">
-            <col width="50">
-            <col width="50">
+        <?php echo $colon ?>
           
             
 

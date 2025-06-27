@@ -63,10 +63,11 @@ function stnc_wp_floor_adminMenu_explode()
 
         $piecesTR =  Strings::split($translate, '~ \s*~');
 
-
+  
         foreach ($piecesTR as $key => $value1) {
             $value1 = Strings::trim($value1);
             $value1 = Strings::lower($value1);
+      
             $translate_language_json .=  html_translate($value1);
         }
 
@@ -139,7 +140,14 @@ function stnc_wp_floor_adminMenu_explode()
 
         $translate_decode = json_decode($translate_data,  false, 512, JSON_BIGINT_AS_STRING);
         $translate_language_json = "";
+        $colon = "";
+
+
+        echo "adet ".$colon;
+
+
         foreach ($translate_decode as $key => $value) {
+            $colon .=  colon_html(count($translate_decode));
             $translate_language_json .= html_translate($value);
         }
 
