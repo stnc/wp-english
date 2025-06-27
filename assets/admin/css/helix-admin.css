@@ -483,5 +483,66 @@ width: 74.609375px; */
 }
 
 /* drag drop start*/
+.glyphicon-move {
+  cursor: move;
+  cursor: -webkit-grabbing;
+}
+
+
+/* drag objects */
+.redips-drag {
+    cursor: move;
+    margin: auto;
+    background-color: white;
+    text-align: center;
+    font-size: 22pt; /* needed for cloned object */
+    width: 38px;
+    height: 35px;
+    line-height: 35px;
+    /* round corners */
+    border-radius: 4px; /* Opera, Chrome */
+    -moz-border-radius: 4px; /* FF */
+}
+.redips-drag2 {
+    cursor: move;
+    margin: auto;
+    background-color: white;
+    text-align: center;
+    font-size: 22pt; /* needed for cloned object */
+
+    line-height: 35px;
+    /* round corners */
+    border-radius: 4px; /* Opera, Chrome */
+    -moz-border-radius: 4px; /* FF */
+}
+
+/* tables */
+div#redips-drag table {
+    background-color: #ddd;
+    border-collapse: collapse;
+    margin: 10px;
+}
+
+/* table cells */
+div#redips-drag td {
+    border: 1px white solid;
+    height: 50px;
+    text-align: center;
+    font-size: 10pt;
+}
+
+/* green objects */
+.green {
+    border: 2px solid #499B33;
+}
+
+/* orange objects */
+.orange {
+    border: 2px solid #BF6A30;
+}
+
+body {
+    font-family: arial;
+}
 
 /* drag drop end*/

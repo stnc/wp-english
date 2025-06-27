@@ -3,7 +3,7 @@
 Plugin Name:  Kelimator
 Plugin URI:	https://github.com/stnc/wp-kat-planlari		
 Description: Kelimator ; kelime islemci 
-Version: 2.4.0
+Version: 0.58
 Author: Selman TUNC
 Text Domain: the-stnc-map
 Domain Path: /languages/

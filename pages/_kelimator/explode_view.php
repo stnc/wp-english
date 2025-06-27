@@ -35,158 +35,66 @@ if (isset($_SESSION['stnc_map_flash_msg'])) {
 <script src="https://cdn.jsdelivr.net/gh/dbunic/REDIPS_drag@master/redips-drag-min.js"></script>
   
 
-<script>
 
-// create container
-var redips = {};
 
-// initialization
-redips.init = function () {
-    // set reference to the REDIPS.drag library
-    var rd = REDIPS.drag;
-    // REDIPS.drag initialization
-    rd.init();
-};
 
-// read values from "data-" attributes of dataName
-redips.getData = function (dataName) {
-	// variables
-  var tbl = document.getElementById('table1'),	// reference to the main table
-  		div = tbl.getElementsByTagName('DIV'),		// collect all DIV elements from main table
-      dataValue,
-      arr = [],
-      i;
-      
-  // loop through DIV collection
-  for (i = 0; i < div.length; i++) {
-  	// read data value from current DIV element
-    dataValue = div[i].dataset[dataName];
-    // add value to the array if dataValue exists in HTML attribute
-  	// and array already doesnt contain that value
-    if (dataValue !== undefined && arr.indexOf(dataValue) === -1) {
-			arr.push(dataValue);
+
+<table border="1" cellpadding="10">
+<?php
+$rows = 3;
+$cols = 3;
+
+for ($i = 0; $i < $rows; $i++) {
+    echo "<tr>";
+    for ($j = 0; $j < $cols; $j++) {
+        $cellNumber = ($i * $cols) + $j + 1;
+        echo "<td>Hücre $cellNumber</td>";
     }
-  }
-  // display uniq values from "data-" attributes
-  alert(dataName + ' - ' + arr.toString());
-};
-
-
-// add onload event listener
-if (window.addEventListener) {
-    window.addEventListener('load', redips.init, false);
+    echo "</tr>";
 }
-else if (window.attachEvent) {
-    window.attachEvent('onload', redips.init);
-}
-
-</script>
-<style>
-    .glyphicon-move {
-  cursor: move;
-  cursor: -webkit-grabbing;
-}
-
-
-/* drag objects */
-.redips-drag {
-    cursor: move;
-    margin: auto;
-    background-color: white;
-    text-align: center;
-    font-size: 22pt; /* needed for cloned object */
-    width: 38px;
-    height: 35px;
-    line-height: 35px;
-    /* round corners */
-    border-radius: 4px; /* Opera, Chrome */
-    -moz-border-radius: 4px; /* FF */
-}
-
-/* tables */
-div#redips-drag table {
-    background-color: #ddd;
-    border-collapse: collapse;
-    margin: 10px;
-}
-
-/* table cells */
-div#redips-drag td {
-    border: 1px white solid;
-    height: 50px;
-    text-align: center;
-    font-size: 10pt;
-}
-
-/* green objects */
-.green {
-    border: 2px solid #499B33;
-}
-
-/* orange objects */
-.orange {
-    border: 2px solid #BF6A30;
-}
-
-body {
-    font-family: arial;
-}
+?>
+</table>
 
 
 
-</style>
-
-
-
-
-<!-- drag container -->
 <div id="redips-drag">
-    <!-- table1 - content table -->
-    <table id="table1">
+<table id="table2">
         <colgroup>
-            <col width="50"/>
-            <col width="50"/>
-            <col width="50"/>
-            <col width="50"/>
-            <col width="50"/>
-            <col width="50"/>
-            <col width="50"/>
-            <col width="50"/>
-            <col width="50"/>
-            <col width="50"/>
+            <col width="50">
+            <col width="50">
+            <col width="50">
+            <col width="50">
+            
+            
+            
+           
         </colgroup>
         <tbody>
             <tr>
-                <td><div id="a1" class="redips-drag orange" data-border="border1.jpg" data-division="division1.jpg">a1</div></td>
-                <td><div id="a2" class="redips-drag orange" data-border="border2.jpg" data-division="division1.jpg">a2</div></td>
-                <td><div id="a3" class="redips-drag orange" data-border="border2.jpg" data-division="division2.jpg">a3</div></td>
-                <td><div class="redips-drag orange">O</div></td>
-                <td></td><td></td><td></td><td></td><td></td><td></td>
+                <td><div id="a1" class="redips-drag orange" data-border="border1.jpg" data-division="division1.jpg" style="border-style: solid; cursor: move;">a1</div></td>
+                <td><div id="a2" class="redips-drag orange" data-border="border2.jpg" data-division="division1.jpg" style="border-style: solid; cursor: move;">a2</div></td>
+                <td style=""><div id="a3" class="redips-drag orange" data-border="border2.jpg" data-division="division2.jpg" style="border-style: solid; cursor: move;">a3</div></td>
+                <td style=""><div id="a3" class="redips-drag orange" data-border="border2.jpg" data-division="division2.jpg" style="border-style: solid; cursor: move;">a4</div></td>
+                
+                
+            </tr>
+            
+            
+            <tr>
+                <td></td><td></td><td style=""></td><td style=""></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td><td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td style=""></td><td style=""></td>
             </tr>
             <tr>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-            </tr>
-            <tr>
-                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td></td><td></td><td style=""></td><td style=""></td>
+            </tr>   
+             <tr>
+                <td></td><td></td><td style=""></td><td style=""></td>
             </tr>
         </tbody>
     </table>
 </div>
-
-
 
 <form action="/wp-admin/admin.php?page=helix_explode&st_trigger=store&id=<?php echo  $id ?>" method="post">
     <main class="flex-shrink-0" style="">
@@ -210,7 +118,7 @@ body {
                         <div class="card-header">card olarak</div>
                         <div class="card-body">
                             <h5 class="card-title"><?php echo  $main_language  ?></h5>
-                            <div class="row g-2 data_main_language"  id="data_main_language">
+                            <div class="row g-2 data_main_language "  id="data_main_language">
                         
                                 <?php echo $button_html_json ?>
 
@@ -240,13 +148,57 @@ body {
                     <div class="card" style="max-width: 100%;">
                         <div class="card-header">Translate</div>
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo  $translate  ?></h5>
-                            <div class="row g-2 data_translate_language" id="sortable">
-                            <div class="grid-square" style="" draggable="false">Item 1</div>
-                            <div class="grid-square">Item 2</div>
-                                <?php echo $translate_language_json ?>
+                            <h5 class="card-title"><?php echo  $translate  ?> </h5>
+                          
+                            <div class="row g-2 data_translate_language redips-drag2">
+        
+                            <?php echo $translate_language_json ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                           
 
                             </div>
+
+
+
+                            <table id="table1">
+        <colgroup>
+            <col width="50">
+            <col width="50">
+            <col width="50">
+            <col width="50">
+          
+            
+
+           
+        </colgroup>
+        <tbody>
+            <tr>
+
+        
+                
+            </tr>
+            
+            
+
+        </tbody>
+    </table>
+
+
+
                         </div>
                     </div>
                 </div>

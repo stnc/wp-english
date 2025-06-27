@@ -1,5 +1,5 @@
 <?php
-$ver="2.4.0";
+$ver="0.59";
 
 ///////////////////////////////////////////////////////
 /////--------- ADMIN 
@@ -48,7 +48,7 @@ function stnc_wp_floor_script_in_admin($hook)
 
 
 
-    wp_register_script( "helix-my",   plugin_dir_url(__FILE__) . "assets/admin/js/my.js", ["jquery"] );
+    wp_register_script( "helix-my",   plugin_dir_url(__FILE__) . "assets/admin/js/my.js", ["jquery"],$ver ,true);
     wp_enqueue_script("helix-my");
 
     wp_enqueue_media();

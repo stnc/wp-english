@@ -184,7 +184,10 @@ function conjunctions($value)
 
 function main_language_html($value)
 {
-return '<div class="mb-3 col-md-4">
+
+
+    
+return '<div class="mb-3 col-md-3">
         <input type="text" class="form-control" name="main_language_json[]" value="'.  $value .'">
         <a href="javascript:void(0);" class="remove_button"><img src="/wp-content/uploads/2025/03/remove-icon.png"></a>
     </div>';
@@ -236,10 +239,16 @@ return '<div class="mb-2 col-md-2">
 
 function html_translate($value)
 {
-return '<div class="mb-3 col-md-4">
+return '<div class="mb-3 col-md-3">
         <input type="text"  class="form-control" name="translate_language_json[]" value="'.  $value .'">
         <a href="javascript:void(0);" class="remove_button"><img src="/wp-content/uploads/2025/03/remove-icon.png"></a>
     </div>';
+
+}
+
+function colon_html($value)
+{
+return '  <col width="50">';
 
 }
 ?>
