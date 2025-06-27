@@ -131,7 +131,7 @@ function stnc_wp_floor_adminMenu_explode()
         $main_language_json = "";
         $button_html_json = "";
         foreach ($main_language_decode as $key => $value) {
-            $colon_json .=  colon_html($value);
+          
             $main_language_json .=  main_language_html($value);
             $button_html_json .=  button_html($value, $key);
         }
@@ -139,17 +139,27 @@ function stnc_wp_floor_adminMenu_explode()
 
 
         $translate_decode = json_decode($translate_data,  false, 512, JSON_BIGINT_AS_STRING);
-        $translate_language_json = "";
-        $colon = "";
+        $translate_language_json = " ";
+      
 
 
-        echo "adet ".$colon;
+        $gruplar = array_chunk($translate_decode, 4);
 
-
-        foreach ($translate_decode as $key => $value) {
-            $colon .=  colon_html(count($translate_decode));
-            $translate_language_json .= html_translate($value);
+        // Grupları yazdır
+        foreach ($gruplar as $index => $translate_decode) {
+            $translate_language_json .= "<tr>";
+        
+            foreach ($translate_decode as $key => $value) {
+            
+                $translate_language_json .= "<td>".html_translate($value) ."</td>" ;
+            }
+        
+            $translate_language_json .= "</tr>";
         }
+        
+
+
+ 
 
 
 

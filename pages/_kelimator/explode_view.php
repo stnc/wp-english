@@ -32,8 +32,6 @@ if (isset($_SESSION['stnc_map_flash_msg'])) {
     integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<script src="https://cdn.jsdelivr.net/gh/dbunic/REDIPS_drag@master/redips-drag-min.js"></script>
-  
 <style>
 table {
   border-collapse: collapse;
@@ -70,7 +68,7 @@ tr:nth-child(even) {
   <?php
 
 
-$colors = array("red1", "green1", "blue1", "yellow1","red2", "green2", "blue2", "yellow2", "red3", "green3", "blue3", "yellow3", "red4", "green4", "blue4", "yellow4");
+$colors = array("red1", "green1", "blue1", "yellow1","red2", "green2", "blue2", "yellow2", "red3", "green3", "blue3", "yellow3", "red4", "green4");
 echo count($colors) . "<br>";
 
 
@@ -99,57 +97,10 @@ echo "</tr>";
 
 
 
---------
 
 
-<table>
-<colgroup>
-            <col width="50">
-            <col width="50">
-            <col width="50">
-            <col width="50">
-            
-            
-            
-           
-        </colgroup>
-        <tbody>
-  <?php
-
-
-$colors = array("red1", "green1", "blue1", "yellow1","red2", "green2", "blue2", "yellow2", "red3", "green3", "blue3", "yellow3", "red4", "green4", "blue4", "yellow4");
-echo count($colors) . "<br>";
-
-
-foreach ($colors as $key => $value) {
-  $i= $key + 1;
-//   echo "<tr>";
-      if ($i % 5 == 0) {
-
-       
-        echo "<tr>
-        <td>$value </td>
-
-      </tr>";
-      } 
-        echo "
-        <td>$value . $i</td>
-
-      ";
-      
-    // echo "</tr>";
-  }
-  ?>
-     </tbody>
-</table>
-
-
-
-
-
-
-<div id="redips-drag">
-<table id="table2">
+<div id="redips-drag1">
+<table id="table2444">
         <colgroup>
             <col width="50">
             <col width="50">
@@ -241,14 +192,33 @@ foreach ($colors as $key => $value) {
                         <div class="card-body">
                             <h5 class="card-title"><?php echo  $translate  ?> </h5>
                           
-                            <div class="row g-2 data_translate_language redips-drag2">
+                            <div id="redips-drag" class="row g-2 data_translate_language">
         
-                            <?php echo $translate_language_json ?>
+                         
 
 
 
 
 
+                            <table id="table11">
+        <colgroup>
+        <col width="50">
+            <col width="50">
+            <col width="50">
+            <col width="50">
+            
+          
+            
+
+           
+        </colgroup>
+        <tbody>
+        <?php echo $translate_language_json ?>
+            
+            
+
+        </tbody>
+    </table>
 
 
 
@@ -263,27 +233,6 @@ foreach ($colors as $key => $value) {
 
                             </div>
 
-
-
-                            <table id="table1">
-        <colgroup>
-        <?php echo $colon ?>
-          
-            
-
-           
-        </colgroup>
-        <tbody>
-            <tr>
-
-        
-                
-            </tr>
-            
-            
-
-        </tbody>
-    </table>
 
 
 
@@ -339,3 +288,81 @@ foreach ($colors as $key => $value) {
 </form>
 
 </main>
+
+
+
+<script src="https://cdn.jsdelivr.net/gh/dbunic/REDIPS_drag@master/redips-drag-min.js"></script>
+  
+<script>
+    /**  DRAG AND DROP   */  
+//https://jsfiddle.net/v4qhdmzL/83/
+
+
+// create container
+var redips = {};
+
+// initialization
+redips.init = function () {
+    // set reference to the REDIPS.drag library
+    var rd = REDIPS.drag;
+    // REDIPS.drag initialization
+    rd.init();
+};
+
+// read values from "data-" attributes of dataName
+redips.getData = function (dataName) {
+	// variables
+  var tbl = document.getElementById('table11'),	// reference to the main table
+  		div = tbl.getElementsByTagName('DIV'),		// collect all DIV elements from main table
+      dataValue,
+      arr = [],
+      i;
+      
+  // loop through DIV collection
+  for (i = 0; i < div.length; i++) {
+  	// read data value from current DIV element
+    dataValue = div[i].dataset[dataName];
+    // add value to the array if dataValue exists in HTML attribute
+  	// and array already doesnt contain that value
+    if (dataValue !== undefined && arr.indexOf(dataValue) === -1) {
+			arr.push(dataValue);
+    }
+  }
+  // display uniq values from "data-" attributes
+  alert(dataName + ' - ' + arr.toString());
+};
+
+
+redips.droppedBefore = function (targetCell) {
+        // test if target cell is occupied and set reference to the dragged DIV element
+        var empty = redips.emptyCell(targetCell, 'test'),
+            obj = redips.obj;
+        // if target cell is not empty
+        if (!empty) {
+            // confirm question should be wrapped in setTimeout because of
+            // removeChild and return false below
+            setTimeout(function () {
+                // ask user if he wants to overwrite TD (cell is already occupied)
+                if (confirm('Overwrite content?')) {
+                    redips.emptyCell(targetCell);
+                }
+                // append previously removed DIV to the target cell
+                targetCell.appendChild(obj);
+            }, 50);
+            // remove dragged DIV from from DOM (node still exists in memory)
+            obj.parentNode.removeChild(obj);
+            // return false (deleted DIV will not be returned to source cell)
+            return false;
+        }
+    };
+
+
+// add onload event listener
+if (window.addEventListener) {
+    window.addEventListener('load', redips.init, false);
+}
+else if (window.attachEvent) {
+    window.attachEvent('onload', redips.init);
+}
+
+</script>

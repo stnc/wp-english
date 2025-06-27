@@ -496,25 +496,13 @@ width: 74.609375px; */
     background-color: white;
     text-align: center;
     font-size: 22pt; /* needed for cloned object */
-    width: 38px;
-    height: 35px;
+ 
     line-height: 35px;
     /* round corners */
     border-radius: 4px; /* Opera, Chrome */
     -moz-border-radius: 4px; /* FF */
 }
-.redips-drag2 {
-    cursor: move;
-    margin: auto;
-    background-color: white;
-    text-align: center;
-    font-size: 22pt; /* needed for cloned object */
 
-    line-height: 35px;
-    /* round corners */
-    border-radius: 4px; /* Opera, Chrome */
-    -moz-border-radius: 4px; /* FF */
-}
 
 /* tables */
 div#redips-drag table {
