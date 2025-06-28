@@ -63,13 +63,24 @@ function stnc_wp_floor_adminMenu_explode()
 
         $piecesTR =  Strings::split($translate, '~ \s*~');
 
-  
-        foreach ($piecesTR as $key => $value1) {
-            $value1 = Strings::trim($value1);
-            $value1 = Strings::lower($value1);
-      
-            $translate_language_json .=  html_translate($value1);
+
+
+        $gruplar = array_chunk($piecesTR, 4);
+
+        // Grupları yazdır
+        foreach ($gruplar as $index => $translate_decode) {
+            $translate_language_json .= "<tr>";
+        
+            foreach ($translate_decode as $key => $value1) {
+                $value1 = Strings::trim($value1);
+                $value1 = Strings::lower($value1);
+                $translate_language_json .= "<td>".html_translate($value1) ."</td>" ;
+            }
+        
+            $translate_language_json .= "</tr>";
         }
+
+
 
         // echo "<pre>";
         include('explode_view.php');
