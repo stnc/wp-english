@@ -5,6 +5,7 @@
 use Nette\Utils\Arrays;
 use Nette\Utils\Strings;
 
+// Other name under which transcripts, certificates, and former applications may be listed: 
 function stnc_wp_floor_adminMenu_explode()
 {
 
