@@ -8,12 +8,7 @@ Author: Selman TUNC
 Text Domain: the-stnc-map
 Domain Path: /languages/
 
--- tenplate yazmak icin ama kullanilmiyor 
-* Template Name: Firmalar Listesi
-* Description: firmalar listesi sayfası 
-* @package WordPress
-* @subpackage stnc-kiosk
-* @since stnc-building 2.0
+
 */
 
 error_reporting(E_ALL);
@@ -52,18 +47,14 @@ include ('pages/_kelimator/explode_actions.php');
 
 
 
-include ('pages/stnc_map_editor_building/actions.php');
-include ('pages/stnc_map_view/actions.php');
-include ('pages/stnc_map_view/ajax.php');
 
 
-require_once "pages/company_list_data_table/stncForm_company_list.php";
-require_once "pages/company_empty_list_data_table/stncForm_empty_company_list.php";
+
+require_once "pages/word_list_data_table/word_list.php";
 require_once "pages/about/stncForm-adminMenu_About.php";
-require_once "pages/update/update_pack.php";
+// // require_once "pages/update/update_pack.php";
 
-require_once "pages/shortcut-classic/admin-menu.php";
-require_once "pages/shortcut-classic/company-frontpage.php";
+
 
 require_once "pages/shortcut-minimal/company-frontpage.php";
 

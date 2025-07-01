@@ -1,3 +1,16 @@
+<script>
+    //https://jsfiddle.net/5p8k4vno/
+function copyData(containerid) {
+  var range = document.createRange();
+  range.selectNode(containerid); //changed here
+  window.getSelection().removeAllRanges(); 
+  window.getSelection().addRange(range); 
+  document.execCommand("copy");
+  window.getSelection().removeAllRanges();
+}
+
+</script>
+
 <?php
 // https://codepen.io/desandro/pen/YzPMBx
 // uses
