@@ -212,18 +212,18 @@ add_shortcode('helix_conjunction', 'subscribe_link');
 
 
 
-function helix_shortcode_exists($value){
+// function helix_shortcode_exists($value){
 
  
-    if ( shortcode_exists( 'gallery' ) ){
-        return do_shortcode( $value );
-    } else {
-        return $value;
-    }
+//     if ( shortcode_exists( 'gallery' ) ){
+//         return do_shortcode( $value );
+//     } else {
+//         return $value;
+//     }
 
 
 
-}
+// }
 
 
 
