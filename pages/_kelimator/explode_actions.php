@@ -11,8 +11,8 @@ function stnc_wp_floor_adminMenu_explode()
 
     include('eng_library.php');
 
-    if (file_exists('../vendor/autoload.php')) {
-        require '../vendor/autoload.php';
+    if (file_exists(__DIR__.'/../../vendor/autoload.php')) {
+        require __DIR__.'/../../vendor/autoload.php';
     } else {
         echo "<h1>Lütfen composer.json ı yükleyin </h1>";
         echo "<p>Örnekler <a href='https://getcomposer.org/doc/00-intro.md#globally'>https://getcomposer.org/doc/00-intro.md#globally</a></p>";

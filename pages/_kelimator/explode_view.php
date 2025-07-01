@@ -53,90 +53,10 @@ tr:nth-child(even) {
 </style>
 
 
-<table>
-<colgroup>
-            <col width="50">
-            <col width="50">
-            <col width="50">
-            <col width="50">
-            
-            
-            
-           
-        </colgroup>
-        <tbody>
-  <?php
-
-
-$colors = array("red1", "green1", "blue1", "yellow1","red2", "green2", "blue2", "yellow2", "red3", "green3", "blue3", "yellow3", "red4", "green4");
-echo count($colors) . "<br>";
 
 
 
 
-// 4 elemanlı gruplara ayır
-$gruplar = array_chunk($colors, 4);
-
-// Grupları yazdır
-foreach ($gruplar as $index => $grup) {
-    echo "<tr>";
-
-
-            foreach ($grup as $index2 => $val) {
-                echo " <td>$val </td> ";
-            } 
-
-echo "</tr>";
-}
-
-
-
-  ?>
-     </tbody>
-</table>
-
-
-
-
-
-<div id="redips-drag1">
-<table id="table2444">
-        <colgroup>
-            <col width="50">
-            <col width="50">
-            <col width="50">
-            <col width="50">
-            
-            
-            
-           
-        </colgroup>
-        <tbody>
-            <tr>
-                <td><div id="a1" class="redips-drag orange" data-border="border1.jpg" data-division="division1.jpg" style="border-style: solid; cursor: move;">a1</div></td>
-                <td><div id="a2" class="redips-drag orange" data-border="border2.jpg" data-division="division1.jpg" style="border-style: solid; cursor: move;">a2</div></td>
-                <td style=""><div id="a3" class="redips-drag orange" data-border="border2.jpg" data-division="division2.jpg" style="border-style: solid; cursor: move;">a3</div></td>
-                <td style=""><div id="a3" class="redips-drag orange" data-border="border2.jpg" data-division="division2.jpg" style="border-style: solid; cursor: move;">a4</div></td>
-                
-                
-            </tr>
-            
-            
-            <tr>
-                <td></td><td></td><td style=""></td><td style=""></td>
-            </tr>
-            <tr>
-                <td></td><td></td><td style=""></td><td style=""></td>
-            </tr>
-            <tr>
-                <td></td><td></td><td style=""></td><td style=""></td>
-            </tr>   
-             <tr>
-                <td></td><td></td><td style=""></td><td style=""></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
 
 <form action="/wp-admin/admin.php?page=helix_explode&st_trigger=store&id=<?php echo  $id ?>" method="post">
     <main class="flex-shrink-0" style="">

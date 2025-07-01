@@ -19,6 +19,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
         $tense_id = isset($_POST["tense_id"]) ? sanitize_text_field($_POST["tense_id"]) : 1;
         $vocable_level = isset($_POST["vocable_level_id"]) ? sanitize_text_field($_POST["vocable_level_id"]) : 1;
         $main_language = isset($_POST["main_language"]) ? sanitize_text_field($_POST["main_language"]) : " ";
+        $source = isset($_POST["source"]) ? sanitize_text_field($_POST["source"]) : " ";
         $translate = isset($_POST["translate"]) ? sanitize_text_field($_POST["translate"]) : " ";
         // $web_permission = '[{\"door_number_permission\":false,\"square_meters_permission\":false,\"email_permission\":false,\"phone_permission\":false,\"mobile_phone_permission\":false,\"web_site_permission\":false,\"translate_permission\":false,\"main_language_permission\":false}]';
         // $data =  str_replace([" ", '\\'], "", $web_permission);
@@ -55,6 +56,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
         $translate = isset($_POST["translate"]) ? sanitize_text_field($_POST["translate"]) : " ";
 
         $main_language = isset($_POST["main_language"]) ? sanitize_text_field($_POST["main_language"]) : " ";
+        $source = isset($_POST["source"]) ? sanitize_text_field($_POST["source"]) : " ";
 
 
 
@@ -66,6 +68,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
                 'tense_id' =>  $tense_id,
                 'translate' =>   $translate,
                 'main_language' =>   $main_language,
+                'source' =>   $source,
             ),
         );
 
@@ -102,6 +105,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
         $tense_id =  $data->tense_id;
         $vocable_level =  $data->vocable_level_id;
         $main_language =  $data->main_language;
+        $source =  $data->source;
         $translate =  $data->translate;
         $is_json =  $data->is_json;
 
@@ -155,6 +159,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
 
         $translate = isset($_POST["translate"]) ? sanitize_text_field($_POST["translate"]) : " ";
         $main_language = isset($_POST["main_language"]) ? sanitize_text_field($_POST["main_language"]) : " ";
+        $source = isset($_POST["source"]) ? sanitize_text_field($_POST["source"]) : " ";
         $level_cat_id = isset($_POST["level_cat_id"]) ? sanitize_text_field($_POST["level_cat_id"]) : 1;
         $vocable_level = isset($_POST["vocable_level"]) ? sanitize_text_field($_POST["vocable_level"]) : 1;
         $tense_id = isset($_POST["tense_id"]) ? sanitize_text_field($_POST["tense_id"]) : 1;
@@ -174,6 +179,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
                 'tense_id' =>  $tense_id,
                 'translate' =>   $translate,
                 'main_language' =>   $main_language,
+                'source' =>   $source,
             ),
             array('id' =>  $id1)
         );

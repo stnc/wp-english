@@ -127,6 +127,15 @@ include("_header-show.php");
                         </div>
                         <hr>
 
+
+                        <div class="form-group">
+                            <label for="source"><strong><?php esc_html_e('source', 'the-stnc-map') ?></strong></label>
+
+                            <textarea class="form-control" name="source" id="source" rows="3"><?php echo $source ?></textarea>
+                        </div>
+
+
+
                     </div>
                 </div>
 
