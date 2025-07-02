@@ -194,7 +194,7 @@ return '<div class="mb-3 col-md-3">
 }
 
 
-function subscribe_link($atts){
+function helix_conjunction_shortcode($atts){
     $default = array(
         'value' => '#',
     );
@@ -205,7 +205,7 @@ function subscribe_link($atts){
 }
 
 
-add_shortcode('helix_conjunction', 'subscribe_link');
+add_shortcode('helix_conjunction', 'helix_conjunction_shortcode');
 
 
 

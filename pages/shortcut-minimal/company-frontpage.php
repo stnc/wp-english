@@ -16,6 +16,26 @@ function copyData(containerid) {
 
 //http://education.test/test-2/ 
 
+
+
+function helix_conjunction_shortcode($atts){
+    $default = array(
+        'value' => '#',
+    );
+
+    $a = shortcode_atts($default, $atts);
+
+    return '<a style="color: black;" href="'.$a['value'].'">'.$a['value'].'</a>' ;
+}
+
+
+add_shortcode('helix_conjunction', 'helix_conjunction_shortcode');
+
+
+
+
+
+
 function button_html($value, $no)
 {
 return '<div class="mb-2 col-md-2">
