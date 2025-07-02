@@ -248,3 +248,4 @@ return '<div class="redips-drag orange"  style="border-style: solid; cursor: mov
  }
 ?>
 
+button_html
