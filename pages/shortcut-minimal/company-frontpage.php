@@ -18,34 +18,33 @@ function copyData(containerid) {
 
 
 
-function helix_conjunction_shortcode($atts){
-    $default = array(
-        'value' => '#',
-    );
+// function helix_conjunction_shortcode($atts){
+//     $default = array(
+//         'value' => '#',
+//     );
 
-    $a = shortcode_atts($default, $atts);
+//     $a = shortcode_atts($default, $atts);
 
-    return '<a style="color: black;" href="'.$a['value'].'">'.$a['value'].'</a>' ;
-}
-
-
-add_shortcode('helix_conjunction', 'helix_conjunction_shortcode');
+//     return '<a style="color: black;" href="'.$a['value'].'">'.$a['value'].'</a>' ;
+// }
 
 
+// add_shortcode('helix_conjunction', 'helix_conjunction_shortcode');
 
 
 
 
-function button_html($value, $no)
-{
-return '<div class="mb-2 col-md-2">
-
-    <span id="demo-default" class="tooltipstered   helixColor'.  $no .'">'.do_shortcode( $value ).' </span>
-    </div>';
-}
 
 
-add_shortcode( "helix_word",  "helix_word_shortcode");
+// function button_html($value, $no)
+// {
+// return '<div class="mb-2 col-md-2">
+
+//     <span id="demo-default" class="tooltipstered   helixColor'.  $no .'">'.do_shortcode( $value ).' </span>
+//     </div>';
+// }
+
+
 
 
 /**
@@ -90,4 +89,7 @@ echo     $button_html_json ;
 
 
 <?php
+
+add_shortcode( "helix_word",  "helix_word_shortcode");
+
 }

@@ -80,7 +80,7 @@ tr:nth-child(even) {
                         <div class="card-header">card olarak</div>
                         <div class="card-body">
                             <h5 class="card-title"><?php echo  $main_language  ?></h5>
-                            <div class="row g-2 data_main_language "  id="data_main_language">
+                            <div class="row2 g-2 data_main_language "  id="data_main_language ">
                         
                                 <?php echo $button_html_json ?>
 

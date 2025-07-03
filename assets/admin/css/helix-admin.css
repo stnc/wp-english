@@ -1,310 +1,6 @@
 
 
 
-/**
-*** SIMPLE GRID
-*** (C) ZACH stnc-colE 2016
-**/
-
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
-
-/* UNIVERSAL */
-/* 
-html,
-body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  left: 0;
-  top: 0;
-  font-size: 100%;
-} */
-
-/* ROOT FONT STYLES */
-
-/* * {
-  font-family: 'Lato', Helvetica, sans-serif;
-  stnc-color: #333447;
-  line-height: 1.5;
-} */
-
-/* TYPOGRAPHY */
-
-/* h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.375rem;
-}
-
-h4 {
-  font-size: 1.125rem;
-}
-
-h5 {
-  font-size: 1rem;
-}
-
-h6 {
-  font-size: 0.875rem;
-} */
-
-p {
-  font-size: 1.125rem;
-  font-weight: 200;
-  line-height: 1.8;
-}
-
-.font-light {
-  font-weight: 300;
-}
-
-.font-regular {
-  font-weight: 400;
-}
-
-.font-heavy {
-  font-weight: 700;
-}
-
-/* POSITIONING */
-
-.left {
-  text-align: left;
-}
-
-.right {
-  text-align: right;
-}
-
-.center {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.justify {
-  text-align: justify;
-}
-
-/* ==== GRID SYSTEM ==== */
-
-
-.stnc-container-fluid, .stnc-container-lg, .stnc-container-md, .stnc-container-sm, .stnc-container-xl{
-    width: 100%;
-    padding-right: var(--bs-gutter-x,.75rem);
-    padding-left: var(--bs-gutter-x,.75rem);
-    margin-right: auto;
-    margin-left: auto;
-  }
-
-
-.stnc-container {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.stnc-row {
-  position: relative;
-  width: 100%;
-}
-
-.stnc-row [class^="stnc-col"] {
-  float: left;
-  margin: 0.5rem 2%;
-  min-height: 0.125rem;
-}
-
-.stnc-col-1,
-.stnc-col-2,
-.stnc-col-3,
-.stnc-col-4,
-.stnc-col-5,
-.stnc-col-6,
-.stnc-col-7,
-.stnc-col-8,
-.stnc-col-9,
-.stnc-col-10,
-.stnc-col-11,
-.stnc-col-12 {
-  width: 96%;
-}
-
-.stnc-col-1-sm {
-  width: 4.33%;
-}
-
-.stnc-col-2-sm {
-  width: 12.66%;
-}
-
-.stnc-col-3-sm {
-  width: 21%;
-}
-
-.stnc-col-4-sm {
-  width: 29.33%;
-}
-
-.stnc-col-5-sm {
-  width: 37.66%;
-}
-
-.stnc-col-6-sm {
-  width: 46%;
-}
-
-.stnc-col-7-sm {
-  width: 54.33%;
-}
-
-.stnc-col-8-sm {
-  width: 62.66%;
-}
-
-.stnc-col-9-sm {
-  width: 71%;
-}
-
-.stnc-col-10-sm {
-  width: 79.33%;
-}
-
-.stnc-col-11-sm {
-  width: 87.66%;
-}
-
-.stnc-col-12-sm {
-  width: 96%;
-}
-
-.stnc-row::after {
-	content: "";
-	display: table;
-	clear: both;
-}
-
-.hidden-sm {
-  display: none;
-}
-
-@media only screen and (min-width: 33.75em) {  /* 540px */
-  .stnc-container {
-    width: 80%;
-  }
-}
-
-@media only screen and (min-width: 45em) {  /* 720px */
-  .stnc-col-1 {
-    width: 4.33%;
-  }
-
-  .stnc-col-2 {
-    width: 12.66%;
-  }
-
-  .stnc-col-3 {
-    width: 21%;
-  }
-
-  .stnc-col-4 {
-    width: 29.33%;
-  }
-
-  .stnc-col-5 {
-    width: 37.66%;
-  }
-
-  .stnc-col-6 {
-    width: 46%;
-  }
-
-  .stnc-col-7 {
-    width: 54.33%;
-  }
-
-  .stnc-col-8 {
-    width: 62.66%;
-  }
-
-  .stnc-col-9 {
-    width: 71%;
-  }
-
-  .stnc-col-10 {
-    width: 79.33%;
-  }
-
-  .stnc-col-11 {
-    width: 87.66%;
-  }
-
-  .stnc-col-12 {
-    width: 96%;
-  }
-
-  .hidden-sm {
-    display: block;
-  }
-}
-
-@media only screen and (min-width: 60em) { /* 960px */
-  .stnc-container {
-    width: 75%;
-    max-width: 60rem;
-  }
-}
-
-
-
-
-
-/**
-*** stnc style
-***
-**/
-
-
-.stnc-footer {
-    padding: 21px 45px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--st-background-primary);
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: 10;
-    box-shadow: 0px -4px 8px -3px rgb(0 0 0 / 5%), 0px -2px 6px -2px rgb(0 0 0 / 5%);
-}
-
-.stnc-title {
-    color: #2381BF;
-    font-size: 25px;
-    font-weight: 300;
-}
-
-.stnc-title span {
-    font-size: 23px;
-    color: #006DB5;
-    font-weight: bold;
-}
-
-.stnc-card {
-    border-radius: 120px;
-    width: 140px;
-    margin-top: 0!important;
-    padding: 0!important;
-}
-
 
 .stnc-header-page #adminmenumain,
 .stnc-header-page #wpadminbar,
@@ -328,161 +24,116 @@ html.wp-toolbar {
 }
 
 
-#ex-040-stage {
-    /* width: 100%; */
-    position: relative;
-    display: block;
+
+
+
+
+/* ---------------------------- helix colorized start ---------------------------*/
+
+
+
+
+/* ---- isotope ---- */
+
+.grid {
+  border: 1px solid #333;
 }
 
-/* kurulumda boyutlandirma buradan da verilebilri  */
-#ex-040-draggable {
-    /* bottom: 122px;
-height: 20px;
-left: 30px;
-right: 104.609375px;
-top: 102px;
-width: 74.609375px; */
-    border-radius: 20px;
-    position: absolute;
-}
-
-#ex-040-wall2 {
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
-.col>.stage-m {
-    margin-bottom: 0;
-}
-
-.stage-m-size {
-    width: 1120px;
-    height: 924px;
-
-}
-
-
-
-
-/*eklenen alt ksimlar selman*/
-
-
-
-.draggable {
-    display: inline-block;
-    padding: 3px 7px;
-    font-weight: bold;
-    color: white;
-    background-color: indianred;
-}
-
-
-
-.stage-m {
-    background-color: #d4d4d4;
-    margin-bottom: 1em;
-}
-
-#ex-040-wall2 path {
-    fill: #fff;
-}
-
-
-.bg-black{
-    background-color:#000;
-    color:#fff;
-}
-
-
-#kelimatorButton span {
+/* clear fix */
+.isotope:after {
+  content: '';
   display: block;
-
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-
-  background: #ff5e3c;
-  color: #fff;
-  font-size: 0.8em;
-  line-height: 1em;
-  font-weight: 700;
-  padding: 10px 10px;
-  text-align: center;
-
-
-
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  + -o-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
+  clear: both;
 }
 
-#kelimatorButton span.helixColor0{
-  background: #2563eb;
+/* ---- .element-item ---- */
+
+.element-item {
+  position: relative;
+  float: left!important;
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  padding: 10px;
+  background: #888;
+  color: #262524;
 }
 
-#kelimatorButton span.helixColor1{
-  background: #8BF257;
+.element-item > * {
+  margin: 0;
+  padding: 0;
 }
 
-#kelimatorButton span.helixColor2{
-  background: #EB7725;
+.element-item .name {
+  position: absolute;
+  left: 5px;
+  top: 80px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 12px;
+  font-weight: normal;
 }
 
-
-#kelimatorButton span.helixColor3{
-  background: #EBDA25;
+.element-item .symbol {
+  position: absolute;
+  left: 5px;
+  top: 35px;
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
 }
 
-
-#kelimatorButton span.helixColor4{
-  background: #CD25EB;
+.element-item .number {
+  position: absolute;
+  right: 8px;
+  top: 5px;
 }
 
-
-#kelimatorButton span.helixColor5{
-  background: #72ED46;
+.element-item .weight {
+  position: absolute;
+  left: 10px;
+  top: 76px;
+  font-size: 12px;
 }
 
-
-#kelimatorButton span.helixColor6{
-  background: #EB4574;
-}
-
-
-#kelimatorButton span.helixColor7{
-  background: #EB8245;
-}
-
-#kelimatorButton span.helixColor8{
-  background: #BD64F0;
-}
-
-#kelimatorButton span.helixColor9{
-  background: #EBCF61;
-}
-
-#kelimatorButton span.helixColor10{
-  background: #93EB61;
-}
-
-#kelimatorButton span.helixColor11{
-  background: #EB6193;
-}
+.element-item.helixColor1          { background: #F00; background: hsl(   0, 100%, 50%); }
+.element-item.helixColor2 { background: #F80; background: hsl(  36, 100%, 50%); }
+.element-item.helixColor3      { background: #FF0; background: hsl(  72, 100%, 50%); }
+.element-item.helixColor4        { background: #0F0; background: hsl( 108, 100%, 50%); }
+.element-item.helixColor5      { background: #0F8; background: hsl( 144, 100%, 50%); }
+.element-item.helixColor6 { background: #0FF; background: hsl( 180, 100%, 50%); }
+.element-item.helixColor7       { background: #08F; background: hsl( 216, 100%, 50%); }
+.element-item.diatohelixColor8 mic        { background: #00F; background: hsl( 252, 100%, 50%); }
+.element-item.helixColor9         { background: #F0F; background: hsl( 288, 100%, 50%); }
+.element-item.helixColor10      { background: #F08; background: hsl( 324, 100%, 50%); }
 
 
 
-#kelimatorButton span.helixColor12{
-  background: #EB548E;
-}
+/* ---------------------------- helix colorized end ---------------------------*/
 
-#kelimatorButton span.helixColor13{
-  background: #EB8654;
-}
 
-/* drag drop start*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------- drag drop start ---------------------------*/
 .glyphicon-move {
   cursor: move;
   cursor: -webkit-grabbing;
@@ -529,8 +180,5 @@ div#redips-drag td {
     border: 2px solid #BF6A30;
 }
 
-body {
-    font-family: arial;
-}
 
 /* drag drop end*/

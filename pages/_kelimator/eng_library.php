@@ -30,7 +30,7 @@ function modal_verbs($value)
     );
 
     if (in_array($value, $arr)) {
-        return   "[helix_modalVerbs value='" . $value . "']";
+        return "[helix_modalVerbs value='" . $value . "']";
     } else {
         return $value;
     }
@@ -90,7 +90,7 @@ function prepositions($value)
     );
 
     if (in_array($value, $arr)) {
-        return  "[helix_preposition value='" . $value . "']";
+        return "[helix_preposition value='" . $value . "']";
     } else {
         return $value;
     }
@@ -128,7 +128,7 @@ function ComplexPrepositions($value)
     );
 
     if (in_array($value, $arr)) {
-        return  "[helix_ComplexPreposition value='" . $value . "']";
+        return "[helix_ComplexPreposition value='" . $value . "']";
     } else {
         return $value;
     }
@@ -149,7 +149,7 @@ function prepositionsOfTime($value)
     );
 
     if (in_array($value, $arr)) {
-        return  "[helix_prepositionsOfTime value='" . $value . "']";
+        return "[helix_prepositionsOfTime value='" . $value . "']";
     } else {
         return $value;
     }
@@ -176,7 +176,7 @@ function conjunctions($value)
     );
 
     if (in_array($value, $arr)) {
-        return  "[helix_conjunction value='" . $value . "']";
+        return "[helix_conjunction value='" . $value . "']";
     } else {
         return $value;
     }
@@ -186,52 +186,54 @@ function main_language_html($value)
 {
 
 
-    
-return '<div class="mb-3 col-md-3">
-        <input type="text" class="form-control" name="main_language_json[]" value="'.  $value .'">
+
+    return '<div class="mb-3 col-md-3">
+        <input type="text" class="form-control" name="main_language_json[]" value="' . $value . '">
         <a href="javascript:void(0);" class="remove_button"><img src="/wp-content/uploads/2025/03/remove-icon.png"></a>
     </div>';
 }
 
 
-function helix_conjunction_shortcode($atts){
+function helix_conjunction_shortcode($atts)
+{
     $default = array(
         'value' => '#',
     );
 
     $a = shortcode_atts($default, $atts);
 
-    return '<a style="color: black;" href="'.$a['value'].'">'.$a['value'].'</a>' ;
+    return '
+     <h3 class="name">conjunction</h3>
+   <p class="symbol"> <a style="color: black;" href="' . $a['value'] . '">' . $a['value'] . '</a></p>
+   
+   
+   ';
 }
 
 
 add_shortcode('helix_conjunction', 'helix_conjunction_shortcode');
 
 
-
-
-
-
-// function helix_shortcode_exists($value){
-
- 
-//     if ( shortcode_exists( 'gallery' ) ){
-//         return do_shortcode( $value );
-//     } else {
-//         return $value;
-//     }
-
-
-
-// }
-
-
+function helix_check_shortcode($word)
+{
+    $firstLetter = substr($word, 0, 1); // İlk karakter
+    $lastLetter = substr($word, -1);   // Son karakter
+    return $firstLetter . $lastLetter;
+}
 
 function button_html($value, $no)
 {
-return '<div class="mb-2 col-md-2">
+    $no++;
+    $output = '<p class="symbol"> ' . $value . '</p>';
+    $sho = helix_check_shortcode($value);
+    
+    if ($sho == '[]') {
+        $output = do_shortcode($value);
+    } 
 
-    <span id="demo-default" class="tooltipstered   helixColor'.  $no .'">'.do_shortcode( $value ).' </span>
+    return '<div  class="element-item helixColor' . $no . '">
+        ' . $output . '
+    <p class="number">' . $no . '</p>
     </div>';
 }
 
@@ -240,12 +242,10 @@ return '<div class="mb-2 col-md-2">
 function html_translate($value)
 {
 
-return '<div class="redips-drag orange"  style="border-style: solid; cursor: move;">
-        <input type="text"  class="form-control" name="translate_language_json[]" value="'.  $value .'">
+    return '<div class="redips-drag orange"  style="border-style: solid; cursor: move;">
+        <input type="text"  class="form-control" name="translate_language_json[]" value="' . $value . '">
         <a href="javascript:void(0);" class="remove_button"><img src="/wp-content/uploads/2025/03/remove-icon.png"></a>
     </div>';
 
- }
+}
 ?>
-
-button_html
