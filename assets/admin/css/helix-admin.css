@@ -98,14 +98,17 @@ html.wp-toolbar {
 
 .element-item.helixColor1          { background: #F00; background: hsl(   0, 100%, 50%); }
 .element-item.helixColor2 { background: #F80; background: hsl(  36, 100%, 50%); }
-.element-item.helixColor3      { background: #FF0; background: hsl(  72, 100%, 50%); }
-.element-item.helixColor4        { background: #0F0; background: hsl( 108, 100%, 50%); }
-.element-item.helixColor5      { background: #0F8; background: hsl( 144, 100%, 50%); }
-.element-item.helixColor6 { background: #0FF; background: hsl( 180, 100%, 50%); }
-.element-item.helixColor7       { background: #08F; background: hsl( 216, 100%, 50%); }
-.element-item.diatohelixColor8 mic        { background: #00F; background: hsl( 252, 100%, 50%); }
-.element-item.helixColor9         { background: #F0F; background: hsl( 288, 100%, 50%); }
-.element-item.helixColor10      { background: #F08; background: hsl( 324, 100%, 50%); }
+.element-item.helixColor3      { background: #0F8; background: hsl( 144, 100%, 50%); }
+.element-item.helixColor4       { background: #08F; background: hsl( 216, 100%, 50%); }
+.element-item.helixColor5      { background: #F08; background: hsl( 324, 100%, 50%); }
+.element-item.helixColor6      { background: #FF0; background: hsl(  72, 100%, 50%); }
+.element-item.helixColor7         { background: #F0F; background: hsl( 288, 100%, 50%); }
+.element-item.helixColor8        { background: #0F0; background: hsl( 108, 100%, 50%); }
+.element-item.helixColor9 { background: #0FF; background: hsl( 180, 100%, 50%); }
+.element-item.helixColor10         { background: #00F; background: hsl( 252, 100%, 50%); }
+.element-item.helixColor11     { background: #EB8654; }
+.element-item.helixColor12     {  background: #8BF257; }
+.element-item.helixColor13     {    background: #BD64F0; }
 
 
 
