@@ -11,17 +11,58 @@ Domain Path: /languages/
 
 */
 
-error_reporting(E_ALL);
-error_reporting(-1);
-ini_set('error_reporting', E_ALL);
+function helix_is_check_shortcode($word)
+{
+    $firstLetter = substr($word, 0, 1); // İlk karakter
+    $lastLetter = substr($word, -1);   // Son karakter
+    return $firstLetter . $lastLetter;
+}
 
-header('Content-type: application/json');
+
+
+function button_html($value, $no)
+{
+    $no++;
+    $output = '<p class="symbol"> ' . $value . '</p>';
+    $sho = helix_is_check_shortcode($value);
+    
+    if ($sho == '[]') {
+        $output = do_shortcode($value);
+    } 
+
+    return '<div  class="element-item helixColor' . $no . '">
+        ' . $output . '
+    <p class="number">' . $no . '</p>
+    </div>';
+}
+
+
+
+    function helix_conjunction_shortcode($atts)
+    {
+        $default = array(
+            'value' => '#',
+        );
+    
+        $a = shortcode_atts($default, $atts);
+    
+        return '
+         <h3 class="name">conjunction</h3>
+       <p class="symbol"> <a style="color: black;" href="' . $a['value'] . '">' . $a['value'] . '</a></p>
+       
+       
+       ';
+    }
+    
+    
+    add_shortcode('helix_conjunction', 'helix_conjunction_shortcode');
+
+
 
 $stnc_wp_floor_plans_postID = isset($_GET['post']) ? $_GET['post'] : null;//post  id  for edit
 $stnc_wp_floor_post_type = get_post_type($stnc_wp_floor_plans_postID);//get type
 $stnc_wp_floor_post_type_post = isset($_REQUEST['post_type']) ? $_REQUEST['post_type'] : 'post';//for new
 
-// define('stnc_wp_floor_plans_PATH', plugin_dir_path(__FILE__) . 'metaBox/');
 
 add_action('init', 'do_output_buffer');
 function do_output_buffer() {
@@ -56,8 +97,9 @@ require_once "pages/about/stncForm-adminMenu_About.php";
 
 
 
-require_once "pages/shortcut-minimal/company-frontpage.php";
+require_once "pages/shortcut-minimal/helix_shortcut.php";
 
+add_shortcode( "helix_word",  "helix_word_shortcode");
 
 
 // Load plugin text-domain https://daext.com/blog/how-to-make-a-wordpress-plugin-translatable/

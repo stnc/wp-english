@@ -194,48 +194,7 @@ function main_language_html($value)
 }
 
 
-function helix_conjunction_shortcode($atts)
-{
-    $default = array(
-        'value' => '#',
-    );
 
-    $a = shortcode_atts($default, $atts);
-
-    return '
-     <h3 class="name">conjunction</h3>
-   <p class="symbol"> <a style="color: black;" href="' . $a['value'] . '">' . $a['value'] . '</a></p>
-   
-   
-   ';
-}
-
-
-add_shortcode('helix_conjunction', 'helix_conjunction_shortcode');
-
-
-function helix_check_shortcode($word)
-{
-    $firstLetter = substr($word, 0, 1); // İlk karakter
-    $lastLetter = substr($word, -1);   // Son karakter
-    return $firstLetter . $lastLetter;
-}
-
-function button_html($value, $no)
-{
-    $no++;
-    $output = '<p class="symbol"> ' . $value . '</p>';
-    $sho = helix_check_shortcode($value);
-    
-    if ($sho == '[]') {
-        $output = do_shortcode($value);
-    } 
-
-    return '<div  class="element-item helixColor' . $no . '">
-        ' . $output . '
-    <p class="number">' . $no . '</p>
-    </div>';
-}
 
 
 

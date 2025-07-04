@@ -34,7 +34,8 @@ if (isset($_GET["page"]) && $_GET["page"] === "stnc_map_editor_building") {
 function stnc_wp_floor_MainMenu_enqueue_style()
 {   global $ver;
     // wp_enqueue_style( "stnc-style-boot",plugins_url("assets/admin/css/bootstrap.min.css", __FILE__) ,"",$ver );
-    wp_enqueue_style( "helix-style-style2", plugins_url("assets/admin/css/helix-admin.css", __FILE__) ,"",$ver);
+    wp_enqueue_style( "helix-admin-css", plugins_url("assets/admin/css/helix-admin.css", __FILE__) ,"",$ver);
+    wp_enqueue_style( "helix-style", plugins_url("assets/css/helix.css", __FILE__) ,"",$ver);
     // wp_enqueue_style( "helix-tooltipstercss", plugins_url("assets/admin/css/tooltipster.bundle.min.css", __FILE__) ,"",$ver);
 }
 
@@ -74,8 +75,8 @@ function stnc_wp_floor_all_scritps()
 
 function stnc_wp_floor_front()
 {   global $ver;
-    wp_enqueue_style("custom-gallery",plugins_url("/assets/front/css/stnc-building-front.css?ver=7.2.2", __FILE__),"",$ver);
-    // wp_enqueue_script( 'custom-gallery', plugins_url( '/js/gallery.js' , __FILE__ ) );
+    // wp_enqueue_style("custom-gallery",plugins_url("/assets/front/css/stnc-building-front.css?ver=7.2.2", __FILE__),"",$ver);
+    wp_enqueue_style( "helix-style", plugins_url("assets/css/helix.css", __FILE__) ,"",$ver);
     wp_enqueue_style( "load-fa", "https://use.fontawesome.com/releases/v5.5.0/css/all.css");
 }
 add_action("wp_enqueue_scripts", "stnc_wp_floor_front");
