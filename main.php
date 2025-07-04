@@ -11,6 +11,13 @@ Domain Path: /languages/
 
 */
 
+
+$stnc_wp_floor_plans_postID = isset($_GET['post']) ? $_GET['post'] : null;//post  id  for edit
+$stnc_wp_floor_post_type = get_post_type($stnc_wp_floor_plans_postID);//get type
+$stnc_wp_floor_post_type_post = isset($_REQUEST['post_type']) ? $_REQUEST['post_type'] : 'post';//for new
+
+
+
 function helix_is_check_shortcode($word)
 {
     $firstLetter = substr($word, 0, 1); // İlk karakter
@@ -23,6 +30,7 @@ function helix_is_check_shortcode($word)
 function button_html($value, $no)
 {
     $no++;
+
     $output = '<p class="symbol"> ' . $value . '</p>';
     $sho = helix_is_check_shortcode($value);
     
@@ -30,7 +38,7 @@ function button_html($value, $no)
         $output = do_shortcode($value);
     } 
 
-    return '<div  class="element-item helixColor' . $no . '">
+    return ' <div  class="helix-element-item helixColor' . $no . '">
         ' . $output . '
     <p class="number">' . $no . '</p>
     </div>';
@@ -55,13 +63,11 @@ function button_html($value, $no)
     }
     
     
-    add_shortcode('helix_conjunction', 'helix_conjunction_shortcode');
+    add_shortcode('helix_conjunction_sc', 'helix_conjunction_shortcode');
 
 
 
-$stnc_wp_floor_plans_postID = isset($_GET['post']) ? $_GET['post'] : null;//post  id  for edit
-$stnc_wp_floor_post_type = get_post_type($stnc_wp_floor_plans_postID);//get type
-$stnc_wp_floor_post_type_post = isset($_REQUEST['post_type']) ? $_REQUEST['post_type'] : 'post';//for new
+
 
 
 add_action('init', 'do_output_buffer');
@@ -99,7 +105,7 @@ require_once "pages/about/stncForm-adminMenu_About.php";
 
 require_once "pages/shortcut-minimal/helix_shortcut.php";
 
-add_shortcode( "helix_word",  "helix_word_shortcode");
+
 
 
 // Load plugin text-domain https://daext.com/blog/how-to-make-a-wordpress-plugin-translatable/

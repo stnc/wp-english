@@ -30,7 +30,7 @@ function modal_verbs($value)
     );
 
     if (in_array($value, $arr)) {
-        return "[helix_modalVerbs value='" . $value . "']";
+        return "[helix_modalVerbs_sc value='" . $value . "']";
     } else {
         return $value;
     }
@@ -90,7 +90,7 @@ function prepositions($value)
     );
 
     if (in_array($value, $arr)) {
-        return "[helix_preposition value='" . $value . "']";
+        return "[helix_preposition_sc value='" . $value . "']";
     } else {
         return $value;
     }
@@ -128,7 +128,7 @@ function ComplexPrepositions($value)
     );
 
     if (in_array($value, $arr)) {
-        return "[helix_ComplexPreposition value='" . $value . "']";
+        return "[helix_ComplexPreposition_sc value='" . $value . "']";
     } else {
         return $value;
     }
@@ -149,7 +149,7 @@ function prepositionsOfTime($value)
     );
 
     if (in_array($value, $arr)) {
-        return "[helix_prepositionsOfTime value='" . $value . "']";
+        return "[helix_prepositionsOfTime_sc value='" . $value . "']";
     } else {
         return $value;
     }
@@ -176,7 +176,7 @@ function conjunctions($value)
     );
 
     if (in_array($value, $arr)) {
-        return "[helix_conjunction value='" . $value . "']";
+        return "[helix_conjunction_sc value='" . $value . "']";
     } else {
         return $value;
     }
