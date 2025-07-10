@@ -6,7 +6,4 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Lib\\' => array($baseDir . '/src/Library'),
-    'Engine\\' => array($baseDir . '/src/Engine'),
-    'Core\\' => array($baseDir . '/src/Core'),
 );

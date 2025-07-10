@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name:  Kelimator
+Plugin Name:  Kelimator 2
 Plugin URI:	https://github.com/stnc/wp-kat-planlari		
 Description: Kelimator ; kelime islemci 
 Version: 0.58
@@ -12,115 +12,51 @@ Domain Path: /languages/
 */
 
 
-$stnc_wp_floor_plans_postID = isset($_GET['post']) ? $_GET['post'] : null;//post  id  for edit
-$stnc_wp_floor_post_type = get_post_type($stnc_wp_floor_plans_postID);//get type
-$stnc_wp_floor_post_type_post = isset($_REQUEST['post_type']) ? $_REQUEST['post_type'] : 'post';//for new
+
+// if (file_exists(__DIR__.'/../../vendor/autoload.php')) {
+//     require __DIR__.'/../../vendor/autoload.php';
+// } else {
+//     echo "<h1>Lütfen composer.json ı yükleyin </h1>";
+//     echo "<p>Örnekler <a href='https://getcomposer.org/doc/00-intro.md#globally'>https://getcomposer.org/doc/00-intro.md#globally</a></p>";
+//     echo "<p> terminal yada cmd yi açarak  'composer install' yazınız</p>";
+//     echo "<p> eğer yuklü ise terminal yada cmd yi açarak  'composer update' yazınız</p>";
+//     exit();
+// }
 
 
 
-function helix_is_check_shortcode($word)
-{
-    $firstLetter = substr($word, 0, 1); // İlk karakter
-    $lastLetter = substr($word, -1);   // Son karakter
-    return $firstLetter . $lastLetter;
-}
+// if (! is_readable('vendor/stnc/framework/src/Core/Config.php')) {
+//     die('config.php bulunamadı, config.example.php dosyasının ismini değiştirip config.php yapınız ve  app/core. içine atınız ');
+// }
+
+
+//https://github.com/sfmok/hello-world/blob/main/tests/HelloWorldTest.php
+// https://aschmelyun.com/blog/installing-a-local-composer-package-in-your-php-project/
+
+//https://www.codementor.io/@aaronoverton/wordpress-development-best-practices-oop-php-du107pcek
+
+//https://medium.com/@sfmok/create-and-publish-a-php-composer-package-11eabcd038c1    test yapmak 
+
+
+//https://stackoverflow.com/questions/21463421/a-non-empty-psr-4-prefix-must-end-with-a-namespace-separator  psr 4 ile 
+
+
+//https://github.com/stnc/stnc-framework-skeleton
+
+//https://github.com/stnc/stnc-framework/blob/master/composer.json
 
 
 
-function button_html($value, $no)
-{
-    $no++;
-
-    $output = '<p class="symbol"> ' . $value . '</p>';
-    $sho = helix_is_check_shortcode($value);
-    
-    if ($sho == '[]') {
-        $output = do_shortcode($value);
-    } 
-
-    return ' <div  class="helix-element-item helixColor' . $no . '">
-        ' . $output . '
-    <p class="number">' . $no . '</p>
-    </div>';
-}
+ require_once __DIR__ . '/vendor/autoload.php'; // Autoload files using Composer autoload
 
 
-
-    function helix_conjunction_shortcode($atts)
-    {
-        $default = array(
-            'value' => '#',
-        );
-    
-        $a = shortcode_atts($default, $atts);
-    
-        return '
-         <h3 class="name">conjunction</h3>
-       <p class="symbol"> <a style="color: black;" href="' . $a['value'] . '">' . $a['value'] . '</a></p>
-       
-       
-       ';
-    }
-    
-    
-    add_shortcode('helix_conjunction_sc', 'helix_conjunction_shortcode');
+// use Nette\Utils\Arrays;
 
 
+//   use HelloWorld\SayHello;
+//  echo SayHello::world();
 
 
-
-
-add_action('init', 'do_output_buffer');
-function do_output_buffer() {
-        ob_start();
-}
-
-include ('register-menus.php');
-include ('loader_css_js.php');
-// include ('installTable.php');
-
-require_once "helper.php";
-
-include ('pages/homepage/homepage.php');
-
-
-
-
-
-include ('pages/_kelimator/main_actions.php');
-include ('pages/_kelimator/explode_actions.php');
-
-
-
-
-
-
-
-
-require_once "pages/word_list_data_table/word_list.php";
-require_once "pages/about/stncForm-adminMenu_About.php";
-// // require_once "pages/update/update_pack.php";
-
-
-
-require_once "pages/shortcut-minimal/helix_shortcut.php";
-
-
-
-
-// Load plugin text-domain https://daext.com/blog/how-to-make-a-wordpress-plugin-translatable/
-function stnc_wp_floor_initialize_plugin_lang() {
-	// Retrieve the directory for the internationalization files
-    load_plugin_textdomain('the-stnc-map', false, dirname(plugin_basename(__FILE__)) . '/languages/');
-}
-add_action( 'plugins_loaded', 'stnc_wp_floor_initialize_plugin_lang' );
-
-
-/*
-// load css into the login page
-function mytheme_enqueue_login_style() {
-    wp_enqueue_style( 'mytheme-options-style', get_template_directory_uri() . '/css/login.css' ); 
-}
-add_action( 'login_enqueue_scripts', 'mytheme_enqueue_login_style' );
-
-*/
+use Loader\Loading;
+$helloWorld = new Loading;
+echo $helloWorld->load();

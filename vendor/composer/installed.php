@@ -3,7 +3,7 @@
         'name' => 'stnc/wpfw',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '19f9459a0daf5feef2288c004bb8335e879c7790',
+        'reference' => '9e46b5576817bf257895a3dfc87750fe4b83f602',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'stnc/wpfw' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '19f9459a0daf5feef2288c004bb8335e879c7790',
+            'reference' => '9e46b5576817bf257895a3dfc87750fe4b83f602',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
