@@ -16,9 +16,9 @@
 	},
     
 	"autoload" : {
-		"psr-0" : {
-	        "HelloWorld": "src",
-	        "Loader": "src"
+		"psr-4" : {
+	        "Api\\Menus\\": "src",
+	        "Loader\\": "src"
 		}
 	}
 	

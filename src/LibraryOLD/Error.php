@@ -28,6 +28,8 @@ class Error
      */
     private $_error = null;
 
+
+    
     /**
      * hata kaydeder to $this->_error
      *
@@ -35,7 +37,7 @@ class Error
      */
     public function __construct($error)
     {
-        parent::__construct();
+        // parent::__construct();
         $this->_error = $error;
     }
 

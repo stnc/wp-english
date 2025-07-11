@@ -1,3 +1,23 @@
+
+https://github.com/sfmok/hello-world/blob/main/tests/HelloWorldTest.php
+https://aschmelyun.com/blog/installing-a-local-composer-package-in-your-php-project/
+
+https://www.codementor.io/@aaronoverton/wordpress-development-best-practices-oop-php-du107pcek
+
+https://medium.com/@sfmok/create-and-publish-a-php-composer-package-11eabcd038c1    test yapmak 
+
+
+https://stackoverflow.com/questions/21463421/a-non-empty-psr-4-prefix-must-end-with-a-namespace-separator  psr 4 ile 
+
+
+https://github.com/stnc/stnc-framework-skeleton
+
+https://github.com/stnc/stnc-framework/blob/master/composer.json
+
+
+
+
+
 composer 
 https://github.com/laravel/framework/blob/12.x/composer.json
 

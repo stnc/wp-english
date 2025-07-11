@@ -1,5 +1,14 @@
 <?php
+
+
 namespace Loader;
+
+use \Loader\Api\Menus\Menus;
+// use WPRAH\API\Pages\Pages;
+// use WPRAH\API\Posts\Posts;
+// use WPRAH\API\General\General;
+// use WPRAH\API\Widgets\Widgets;
+
 class Loading
 {
 
@@ -7,6 +16,18 @@ class Loading
      * @var string
      */
     public $name = 'Easy Digital Downloads';
+
+
+
+        /**
+    * Define Plugin Constants
+    * @since 2.0.0
+    */
+    public function plugin_constants() {
+        define( 'WPRAH_VERSION', self::version );
+        define( 'WPRAH_PLUGIN_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
+        define( 'WPRAH_PLUGIN_URL', trailingslashit( plugins_url( '/', __FILE__ ) ) );
+    }
 
   /**
      * @param int $payment_id The ID of the payment
@@ -25,6 +46,16 @@ class Loading
     public  function database()
     {
         // add_action('init', array($this, 'MainMenu'));
+
+        
+    }
+    public  function api()
+    {
+        new Posts();
+        new Pages();
+        new Menus();
+        new Widgets();
+        new General();
 
         
     }
