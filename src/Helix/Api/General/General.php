@@ -1,5 +1,5 @@
 <?php
-namespace WPRAH\API\General;
+namespace Helix\Api\Generals;
 
 class General {
 
@@ -16,9 +16,10 @@ class General {
     * @since 2.0.0
     */
     public function add_endpoint() {
-        register_rest_route('wp/v2', 'general', [
+        register_rest_route('wp/v2', 'generalinfo', [
             'methods' => 'GET',
-            'callback' => [ $this, 'get_general_info' ]
+            'callback' => [ $this, 'get_general_info' ],
+              'permission_callback' => '__return_true'
         ]);
     }
 

@@ -6,6 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Loader\\' => array($baseDir . '/src'),
-    'Api\\Menus\\' => array($baseDir . '/src'),
+    'Helix\\' => array($baseDir . '/src/Helix'),
 );

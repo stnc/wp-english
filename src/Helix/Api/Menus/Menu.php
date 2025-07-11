@@ -1,7 +1,6 @@
 <?php
-namespace Menus;
-
-class Menum {
+namespace Helix\Api\Menus;
+class Menu {
 
     /**
     * Construct Function
@@ -16,10 +15,30 @@ class Menum {
     * @since 2.0.0
     */
     public function add_endpoint() {
-        register_rest_route( 'wp/v2', 'menus', [
+        register_rest_route( 'wp/v6', 'ccmenus55', [
             'methods' => 'GET',
-            'callback' => [ $this, 'get_registered_menus' ]
+            'callback' => [ $this, 'get_general_info' ],
+                    'permission_callback' => '__return_true'
         ]);
+    }
+
+    /**
+    * add_endpoint Callback Function
+    * @since 2.0.0
+    */
+    public function get_general_info() {
+        $general = [
+            'site_title'    => get_bloginfo('name'),
+            'site_tag_line' => get_bloginfo('description'),
+            'home_url'      => home_url('/'),
+            'ajax_url'      => admin_url('admin-ajax.php'),
+            'admin_url'     => get_bloginfo('admin_email'),
+            'wp_version'    => get_bloginfo('version'),
+            'language'      => get_bloginfo('language'),
+            'posts_per_page' => get_option('posts_per_page'),
+        ];
+
+        return $general;
     }
 
     /**
@@ -87,3 +106,5 @@ class Menum {
     }
 
 }
+
+

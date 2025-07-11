@@ -1,3 +1,43 @@
+wp application kullanimi 
+https://melapress.com/wordpress-application-passwords/
+
+https://melapress.com/wordpress-rest-api-security/
+
+https://github.com/rnaga/wordpress-rest-admin/blob/master/src/services/auth.js
+
+https://medium.com/@omobolanlearogundade/creating-a-simple-web-app-using-wordpress-rest-api-with-javascript-ab4e3bfa4898
+
+https://www.shawnhooper.ca/2017/02/02/wordpress-rest-cache/
+
+
+https://www.voxfor.com/understanding-the-wordpress-rest-api-and-how-to-create-or-modify-custom-endpoints/  onemli 
+
+https://tryhoverify.com/blog/wordpress-rest-api-implementation-examples/  ersiim listeleri var 
+
+https://www.cloudways.com/blog/setup-basic-authentication-in-wordpress-rest-api/
+
+
+https://panchalharit.medium.com/basic-authentication-in-wordpress-how-to-use-decode-and-implement-on-front-end-applications-7b1d87ae7f21
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://www.multidots.com/blog/wordpress-api-integration/
+
 
 https://github.com/sfmok/hello-world/blob/main/tests/HelloWorldTest.php
 https://aschmelyun.com/blog/installing-a-local-composer-package-in-your-php-project/

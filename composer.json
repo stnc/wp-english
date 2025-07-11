@@ -17,8 +17,7 @@
     
 	"autoload" : {
 		"psr-4" : {
-	        "Api\\Menus\\": "src",
-	        "Loader\\": "src"
+			"Helix\\": "src/Helix/"
 		}
 	}
 	

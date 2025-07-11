@@ -1,15 +1,5 @@
 <?php
-/*
-Plugin Name:  Kelimator
-Plugin URI:	https://github.com/stnc/wp-kat-planlari		
-Description: Kelimator ; kelime islemci 
-Version: 0.58
-Author: Selman TUNC
-Text Domain: the-stnc-map
-Domain Path: /languages/
 
-
-*/
 
 
 $stnc_wp_floor_plans_postID = isset($_GET['post']) ? $_GET['post'] : null;//post  id  for edit

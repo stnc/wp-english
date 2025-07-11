@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Loader;
+namespace Helix\Loader;
 
 use \Loader\Api\Menus\Menus;
 // use WPRAH\API\Pages\Pages;
