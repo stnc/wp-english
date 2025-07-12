@@ -1,0 +1,104 @@
+
+
+.stnc-header-page #adminmenumain,
+.stnc-header-page #wpadminbar,
+.stnc-header-page #adminmenuback,
+.stnc-header-page #adminmenuwrap,
+.stnc-header-page #wpfooter {
+    display: none;
+}
+
+#wpcontent {
+    padding-left: 0 !important;
+}
+
+#wpcontent,
+#wpfooter {
+    margin-left: auto !important;
+}
+
+html.wp-toolbar {
+    padding-top: 0 !important;
+}
+
+
+
+
+
+/* ---------------------------- helix colorized start ---------------------------*/
+
+
+
+
+/* ---- isotope ---- */
+
+.grid {
+  border: 1px solid #333;
+}
+
+/* clear fix */
+.isotope:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------- drag drop start ---------------------------*/
+.glyphicon-move {
+  cursor: move;
+  cursor: -webkit-grabbing;
+}
+
+
+/* drag objects */
+.redips-drag {
+    cursor: move;
+    margin: auto;
+    background-color: white;
+    text-align: center;
+    font-size: 22pt; /* needed for cloned object */
+ 
+    line-height: 35px;
+    /* round corners */
+    border-radius: 4px; /* Opera, Chrome */
+    -moz-border-radius: 4px; /* FF */
+}
+
+
+/* tables */
+div#redips-drag table {
+    background-color: #ddd;
+    border-collapse: collapse;
+    margin: 10px;
+}
+
+/* table cells */
+div#redips-drag td {
+    border: 1px white solid;
+    height: 50px;
+    text-align: center;
+    font-size: 10pt;
+}
+
+/* green objects */
+.green {
+    border: 2px solid #499B33;
+}
+
+/* orange objects */
+.orange {
+    border: 2px solid #BF6A30;
+}
+
+
+/* drag drop end*/

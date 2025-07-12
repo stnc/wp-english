@@ -9,20 +9,13 @@ class Menu
 
     public function __construct()
     {
-        add_action('init', array($this, 'registerMenu'));
-        add_action('plugins_loaded', array($this, 'loadLanguage'));
+        // add_action('init', array($this, 'registerMenu'));
+        add_action('admin_menu', array($this, 'registerMenu'));
+
     }
 
 
 
-
-    public function loadLanguage()
-    {
-        // echo dirname( plugin_basename( __FILE__ ) ) . '/../../languages';
-        // die;
-        // Retrieve the directory for the internationalization files
-        load_plugin_textdomain('helix-lng', false, dirname(plugin_basename(__FILE__)) . '/../../languages');
-    }
 
 
 
@@ -46,17 +39,20 @@ class Menu
     public function registerMenu()
     {
 
-        add_menu_page('Helix English', __('Kelimator', 'helix-lng'), 'manage_options', 'stnc_map_homepage', 'stnc_wp_floor_adminMenu_stnc_map_homepage', 'dashicons-networking', 67); //main menu 
-        add_submenu_page("stnc_map_homepage", 'Build', __('Word List', 'helix-lng'), 'manage_options', 'stnc_building_list', 'stnc_wp_floor_render_list_page', null);
-        add_submenu_page("stnc_map_homepage", 'Build', __('About', 'helix-lng'), 'manage_options', 'stnc_map_about', 'stnc_wp_floor_plans_adminMenu_About_contents', null); //submenu
-
-        add_submenu_page(null, 'Build', __('temporary', 'helix-lng'), 'manage_options', 'stnc_map_view', 'stnc_wp_floor_adminMenu_stnc_map_view', null);  //submenu
-
-        //admin.php?page=settings62
-        add_submenu_page(null, 'Build', __('temporary', 'helix-lng'), 'manage_options', 'stnc_building_company', 'stnc_wp_floor_adminMenu_stnc_building_company', null);  //submenu
-        add_submenu_page(null, 'Build', __('temporary', 'helix-lng'), 'manage_options', 'helix_explode', 'stnc_wp_floor_adminMenu_explode', null);  //submenu
-
-        add_submenu_page(null, 'Build', __('temporary', 'helix-lng'), 'manage_options', 'stnc_map_editor_building', 'stnc_wp_floor_adminMenu_stnc_map_editor_stnc', null); //edit 
-        add_submenu_page(null, 'Build', __('temporary', 'helix-lng'), 'manage_options', 'stnc_map_update', 'stnc_wp_floor_plans_adminMenu_update', null); //edit
+        add_menu_page('HELIX LANGUAGE',__( 'Kelimator', 'helix-lng' ) , 'manage_options', 'helix_homepage', 'helix_admin_homepage','dashicons-networking',67); // top 
+        add_submenu_page( "helix_homepage", 'Build',  __( 'Kelimeler', 'helix-lng' ) , 'manage_options', 'helix_word_list', 'stnc_wp_floor_render_list_page',null ); //sub 
+       //  add_submenu_page( "helix_homepage", 'Build', __( 'Shortcut', 'helix-lng' ), 'manage_options', 'stnc_map_shortcut', 'stnc_wp_floor_shortcut_page' ,null); //sub 
+        add_submenu_page( "helix_homepage", 'Build', __( 'About', 'helix-lng' ), 'manage_options', 'helix_about', 'stnc_wp_floor_plans_adminMenu_About_contents',null ); //sub 
+        
+        
+        add_submenu_page( null, 'Build', __( 'fixed map', 'helix-lng' ), 'manage_options', 'stnc_map_view', 'stnc_wp_floor_adminMenu_stnc_map_view',null ); //sub 
+       
+       //admin.php?page=settings62
+        add_submenu_page( null, 'Build', __( 'fixed map', 'helix-lng' ), 'manage_options', 'stnc_building_company', 'stnc_wp_floor_adminMenu_stnc_building_company',null ); //sub 
+        add_submenu_page( null, 'Build', __( 'fixed map', 'helix-lng' ), 'manage_options', 'helix_explode', 'stnc_wp_floor_adminMenu_explode',null ); //sub 
+       
+        add_submenu_page( null, 'Build', __( 'fixed map', 'helix-lng' ), 'manage_options', 'stnc_map_editor_building', 'stnc_wp_floor_adminMenu_stnc_map_editor_stnc',null ); //sub 
+       // add_submenu_page( null, 'Build', __( 'fixed map', 'helix-lng' ), 'manage_options', 'stnc_map_update', 'stnc_wp_floor_plans_adminMenu_update',null ); //sub 
+       
     }
 }

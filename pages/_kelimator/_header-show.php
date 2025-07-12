@@ -23,7 +23,7 @@
                     <li class="nav-item"><a class="nav-link" style="color: antiquewhite;" href="/wp-admin/admin.php?page=stnc_map_homepage"><?php esc_html_e('Kelimator Homepage', 'the-stnc-map') ?></a>
 </li>
 <li class="nav-item">
-                        <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin/admin.php?page=stnc_building_list"><?php esc_html_e('Kelimeler Listesi', 'the-stnc-map') ?></a>
+                        <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin/admin.php?page=helix_word_list"><?php esc_html_e('Kelimeler Listesi', 'the-stnc-map') ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin"><?php esc_html_e('WP Dashbord', 'the-stnc-map') ?></a>

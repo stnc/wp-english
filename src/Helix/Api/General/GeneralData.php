@@ -18,7 +18,10 @@ class GeneralData {
     public function add_endpoint() {
         register_rest_route('wp/v2', 'general', [
             'methods' => 'GET',
-            'callback' => [ $this, 'get_general_info' ]
+            'callback' => [ $this, 'get_general_info' ],
+            'permission_callback' => function ($request) {
+                return is_user_logged_in();
+            },
         ]);
     }
 

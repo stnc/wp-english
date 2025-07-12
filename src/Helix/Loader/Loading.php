@@ -4,6 +4,8 @@
 namespace Helix\Loader;
 
 use Helix\Loader\Menu;
+use Helix\Loader\Assets\Admin;
+use Helix\Loader\Assets\Frontend;
 
 use Helix\Api\Wordpress\WpMenu;
 use Helix\Api\General\CategoriesAndDepencyPost;
@@ -20,6 +22,7 @@ class Loading
      */
     public $name = 'HELIX ENGLISH';
 
+    const class_version = '2.0.1';
     const version = '2.0.1';
 
     /**
@@ -28,10 +31,18 @@ class Loading
      */
     public function plugin_constants()
     {
-        define('HELIX_VERSION', self::version);
-        define('HELIX_PLUGIN_PATH', trailingslashit(plugin_dir_path(__FILE__)));
-        define('HELIX_PLUGIN_URL', trailingslashit(plugins_url('/', __FILE__)));
+        // define('HELIX_VERSION', self::version);
+        // define('HELIX_PLUGIN_PATH', trailingslashit(plugin_dir_path(__FILE__)));
+        // define('HELIX_PLUGIN_URL', trailingslashit(plugins_url( __FILE__)));
+        define('HELIX_VERSION', helix_default_setting()["version"]);
+        define('HELIX_PLUGIN_PATH', helix_default_setting()["helixPluginPath"]);
+        define('HELIX_PLUGIN_URL', helix_default_setting()["helixPluginUrl"]);
+        define('HELIX_PLUGIN_DIR_URL', helix_default_setting()["helixPluginDirUrl"]);
+        
     }
+
+
+
 
     /**
      * @param int $payment_id The ID of the payment
@@ -41,9 +52,13 @@ class Loading
     public function __construct()
     {
         $this->plugin_constants();
-        $this->wpDefaultsApi();
-        $this->registerMenu();
+  
+        add_action('plugins_loaded', array($this, 'loadLanguage'));
 
+        $this->registerMenu();
+        $this->registerAssets();
+        $this->wpDefaultsApi();
+//require_once "helper.php";  // TODO: look at the old version
     }
 
 
@@ -59,6 +74,11 @@ class Loading
     {
         new Menu();
     }
+    public function registerAssets()
+    {
+        new Admin();
+        new Frontend();
+    }
 
 
 
@@ -73,5 +93,13 @@ class Loading
     }
 
 
+
+    public function loadLanguage()
+    {
+        // echo dirname( plugin_basename( __FILE__ ) ) . '/../../languages';
+        // die;
+        // Retrieve the directory for the internationalization files
+        load_plugin_textdomain('helix-lng', false, dirname(plugin_basename(__FILE__)) . '/../../languages');
+    }
 
 }

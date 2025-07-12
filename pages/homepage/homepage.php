@@ -1,5 +1,5 @@
 <?php
-function stnc_wp_floor_adminMenu_stnc_map_homepage()
+function helix_admin_homepage()
 {
 ?> <style>
     .stnc-header-page #adminmenumain,
@@ -34,7 +34,7 @@ function stnc_wp_floor_adminMenu_stnc_map_homepage()
             </li>
 
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/wp-admin/admin.php?page=stnc_building_list"><?php esc_html_e('Kelime Listesi', 'the-stnc-map') ?></a>
+              <a class="nav-link active" aria-current="page" href="/wp-admin/admin.php?page=helix_word_list"><?php esc_html_e('Kelime Listesi', 'the-stnc-map') ?></a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/wp-admin"><?php esc_html_e('Wordpress Panel', 'the-stnc-map') ?></a>

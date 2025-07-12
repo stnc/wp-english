@@ -6,8 +6,6 @@ $stnc_wp_floor_plans_postID = isset($_GET['post']) ? $_GET['post'] : null;//post
 $stnc_wp_floor_post_type = get_post_type($stnc_wp_floor_plans_postID);//get type
 $stnc_wp_floor_post_type_post = isset($_REQUEST['post_type']) ? $_REQUEST['post_type'] : 'post';//for new
 
-
-
 function helix_is_check_shortcode($word)
 {
     $firstLetter = substr($word, 0, 1); // İlk karakter
