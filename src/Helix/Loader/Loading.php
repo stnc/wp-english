@@ -17,16 +17,16 @@ class Loading
      */
     public $name = 'Easy Digital Downloads';
 
-
+    const version = '2.0.1';
 
         /**
     * Define Plugin Constants
     * @since 2.0.0
     */
     public function plugin_constants() {
-        define( 'WPRAH_VERSION', self::version );
-        define( 'WPRAH_PLUGIN_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
-        define( 'WPRAH_PLUGIN_URL', trailingslashit( plugins_url( '/', __FILE__ ) ) );
+        define( 'HELIX_VERSION', self::version );
+        define( 'HELIX_PLUGIN_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
+        define( 'HELIX_PLUGIN_URL', trailingslashit( plugins_url( '/', __FILE__ ) ) );
     }
 
   /**
@@ -36,6 +36,7 @@ class Loading
      */
     public  function __construct()
     {
+        $this->plugin_constants();
         add_action('init', array($this, 'registerMenu'));
          add_action( 'plugins_loaded',array($this,  'loadLanguage' ));
         

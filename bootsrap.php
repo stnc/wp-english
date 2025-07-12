@@ -43,9 +43,14 @@ Domain Path: /languages/
 
 
 use Helix\Loader\Loading;
-  use Helix\Api\Menus\Menu;
-  use Helix\Api\Generals\General;
+  use Helix\Api\Wordpress\Menu;
+  use Helix\Api\Wordpress\Widget\Widgets;
+  use Helix\Api\Wordpress\Pages\Pages;
+  use Helix\Api\Wordpress\Posts\Posts;
  $load = new Loading();
+ $load = new Widgets();
+ $load = new Pages();
+ $load = new Posts();
 //  echo $load->database();
 
  $m = new Menu();

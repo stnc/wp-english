@@ -1,9 +1,9 @@
 <?php
-namespace WPRAH\API\Pages;
+namespace Helix\Api\Wordpress\Pages;
 
-use WPRAH\API\Pages\PostDate;
-use WPRAH\API\Pages\AuthorDetails;
-use WPRAH\API\Pages\FeaturedImage;
+use Helix\Api\Wordpress\Pages\PostDate;
+use Helix\Api\Wordpress\Pages\AuthorDetails;
+use Helix\Api\Wordpress\Pages\FeaturedImage;
 
 class Pages {
 

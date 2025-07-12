@@ -1,5 +1,5 @@
 <?php
-namespace WPRAH\API\Pages;
+namespace Helix\Api\Wordpress\Posts;
 
 class PostDate {
 
@@ -17,7 +17,7 @@ class PostDate {
     */
     public function add_field() {
         register_rest_field(
-            [ 'page' ],
+            [ 'post' ],
             'published_on',
             array(
                 'get_callback'    => [ $this, 'get_post_published_date' ],

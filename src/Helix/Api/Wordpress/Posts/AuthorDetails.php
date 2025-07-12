@@ -1,5 +1,5 @@
 <?php
-namespace WPRAH\API\Pages;
+namespace Helix\Api\Wordpress\Posts;
 
 class AuthorDetails {
 
@@ -17,7 +17,7 @@ class AuthorDetails {
     */
     public function add_field() {
         register_rest_field(
-            [ 'page' ],
+            [ 'post' ],
             'author_details',
             array(
                 'get_callback'    => [ $this,  'get_post_author' ],

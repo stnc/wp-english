@@ -22,7 +22,7 @@ https://panchalharit.medium.com/basic-authentication-in-wordpress-how-to-use-dec
 
 
 
-
+https://www.masterdc.com/blog/wordpress-rest-api-application-for-publishing-posts/
 
 
 

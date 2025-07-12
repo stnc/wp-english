@@ -1,10 +1,10 @@
 <?php
-namespace WPRAH\API\Posts;
+namespace Helix\Api\Wordpress\Posts;
 
-use WPRAH\API\Posts\PostDate;
-use WPRAH\API\Posts\PostTerms;
-use WPRAH\API\Posts\AuthorDetails;
-use WPRAH\API\Posts\FeaturedImage;
+use Helix\Api\Wordpress\Posts\PostDate;
+use Helix\Api\Wordpress\Posts\PostTerms;
+use Helix\Api\Wordpress\Posts\AuthorDetails;
+use Helix\Api\Wordpress\Posts\FeaturedImage;
 
 class Posts {
 

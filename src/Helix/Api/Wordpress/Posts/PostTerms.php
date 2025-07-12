@@ -1,5 +1,5 @@
 <?php
-namespace WPRAH\API\Posts;
+namespace Helix\Api\Wordpress\Posts;
 
 class PostTerms {
 

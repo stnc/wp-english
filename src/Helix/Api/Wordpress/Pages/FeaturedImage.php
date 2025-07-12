@@ -1,5 +1,5 @@
 <?php
-namespace WPRAH\API\Posts;
+namespace Helix\Api\Wordpress\Pages;
 
 class FeaturedImage {
 
@@ -17,7 +17,7 @@ class FeaturedImage {
     */
     public function add_field() {
         register_rest_field(
-            [ 'post' ],
+            [ 'page' ],
             'featured_image_src',
             array(
                 'get_callback'    => [ $this, 'get_feature_image' ],
@@ -38,10 +38,10 @@ class FeaturedImage {
         $thumbnail_image    = get_the_post_thumbnail_url( $object['id'], 'thumbnail' );
 
         $feature_image = [
-            'full'      => $full_image ? $full_image : WPRAH_PLUGIN_URL . 'assets/img/placeholder.png',
-            'large'     => $large_image ? $large_image : WPRAH_PLUGIN_URL . 'assets/img/placeholder.png',
-            'medium'    => $medium_image ? $medium_image : WPRAH_PLUGIN_URL . 'assets/img/placeholder.png',
-            'thumbnail' => $thumbnail_image ? $thumbnail_image : WPRAH_PLUGIN_URL . 'assets/img/placeholder.png',
+            'full'      => $full_image ? $full_image : HELIX_PLUGIN_URL . 'assets/img/placeholder.png',
+            'large'     => $large_image ? $large_image : HELIX_PLUGIN_URL . 'assets/img/placeholder.png',
+            'medium'    => $medium_image ? $medium_image : HELIX_PLUGIN_URL . 'assets/img/placeholder.png',
+            'thumbnail' => $thumbnail_image ? $thumbnail_image : HELIX_PLUGIN_URL . 'assets/img/placeholder.png',
         ];
 
         return $feature_image;
