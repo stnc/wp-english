@@ -1,12 +1,12 @@
 {
-	"name" : "stnc/wpfw",
+	"name" : "helix english",
 	"type" : "project",
-	"description" : "STNC PHP Framework 4.0",
+	"description" : "helix wp english center",
 	"homepage" : "https://github.com/stnc",
 	"authors" : [{
-			"name" : "Selman TUNÇ ",
-			"email" : "selmantunc@gmail.com",
-			"homepage" : "http://selmantunc.com",
+			"name" : "UAMA TEAM",
+			"email" : "uama@gmail.com",
+			"homepage" : "http://uama.com",
 			"role" : "Developer,ecommerce "
 		}
 	],
