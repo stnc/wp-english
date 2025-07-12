@@ -1,7 +1,6 @@
 <?php
-namespace Helix\Api\Generals;
-
-class General {
+namespace Helix\Api\Wordpress;
+class WpMenu {
 
     /**
     * Construct Function
@@ -12,13 +11,14 @@ class General {
     }
 
     /**
-    * Add Custom Endpoint ( General )
+    * Add Custom Endpoint ( Menus )
     * @since 2.0.0
     */
     public function add_endpoint() {
-        register_rest_route('wp/v2', 'general', [
+        register_rest_route( 'wp/v2', 'wpmenu', [
             'methods' => 'GET',
-            'callback' => [ $this, 'get_general_info' ]
+            'callback' => [ $this, 'get_general_info' ],
+                    'permission_callback' => '__return_true'
         ]);
     }
 
@@ -41,4 +41,7 @@ class General {
         return $general;
     }
 
+
 }
+
+

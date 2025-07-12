@@ -16,9 +16,7 @@ class PostDate {
     * @since 2.0.0
     */
     public function add_field() {
-        register_rest_field(
-            [ 'page' ],
-            'published_on',
+        register_rest_field( [ 'page' ], 'published_on',
             array(
                 'get_callback'    => [ $this, 'get_post_published_date' ],
                 'update_callback' => null,

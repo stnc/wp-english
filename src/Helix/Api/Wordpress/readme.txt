@@ -1,3 +1,9 @@
+
+// curl --user stnc:cansuyum http://english.test/wp-json/wp/v2/categoriesAndDepencyPostList
+
+
+
+
 === WP REST API Helper ===
 Contributors: rabiulislamrobi
 Tags: rest api, api, rest,
