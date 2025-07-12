@@ -16,7 +16,7 @@ require_once __DIR__ . '/vendor/autoload.php'; // Autoload files using Composer 
 use Helix\Loader\Loading;
 new Loading();
 
-
+//TODO: database install 
 /*
 use Helix\Api\Wordpress\WpMenu;
 use Helix\Api\General\GeneralData;

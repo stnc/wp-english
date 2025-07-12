@@ -22,46 +22,47 @@ class Loading
 
     const version = '2.0.1';
 
-        /**
-    * Define Plugin Constants
-    * @since 2.0.0
-    */
-    public function plugin_constants() {
-        define( 'HELIX_VERSION', self::version );
-        define( 'HELIX_PLUGIN_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
-        define( 'HELIX_PLUGIN_URL', trailingslashit( plugins_url( '/', __FILE__ ) ) );
+    /**
+     * Define Plugin Constants
+     * @since 2.0.0
+     */
+    public function plugin_constants()
+    {
+        define('HELIX_VERSION', self::version);
+        define('HELIX_PLUGIN_PATH', trailingslashit(plugin_dir_path(__FILE__)));
+        define('HELIX_PLUGIN_URL', trailingslashit(plugins_url('/', __FILE__)));
     }
 
-  /**
+    /**
      * @param int $payment_id The ID of the payment
      *
      * @return bool|string
      */
-    public  function __construct()
+    public function __construct()
     {
         $this->plugin_constants();
-         $this->wpDefaultsApi();
-         $this->registerMenu();
+        $this->wpDefaultsApi();
+        $this->registerMenu();
 
     }
 
-    
-    public  function databaseInstall()
+
+    public function databaseInstall()
     {
 
     }
 
- 
-    
-    
-    public  function registerMenu()
+
+
+
+    public function registerMenu()
     {
         new Menu();
     }
 
 
-    
-    public  function wpDefaultsApi()
+
+    public function wpDefaultsApi()
     {
         new Widgets();
         new Pages();
