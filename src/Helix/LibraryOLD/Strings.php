@@ -26,7 +26,7 @@ class Strings
         $string = trim($string);
         return $string;
     }
-    
+
     /**
      * kelimeyi hecelere ayırır
      * @example Hecele(ülker hanımeller 180gr poşet fındıklı 1132-03  x15', 2)
@@ -46,18 +46,18 @@ class Strings
     /**
      * ad ve soyadı parçalar
      * @example $adSoyad="mehmet ali alacadağ";
-          $adSoyadParcala($adSoyad);
-          
-Array
-(
-    [soyadi] => alacadağ
-    [adi] => mehmet ali
-)
+     *       $adSoyadParcala($adSoyad);
+     *      
+     *   Array
+     *   (
+     *    [soyadi] => alacadağ
+     *    [adi] => mehmet ali
+     *    )
      * @param array $array
      */
     public static function adSoyadParcala($adSoyad)
     {
-        if (! empty($adSoyad)) {
+        if (!empty($adSoyad)) {
             $adSoyad = trim($adSoyad);
             $deger = explode(' ', $adSoyad);
             $data['soyadi'] = end($deger);
@@ -304,11 +304,11 @@ Array
             'c'
         );
         $s = str_ireplace($tr, $eng, $s);
-        
+
         $s = strtolower($s);
         $s = preg_replace('/&.+?;/', '', $s);
         $s = preg_replace('/[^%a-z0-9 _-]/', '', $s); // harf, sayi ve haricindaki tum karakterleri temizle
-        
+
         $s = preg_replace('/\s+/', '_', $s);
         $s = preg_replace('|-+|', '_', $s);
         $s = trim($s, '-');
@@ -319,9 +319,9 @@ Array
     /**
      * kelime arama
      *         $metin="merhaba ali veli deli hasan";
-         $aranacak="ali";
-        echo  kelime_arama($metin, $aranacak);
-        
+     *     $aranacak="ali";
+     *    echo  kelime_arama($metin, $aranacak);
+     *
      * @param string $kelime
      * @param string $aranacak
      * @return boolean
@@ -599,12 +599,12 @@ Array
     {
         $sonuc = '';
         $kelimeler = explode(" ", $str);
-        
+
         foreach ($kelimeler as $kelime_duz) {
-            
+
             $kelime_uzunluk = strlen($kelime_duz);
             $ilk_karakter = mb_substr($kelime_duz, 0, 1, 'UTF-8');
-            
+
             if ($ilk_karakter == 'Ç' or $ilk_karakter == 'ç') {
                 $ilk_karakter = 'Ç';
             } elseif ($ilk_karakter == 'Ğ' or $ilk_karakter == 'ğ') {
@@ -622,11 +622,11 @@ Array
             } else {
                 $ilk_karakter = strtoupper($ilk_karakter);
             }
-            
+
             $digerleri = mb_substr($kelime_duz, 1, $kelime_uzunluk, 'UTF-8');
             $sonuc .= $ilk_karakter . self::strto_tr_ucwords_kucuk_yap($digerleri) . ' ';
         }
-        
+
         $son = trim(str_replace('  ', ' ', $sonuc));
         return $son;
     }

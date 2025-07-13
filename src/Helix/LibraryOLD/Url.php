@@ -19,7 +19,7 @@ namespace Lib;
  */
 class Url
 {
-	
+
 
 
     /**
@@ -39,22 +39,7 @@ class Url
         exit();
     }
 
-    /**
-     * created the absolute address to the template folder
-     *
-     * @return string url to template folder
-     */
-    public static function templatePath()
-    {
-        return DIR . 'app/views/templates/' . Session::get('template') . '/';
-    }
-    
-    // admin klasorunun yeri
-    public static function adminTemplatePath()
-    {
-        return DIR . 'app/views/templates/admin/';
-    }
-
+ 
     /**
      * css img js klasorunünü verir .
      * ..
@@ -79,13 +64,13 @@ class Url
     public static function autolink($text, $custom = null)
     {
         $regex = '@(http)?(s)?(://)?(([-\w]+\.)+([^\s]+)+[^,.\s])@';
-        
+
         if ($custom === null) {
             $replace = '<a href="http$2://$4">$1$2$3$4</a>';
         } else {
             $replace = '<a href="http$2://$4">' . $custom . '</a>';
         }
-        
+
         return preg_replace($regex, $replace, $text);
     }
 
@@ -133,14 +118,14 @@ class Url
             '_'
         );
         $slug = str_ireplace($tr, $eng, $slug);
-        
+
         // transform url
         $slug = preg_replace('/[^a-zA-Z0-9]/', '-', $slug);
         $slug = mb_strtolower(trim($slug, '-'));
-        
+
         // Removing more than one dashes
         $slug = preg_replace('/\-{2,}/', '-', $slug);
-        
+
         return $slug;
     }
 
@@ -178,11 +163,11 @@ class Url
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit();
     }
-	
-	
-	
-	
-	    /*
+
+
+
+
+    /*
      *
      * https://secure.php.net/manual/tr/function.parse-url.php
      * https://secure.php.net/parse_str
@@ -217,15 +202,15 @@ class Url
         $path = parse_url($url, PHP_URL_PATH);
         // query var mı ona bakılır
         $queryKontrolQueryName = parse_url($url, PHP_URL_QUERY);
-        $dir = substr(DIR, 0, - 1); // bu / işareti sil
+        $dir = substr(DIR, 0, -1); // bu / işareti sil
         parse_str($queryKontrolQueryName, $output);
-        
+
         $deleted = array(
             ''
         );
         $sonuc = array_diff($output, $deleted); // boşlukları sildir
         $yeni = array_unique($sonuc); // aynı olanları sil
-        
+
         $query = http_build_query($yeni);
         return $dir . $path . '?' . $query;
     }
@@ -245,325 +230,9 @@ class Url
         return $path['scheme'] . '://' . $path['host'] . $path['path'];
     }
 
-    /**
-     * sort linkleri ile ilgili işlemlerin yapılacağı kısım
-     *
-     * @access view/urunler_view erişir
-     * @param string $sort
-     * @return string
-     */
-    public static function SortLink($sort)
-    {
-        // echo 'http://www.n11.com/ayakkabi-ve-canta?srt=PRICE_HIGH&numara=40-39&m=Celal+G%C3%BCltekin'
-        // değer geldi ama içi boş mu geldi dolu mu geldi mesela sadece http://smvc.dev/kategoriler/gida_ve_icecek/sicak_icecekler?sort=azalanFiyat&m=
-        // kabul edilemez ona da bakmak gerek
-        $url = \Lib\Tools::currentPageURL();
-        $path = parse_url($url, PHP_URL_PATH);
-        // query var mı ona bakılır
-        $queryKontrolQueryName = parse_url($url, PHP_URL_QUERY);
-        $dir = substr(DIR, 0, - 1); // bu / işareti sil
-        if (! empty($queryKontrolQueryName)) {
-            
-            // https://secure.php.net/parse_str Dizge içindeki değişkenleri çözümledik yani diziye donuşturdum
-            parse_str($queryKontrolQueryName, $output);
-            
-            unset($output['page']); // sayfalamayı sil
-                                    
-            // query içinde sort varsa sil
-            if (array_key_exists('sort', $output)) {
-                
-                unset($output['sort']); // varsa sil
-                
-                $linkleme = '';
-                // sort haricindekileri yeniden linkle
-                foreach ($output as $anakey => $value) {
-                    $linkleme .= '&' . $anakey . '=' . $value;
-                }
-                $linkleme = substr($linkleme, 1); // bu / işareti sil
-                                                  
-                $link = $dir . $path . '?' . $linkleme . '&sort=' . $sort;
-                return self::LinkTemizle($link);
-            } else {
-                unset($output['page']); // sayfalamayı sil
-                $linkleme = '';
-          
-                // sort haricindekileri yeniden linkle
-                foreach ($output as $anakey => $value) {
-                    $linkleme .= '&' . $anakey . '=' . $value;
-                }
-                $linkleme = substr($linkleme, 1); // bu / işareti sil
-                                                  // todo belki hata olablir & işaretini silmek için kullandım
-                if (! empty($linkleme)) {
-                    $links = $linkleme . '&';
-                } else {
-                    $links = $linkleme;
-                }
-                
-                // echo 'sortYok';
-                return $dir . $path . '?' . $links . 'sort=' . $sort; // $url . '&sort=' . $sort;
-            }
-        } else {
-            // echo 'sonrda';
-            return self::LinkTemizle($url . '?sort=' . $sort);
-        }
-    }
 
-    /**
-     * url de tekrar eden query değerlerini siler
-     *
-     * @example
-     *
-     * @todo example eklenecek
-     * @return string
-     */
-    private function URLunique($url)
-    {
-        $path = parse_url($url, PHP_URL_PATH);
-        // query var mı ona bakılır
-        $queryKontrolQueryName = parse_url($url, PHP_URL_QUERY);
-        // $dir = substr(DIR, 0, - 1); // bu / işareti sil
-        
-        parse_str($queryKontrolQueryName, $output);
-        
-        foreach ($output as $anakey => $value) {
-            if (! empty($value)) {
-                $linkleme .= '&' . $anakey . '=' . $value;
-            }
-        }
-        
-        $linkleme = substr($linkleme, 1); // bu / işareti sil
-        return $dir . $path . '?' . $linkleme;
-    }
 
-    /**
-     * pagination kısmını linkler
-     *
-     * @return string
-     */
-    public static function PaginationLink()
-    {
-        $url = \Lib\Tools::currentPageURL();
-        $path = parse_url($url, PHP_URL_PATH);
-        // query var mı ona bakılır
-        $queryKontrolQueryName = parse_url($url, PHP_URL_QUERY);
-        $dir = substr(DIR, 0, - 1); // bu / işareti sil
-        if (! empty($queryKontrolQueryName)) {
-            // https://secure.php.net/parse_str Dizge içindeki değişkenleri çözümledik yani diziye donuşturdum
-            parse_str($queryKontrolQueryName, $output);
-            
-            // query içinde page varsa sil
-            if (array_key_exists('page', $output)) {
-                unset($output['page']); // varsa sil
-                $linkleme = '';
-                // sort haricindekileri yeniden linkle
-                
-                foreach ($output as $anakey => $value) {
-                    if (! empty($value)) {
-                        $linkleme .= '&' . $anakey . '=' . $value;
-                    }
-                }
-                $linkleme = substr($linkleme, 1); // bu / işareti sil
-                
-                if (! empty($linkleme)) {
-                    $links = $linkleme . '&';
-                } else {
-                    $links = $linkleme;
-                }
-                
-                return self::LinkTemizle($dir . $path . '?' . $links);
-            } else {
-                
-                return $url . '&';
-            }
-        } else {
-            
-            return self::LinkTemizle($url . '?');
-        }
-    }
 
-    /*
-     * http://smvc.dev/kategoriler/gida_ve_icecek/sicak_icecekler?
-     * filters[][A%C4%9F%C4%B1rl%C4%B1k]=1+KG&filters[][A%C4%9F%C4%B1rl%C4%B1k]=100+GR&filters[][A%C4%9F%C4%B1rl%C4%B1k]=500+Gr&filters[][Cinsiyet]=Bayan&filters[][Cinsiyet]=Erkek
-     * &filters[][%C3%9Cr%C3%BCn+Miktar%C4%B1]=400+ML&filters[][%C3%9Cr%C3%BCn+Miktar%C4%B1]=500+ML&filters[][%C3%9Cr%C3%BCn+Miktar%C4%B1]=600+ML&ara=ARA
-     *
-     */
-    
-    // tek bir sorun kaldı & işareti atıyor onu ne yapacagız ......
-    
-    // değer geldi ama içi boş mu geldi dolu mu geldi mesela sadece http://smvc.dev/kategoriler/gida_ve_icecek/sicak_icecekler?sort=azalanFiyat&m=
-    // kabul edilemez ona da bakmak gerek
-    // bu sorunu çözmek için bir yere unset koymak gerekiyor
-    // yada en son bir daha dizi yapıp boş olanları sildireceğim diziden
-    
-    /**
-     * marka linkleri ile ilgili işlemlerin yapılacağı kısım
-     *
-     * @access view/urunler_view erişir
-     * @param string $eklenecek_kelime
-     * @return string
-     */
-    public static function MarkaLink($eklenecek_kelime, $link_kaldir = false)
-    {
-        $eklenecek_kelime = \Lib\Strings::cevir_artiya($eklenecek_kelime);
-        $url = \Lib\Tools::currentPageURL();
-        $urlPathAdresi = parse_url($url, PHP_URL_PATH);
-        $QueryName = parse_url($url, PHP_URL_QUERY);
-        parse_str($QueryName, $query2arrayCiktisi);
-        $dir = substr(DIR, 0, - 1); // bu / işareti sil
-                                    // query parametresi hiç yoksa
-        if (! empty($QueryName)) {
-            // eğer $_GET['marka'] değer i zaten varsa onu yedekle sonra sil
-            
-            // eğer $link_kaldir true ise yani bu sadece arama kritelerinize tıklamışsa onun için geçerlidir
-            if ($link_kaldir) {
-                unset($query2arrayCiktisi['page']);
-            }
-            // ustteki kontrol e sonradan eklendi onu kullanan bir yer daha var kaldırmayın
-            unset($query2arrayCiktisi['page']);
-            
-            if (array_key_exists('marka', $query2arrayCiktisi)) {
-                // eğer get[m] boş değilse
-                if (! empty($query2arrayCiktisi['marka'])) {
-                    // echo 'girer54';
-                    unset($query2arrayCiktisi['page']); // paigination değerini sil eğer silinmeseydi mesela
-                                                        // http://smvc.dev/kategoriler/gida_ve_icecek/sicak_icecekler?sort=artanFiyat&page=7&m=JACOPS-MEHMET+EFEND%C4%B0 bu linkde hata verir di çünkü page=7 yoktur 3 ürün var
-                    $mdegeri = $query2arrayCiktisi['marka'] . '-' . \Lib\Strings::cevir_artiya($eklenecek_kelime);
-                    
-                    $yeni = \Lib\Arrays::string2unique($query2arrayCiktisi['marka'], $eklenecek_kelime);
-                    
-                    $marka_stack = '&marka=' . $yeni;
-                    
-                    unset($query2arrayCiktisi['marka']); // diziden kaldır tekrar oluşan linkleme dongusüne girmesin
-                    
-                    $linkleme = '';
-                    // m harici kalan query değerlerini de ekler diziye
-                    foreach ($query2arrayCiktisi as $key => $value) {
-                        $linkleme .= '&' . $key . '=' . $value;
-                    }
-                    
-                    $linkleme = substr($linkleme, 1);
-                    
-                    return $dir . $urlPathAdresi . '?' . $linkleme . $marka_stack . '';
-                } else {
-                    $mdegeri = $query2arrayCiktisi['marka'] . '-' . $eklenecek_kelime;
-                    
-                    $mdegeri = substr($mdegeri, 1); // bastaki - temizle
-                    
-                    $yeni = \Lib\Strings::cevir_artiya($mdegeri);
-                    
-                    // eğer zaten kendisi var ise link içinde olmasın
-                    
-                    $marka_stack = '&marka=' . $yeni;
-                    
-                    unset($query2arrayCiktisi['marka']); // diziden kaldır tekrar donguye tekrar girmesin
-                    
-                    $linkleme = '';
-                    
-                    // m harici kalan query değerlerini de ekler diziye
-                    foreach ($query2arrayCiktisi as $key => $value) {
-                        $linkleme .= '&' . $key . '=' . $value;
-                    }
-                    return self::LinkTemizle($dir . $urlPathAdresi . '?' . $linkleme . $marka_stack . '');
-                }
-            } else {
-                
-                // m harici bir link var mı onları da al
-                if (! empty($QueryName)) {
-                    
-                    $linkleme = '';
-                    foreach ($query2arrayCiktisi as $key => $value) {
-                        $linkleme .= '&' . $key . '=' . $value;
-                    }
-                }
-                return self::LinkTemizle($dir . $urlPathAdresi . '?' . $linkleme .= '&marka=' . $eklenecek_kelime);
-            }
-        } else
-            return self::LinkTemizle($dir . $urlPathAdresi . '?' . 'marka=' . $eklenecek_kelime);
-    }
 
-    /**
-     * marka linkleri ile ilgili işlemlerin yapılacağı kısım
-     *
-     * @access view/urunler_view erişir
-     * @param string $eklenecek_kelime
-     * @return string
-     */
-    public static function FilterLink($ozellik, $deger)
-    {
-        $eklenecek_kelime = \Lib\Strings::cevir_artiya($deger);
-        $url = \Lib\Tools::currentPageURL();
-        $urlPathAdresi = parse_url($url, PHP_URL_PATH);
-        $QueryName = parse_url($url, PHP_URL_QUERY);
-        parse_str($QueryName, $query2arrayCiktisi);
-        $dir = substr(DIR, 0, - 1); // bu / işareti sil
-                                    // query parametresi hiç yoksa
-        if (! empty($QueryName)) {
-            // eğer $_GET['marka'] değer i zaten varsa onu yedekle sonra sil
-            
-            if (array_key_exists($ozellik, $query2arrayCiktisi)) {
-                // echo 'girer';
-                // eğer get[ozellik] boş değilse
-                if (! empty($query2arrayCiktisi[$ozellik])) {
-                    // echo $ozellik . 'yazdı';
-                    unset($query2arrayCiktisi['page']); // paigination değerini sil eğer silinmeseydi mesela
-                                                        // http://smvc.dev/kategoriler/gida_ve_icecek/sicak_icecekler?sort=artanFiyat&page=7&m=JACOPS-MEHMET+EFEND%C4%B0 bu linkde hata verir di çünkü page=7 yoktur 3 ürün var
-                    $mdegeri = $query2arrayCiktisi[$ozellik] . '-' . \Lib\Strings::cevir_artiya($eklenecek_kelime);
-                    
-                    $yeni = \Lib\Arrays::string2unique($query2arrayCiktisi[$ozellik], $eklenecek_kelime);
-                    
-                    $marka_stack = '&' . $ozellik . '=' . $yeni;
-                    
-                    unset($query2arrayCiktisi[$ozellik]); // diziden kaldır tekrar oluşan linkleme dongusüne girmesin
-                    
-                    $linkleme = '';
-                    
-                    // m harici kalan query değerlerini de ekler diziye
-                    foreach ($query2arrayCiktisi as $key => $value) {
-                        $linkleme .= '&' . $key . '=' . $value;
-                    }
-                    
-                    $linkleme = substr($linkleme, 1);
-                    
-                    return self::LinkTemizle($dir . $urlPathAdresi . '?' . $linkleme . $marka_stack . '');
-                } else {
-                    
-                    $mdegeri = $query2arrayCiktisi[$ozellik] . '-' . $eklenecek_kelime;
-                    
-                    $mdegeri = substr($mdegeri, 1); // bastaki - temizle
-                    
-                    $yeni = \Lib\Strings::cevir_artiya($mdegeri);
-                    
-                    // eğer zaten kendisi var ise link içinde olmasın
-                    
-                    $marka_stack = '&' . $ozellik . '=' . $yeni;
-                    
-                    unset($query2arrayCiktisi[$ozellik]); // diziden kaldır tekrar donguye tekrar girmesin
-                    
-                    $linkleme = '';
-                    
-                    // m harici kalan query değerlerini de ekler diziye
-                    foreach ($query2arrayCiktisi as $key => $value) {
-                        $linkleme .= '&' . $key . '=' . $value;
-                    }
-                    
-                    return self::LinkTemizle($dir . $urlPathAdresi . '?' . $linkleme . $marka_stack . '');
-                }
-            } else {
-                // m harici bir link var mı onları da al
-                if (! empty($QueryName)) {
-                    $linkleme = '';
-                    foreach ($query2arrayCiktisi as $key => $value) {
-                        $linkleme .= '&' . $key . '=' . $value;
-                    }
-                }
-                
-                return self::LinkTemizle($dir . $urlPathAdresi . '?' . $linkleme .= '&' . $ozellik . '=' . $eklenecek_kelime);
-            }
-        } else {
-            
-            return self::LinkTemizle($dir . $urlPathAdresi . '?' . $ozellik . '=' . $eklenecek_kelime);
-        }
-    }
-	
-	
+
 }

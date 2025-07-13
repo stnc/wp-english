@@ -97,13 +97,13 @@ class Arrays
      */
     public function iki_dizi_ortak_elemanlari()
     {
+        $query2arrayCiktisi   = array();
         $KullanilanQuerys = array(
             'sort',
             'marka',
             'page'
         );
-        $query2arrayCiktisiKEYS = array_keys($query2arrayCiktisi); // keyleri diziyaptık
-                                                                   
+        $query2arrayCiktisiKEYS = array_keys($query2arrayCiktisi); // keyleri diziyaptık                                                
         // iki dizinin ortak elemanları var mı ona bakar
         if (count(array_intersect($query2arrayCiktisiKEYS, $KullanilanQuerys)) > 0) {
             echo "\$arr1 dizisi içerisinde bulunan değerlerin bazıları " . "\$arr2 dizisinde de bulunuyor<br/>\n";

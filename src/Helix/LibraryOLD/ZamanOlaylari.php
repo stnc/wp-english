@@ -297,7 +297,7 @@ else {
             $yash = date('Y') - $yil;
             if (date('m') < $ay)
                 $yash --;
-            elseif (date('d') < $day)
+            elseif (date('d') < $gun)
                 $yash --;
             return $yash;
         }
