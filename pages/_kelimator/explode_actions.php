@@ -1,12 +1,11 @@
 <?php
 
 // session_start();
-//  helix_building_company
 use Nette\Utils\Arrays;
 use Nette\Utils\Strings;
 
 // Other name under which transcripts, certificates, and former applications may be listed: 
-function helix_wp_floor_adminMenu_explode()
+function helix_wp__adminMenu_explode()
 {
 
     include('eng_library.php');

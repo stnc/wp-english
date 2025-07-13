@@ -179,7 +179,7 @@ include("_header-show.php");
                 <div class="form-group">
                     <button type="submit" value="Kaydet" id="savebtn-helixMap" class="btn btn-success"> <?php esc_html_e('Save', 'helix-lng') ?></button>
                     <?php if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) : 
-                        		$delete_nonce = wp_create_nonce('sp_delete_helixMapFloors'); ?>
+                        		$delete_nonce = wp_create_nonce('sp_delete_helixMaps'); ?>
 
                  <?php if ($is_json == 1) :  ?>
                    <a  href="/wp-admin/admin.php?page=helix_explode&st_trigger=edit&id=<?php echo  $id ;?>&_wpnonce=<?php echo  $delete_nonce ;?>" id="savebtn-helixMap2" class="btn btn-primary">Parcalanmis Kelimeyi Duzenle</a>

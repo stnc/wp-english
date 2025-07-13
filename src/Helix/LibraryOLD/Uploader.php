@@ -5,14 +5,14 @@ namespace Lib;
  * ################################################################################
  * # helix File Upload
  * ################################################################################
- * # Class Name :Stnc File Upload v5.0
+ * # Class Name :helix File Upload v5.0
  * # Script-Version: 5.0
  * # File-Release-Date: 22/12/2009 21:34
  * # update Date : 23/03/2013
  * # Php Version : PHP 5.0+
  * # Official web site and latest version: selmantunc.com
  * #==============================================================================
- * # Authors: selman tunç (<stncweb@gmail.com)
+ * # Authors: selman tunç (<helixweb@gmail.com)
  * # Copyright © 2009 selmantunc.com All Rights Reserved.
  * #
  * ################################################################################
@@ -30,10 +30,10 @@ namespace Lib;
  *
  *
  *
- * STNC upload Class
+ * helix upload Class
  *
  * @version 5.0
- * @author SeLman TunÇ <stncweb@gmail.com>
+ * @author SeLman TunÇ <helixweb@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU var License
  * @copyright SeLman TunÇ
  * @package upload
@@ -570,7 +570,7 @@ class Uploader
  * $input_names =array();
  * $input_names=$_FILES['uploadPic'];
  *
- * $Uploader = & new stnc_file_upload();
+ * $Uploader = & new helix_file_upload();
  *
  *
  * // eğer true ise dosya orginal ismi ile kaydedilir

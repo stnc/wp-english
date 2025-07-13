@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name:  Kelimator 3
-Plugin URI:	https://github.com/stnc/wp-kat-planlari		
+Plugin URI:	https://github.com/helix/wp-kat-planlari		
 Description: Kelimator ; kelime islemci 
 Version: 1.0.5
 Author: Selman TUNC
@@ -32,7 +32,7 @@ function helix_default_setting(){
 }
 
 
-function helix_wp_floor_plans_admin_body_class($classes = '')
+function helix_admin_body_class($classes = '')
 {
   // $onboarding_class = isset( $_GET['page'] ) && 'helix_homepage' === $_GET['page'] ? 'helix-header-page' : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
   // $classes .= ' ' . $onboarding_class . ' ';
@@ -54,7 +54,7 @@ function helix_wp_floor_plans_admin_body_class($classes = '')
   return $classes;
 }
 //https://deluxeblogtips.com/wordpress-admin-body-class/
-add_action('admin_body_class',  'helix_wp_floor_plans_admin_body_class');
+add_action('admin_body_class',  'helix_admin_body_class');
 
 function helix_is_check_shortcode($word)
 {

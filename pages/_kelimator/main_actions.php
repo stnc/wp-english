@@ -1,5 +1,5 @@
 <?php
-function helix_wp_floor_adminMenu_helix_building_company()
+function helix_wp__adminMenu_helix_building_company()
 {
     // session_start();
     //  helix_building_company

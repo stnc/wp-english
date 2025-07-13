@@ -12,8 +12,8 @@ namespace Lib;
  *
  * @author Selman TUNÇ <selmantunc@gmail.com>
  * @copyright Copyright (c) 2015 SELMAN TUNÇ
- * @link http://github.com/stnc
- * @link https://github.com/stnc/stnc-framework/
+ * @link http://github.com/helix
+ * @link https://github.com/helix/helix-framework/
  * @version 2.0.0.1
  * @license http://www.opensource.org/licenses/mit-license.php The MIT License
  */

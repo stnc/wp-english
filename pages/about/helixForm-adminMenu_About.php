@@ -1,9 +1,9 @@
 <?php
 
-function helix_wp_floor_plans_adminMenu_About_contents()
+function helix_wp__plans_adminMenu_About_contents()
 {
     //  $to = get_option('admin_email');
-    // $options = get_option( 'helix_wp_floor_option' ); 
+    // $options = get_option( 'helix_wp__option' ); 
     // echo "<pre>";
     // print_r($options['email_adress']); // id of the field
 

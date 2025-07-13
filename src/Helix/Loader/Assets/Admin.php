@@ -23,7 +23,7 @@ class Admin
         }
 
         if (isset($_GET["page"]) && $_GET["page"] === "helix_map_view") {
-            // helix_wp_floor_front() ;
+            // helix_wp__front() ;
             $this->helix_admin_scritps();
         }
 

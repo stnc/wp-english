@@ -4,7 +4,7 @@ namespace Lib;
 
 /*
  * dokuman hakkında bilgiler verir
- * STNC FW
+ * helix FW
  * Copyright (c) 2015
  * Author(s): Selman TUNÇ www.selmantunc.com <selmantunc@gmail.com>
 
@@ -12,8 +12,8 @@ namespace Lib;
  *
  * @author Selman TUNÇ <selmantunc@gmail.com>
  * @copyright Copyright (c) 2015 SELMAN TUNÇ
- * @link http://github.com/stnc
- * @link https://github.com/stnc/stnc-framework/
+ * @link http://github.com/helix
+ * @link https://github.com/helix/helix-framework/
  * @version 2.0.0.1
  * @license http://www.opensource.org/licenses/mit-license.php The MIT License
  */
@@ -100,7 +100,7 @@ class Document
         );
         
         $bytes = max($bytes, 0);
-        $pow = floor(($bytes ? log($bytes) : 0) / log(1024));
+        $pow = (($bytes ? log($bytes) : 0) / log(1024));
         $pow = min($pow, count($units) - 1);
         
         $bytes /= pow(1024, $pow);
