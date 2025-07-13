@@ -6,6 +6,4 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Loader' => array($baseDir . '/src'),
-    'HelloWorld' => array($baseDir . '/src'),
 );

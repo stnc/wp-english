@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'stnc/wpfw',
+        'name' => 'helix/wpfw',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '9e46b5576817bf257895a3dfc87750fe4b83f602',
+        'reference' => 'd8adf212d8c2b41b4edbb8fec5558b349d61dec8',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -19,10 +19,10 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'stnc/wpfw' => array(
+        'helix/wpfw' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '9e46b5576817bf257895a3dfc87750fe4b83f602',
+            'reference' => 'd8adf212d8c2b41b4edbb8fec5558b349d61dec8',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

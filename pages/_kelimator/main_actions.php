@@ -1,10 +1,10 @@
 <?php
-function stnc_wp_floor_adminMenu_stnc_building_company()
+function helix_wp__adminMenu_helix_building_company()
 {
     // session_start();
-    //  stnc_building_company
+    //  helix_building_company
     global $wpdb;
-    $stncForm_tableNameMain = $wpdb->prefix . 'helix_words';
+    $helixForm_tableNameMain = $wpdb->prefix . 'helix_words';
 
     date_default_timezone_set('Europe/Istanbul');
     $date = date('Y-m-d h:i:s');
@@ -61,7 +61,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
 
 
         $success =   $wpdb->insert(
-            $stncForm_tableNameMain,
+            $helixForm_tableNameMain,
             array(
                 'level_cat_id' =>   $level_cat_id,
                 'vocable_level_id' =>   $vocable_level,
@@ -87,8 +87,8 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
                 }
             }
 
-            $_SESSION['stnc_map_flash_msg'] =  __('Record Save', 'the-stnc-map');
-            wp_redirect('/wp-admin/admin.php?page=stnc_building_company&st_trigger=edit&id=' . $lastid, 302);
+            $_SESSION['helix_map_flash_msg'] =  __('Record Save', 'helix-lng');
+            wp_redirect('/wp-admin/admin.php?page=helix_building_company&st_trigger=edit&id=' . $lastid, 302);
             die;
         }
     }
@@ -98,7 +98,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) {
         // session_start();
         $editId = sanitize_text_field($_GET['id']);
-        $data = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tableNameMain . "  WHERE id = %d", $editId));
+        $data = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $helixForm_tableNameMain . "  WHERE id = %d", $editId));
 
         $id =  $data->id;
         $level_cat_id =  $data->level_cat_id;
@@ -172,7 +172,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
 
 
         $success1 = $wpdb->update(
-            $stncForm_tableNameMain,
+            $helixForm_tableNameMain,
             array(
                 'level_cat_id' =>  $level_cat_id,
                 'vocable_level_id' =>  $vocable_level,
@@ -208,8 +208,8 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
 
         // if ($success1) {
         //   print_r("gelir last");
-        $_SESSION['stnc_map_flash_msg'] =  __('Record Updated', 'the-stnc-map');
-        wp_redirect('/wp-admin/admin.php?page=stnc_building_company&st_trigger=edit&id=' .  $id1, 302);
+        $_SESSION['helix_map_flash_msg'] =  __('Record Updated', 'helix-lng');
+        wp_redirect('/wp-admin/admin.php?page=helix_building_company&st_trigger=edit&id=' .  $id1, 302);
         die;
         // }
     }

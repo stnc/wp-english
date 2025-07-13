@@ -71,8 +71,8 @@ class Helix_wp_word_list_table extends WP_List_Table
 
 		parent::__construct(
 			array(
-				'singular' => __('stncMapFloors', 'sp'), //singular name of the listed records
-				'plural'   => __('stncMapFloorss', 'sp'), //plural name of the listed records
+				'singular' => __('helixMaps', 'sp'), //singular name of the listed records
+				'plural'   => __('helixMapss', 'sp'), //plural name of the listed records
 				'ajax'     => false //does this table support ajax?
 			)
 		);
@@ -228,20 +228,20 @@ class Helix_wp_word_list_table extends WP_List_Table
 	 **************************************************************************/
 	function column_main_language($item)
 	{
-		$delete_nonce = wp_create_nonce('sp_delete_stncMapFloors');
+		$delete_nonce = wp_create_nonce('sp_delete_helixMaps');
 
 		$title = '<strong>' . $item['main_language'] . '</strong>';
-		$showLang = __('Show', 'the-stnc-map');
-		$editLangs = __('Edit', 'the-stnc-map');
+		$showLang = __('Show', 'helix-lng');
+		$editLangs = __('Edit', 'helix-lng');
 		$actions = [
-			// 'view' => sprintf('<a href="?page=%s&action=%s&stncMapFloors=%s&_wpnonce=%s">%s</a>', esc_attr($_REQUEST['page']), 'view', absint($item['id']), $delete_nonce,	$showLang),
-			'edit' => sprintf('<a href="?page=stnc_building_company&st_trigger=edit&id=%s&_wpnonce=%s">%s</a>',  absint($item['id']), $delete_nonce, $editLangs)
+			// 'view' => sprintf('<a href="?page=%s&action=%s&helixMaps=%s&_wpnonce=%s">%s</a>', esc_attr($_REQUEST['page']), 'view', absint($item['id']), $delete_nonce,	$showLang),
+			'edit' => sprintf('<a href="?page=helix_building_company&st_trigger=edit&id=%s&_wpnonce=%s">%s</a>',  absint($item['id']), $delete_nonce, $editLangs)
 		];
 
 		return $title . $this->row_actions($actions);
 	}
 
-	//http://summit.test/wp-admin/admin.php?page=wp_list_table_class&action=delete&stncMapFloors=16&_wpnonce=243e56ab02
+	//http://summit.test/wp-admin/admin.php?page=wp_list_table_class&action=delete&helixMaps=16&_wpnonce=243e56ab02
 
 	/**
 	 * Column cb.
@@ -274,7 +274,7 @@ class Helix_wp_word_list_table extends WP_List_Table
 
 		$this->process_bulk_action();
 
-		$per_page     = $this->get_items_per_page('stncMapFloorss_per_page', 15);
+		$per_page     = $this->get_items_per_page('helixMapss_per_page', 15);
 		$current_page = $this->get_pagenum();
 		$total_items  = self::record_count();
 
@@ -284,18 +284,18 @@ class Helix_wp_word_list_table extends WP_List_Table
 		]);
 
 
-		$this->items = self::get_stncMapFloorss($per_page, $current_page);
+		$this->items = self::get_helixMapss($per_page, $current_page);
 	}
 
 	/**
-	 * Retrieve stncMapFloorss data from the database
+	 * Retrieve helixMapss data from the database
 	 *
 	 * @param int $per_page
 	 * @param int $page_number
 	 *
 	 * @return mixed
 	 */
-	public static function get_stncMapFloorss($per_page = 5, $page_number = 1)
+	public static function get_helixMapss($per_page = 5, $page_number = 1)
 	{
 
 		global $wpdb;
@@ -386,10 +386,10 @@ class Helix_wp_word_list_table extends WP_List_Table
 			// In our file that handles the request, verify the nonce.
 			$nonce = esc_attr($_REQUEST['_wpnonce']);
 
-			if (!wp_verify_nonce($nonce, 'sp_delete_stncMapFloors')) {
+			if (!wp_verify_nonce($nonce, 'sp_delete_helixMaps')) {
 				die('Go get a life script kiddies');
 			} else {
-				self::delete_stncMapFloors(absint($_GET['stncMapFloors']));
+				self::delete_helixMaps(absint($_GET['helixMaps']));
 
 				// esc_url_raw() is used to prevent converting ampersand in url to "#038;"
 				// add_query_arg() return the current url
@@ -403,8 +403,8 @@ class Helix_wp_word_list_table extends WP_List_Table
 			global $wpdb;
 			// In our file that handles the request, verify the nonce.
 			$nonce = esc_attr($_REQUEST['_wpnonce']);
-			$id = filter_input(INPUT_GET, 'stncMapFloors', FILTER_DEFAULT);
-			$data = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}stnc_map_floors_locations WHERE id = $id");
+			$id = filter_input(INPUT_GET, 'helixMaps', FILTER_DEFAULT);
+			$data = $wpdb->get_row("SELECT * FROM {$wpdb->prefix}helix_map_s_locations WHERE id = $id");
 			// print_r(	$data );
 
 
@@ -427,20 +427,20 @@ class Helix_wp_word_list_table extends WP_List_Table
 					<div class="card shadow1" style="max-width:100%!important">
 						<h2> <strong><?php echo $data->company_description; ?></strong> -- Info</h2>
 
-						<div><mark class="dont"><?php esc_html_e('Company', 'the-stnc-map') ?> :</mark> <?php echo $data->company_description; ?></div>
+						<div><mark class="dont"><?php esc_html_e('Company', 'helix-lng') ?> :</mark> <?php echo $data->company_description; ?></div>
 						<hr>
-						<div><mark class="dont"><?php esc_html_e('Detail Info', 'the-stnc-map') ?>:</mark> <?php echo $data->company_name; ?></div>
+						<div><mark class="dont"><?php esc_html_e('Detail Info', 'helix-lng') ?>:</mark> <?php echo $data->company_name; ?></div>
 						<hr>
-						<div><mark class="dont"><?php esc_html_e('Phone', 'the-stnc-map') ?>:</mark> <?php echo $data->phone; ?></div>
+						<div><mark class="dont"><?php esc_html_e('Phone', 'helix-lng') ?>:</mark> <?php echo $data->phone; ?></div>
 						<hr>
-						<div><mark class="dont"><?php esc_html_e('Email', 'the-stnc-map') ?>:</mark> <?php echo $data->email; ?></div>
+						<div><mark class="dont"><?php esc_html_e('Email', 'helix-lng') ?>:</mark> <?php echo $data->email; ?></div>
 						<hr>
-						<div><mark class="dont"><?php esc_html_e('Web Site', 'the-stnc-map') ?>:</mark> <?php echo $data->web_site; ?></div>
+						<div><mark class="dont"><?php esc_html_e('Web Site', 'helix-lng') ?>:</mark> <?php echo $data->web_site; ?></div>
 						<hr>
-						<div><mark class="dont"><?php esc_html_e('Adresss', 'the-stnc-map') ?>:</mark> <?php echo $data->main_language; ?></div>
+						<div><mark class="dont"><?php esc_html_e('Adresss', 'helix-lng') ?>:</mark> <?php echo $data->main_language; ?></div>
 						<hr>
 
-						<div><mark class="dont"></mark> <a href="/wp-admin/admin.php?page=stnc_building_company&st_trigger=show&building_id=<?php echo $data->building_id; ?>&floor_id=<?php echo $data->floor_id; ?>&id=<?php echo $data->id; ?>"><?php esc_html_e('Edit', 'the-stnc-map') ?></a> </div>
+						<div><mark class="dont"></mark> <a href="/wp-admin/admin.php?page=helix_building_company&st_trigger=show&building_id=<?php echo $data->building_id; ?>&_id=<?php echo $data->_id; ?>&id=<?php echo $data->id; ?>"><?php esc_html_e('Edit', 'helix-lng') ?></a> </div>
 						<hr>
 						<!-- <div><mark class="dont">Eklenen Dosya:</mark><?php echo $oynat ?></div> -->
 					</div>
@@ -461,14 +461,14 @@ class Helix_wp_word_list_table extends WP_List_Table
 			|| (isset($_POST['action2']) && $_POST['action2'] == 'bulk-delete')
 		) {
 
-			$post_ids = filter_input(INPUT_POST, 'stncMapFloors_id', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+			$post_ids = filter_input(INPUT_POST, 'helixMaps_id', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
 
 
 			if (is_array($post_ids)) {
 
 				$post_ids = array_map('intval', $post_ids);
 				foreach ($post_ids as $id) {
-					self::delete_stncMapFloors($id);
+					self::delete_helixMaps($id);
 				}
 				// if ( count( $post_ids ) ) {
 				// 	array_map( 'wp_trash_post', $post_ids );
@@ -623,7 +623,7 @@ class Helix_wp_word_list_table extends WP_List_Table
  * so we've instead called those methods explicitly. It keeps things flexible, and
  * it's the way the list tables are used in the WordPress core.
  */
-function stnc_wp_floor_render_list_page()
+function helix_wp__render_list_page()
 {
 
 	//Create an instance of our package class...
@@ -643,14 +643,14 @@ function stnc_wp_floor_render_list_page()
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
-  cursor: pointer;" href="/wp-admin/admin.php?page=stnc_empty_building_list"><?php esc_html_e('Empty Offices', 'the-stnc-map') ?></a>
+  cursor: pointer;" href="/wp-admin/admin.php?page=helix_empty_building_list"><?php esc_html_e('other buton ', 'helix-lng') ?></a>
 
 		<div id="icon-users" class="icon32"><br /></div>
-		<h2> <?php esc_html_e('Word list', 'the-stnc-map') ?></h2>
+		<h2> <?php esc_html_e('Word list', 'helix-lng') ?></h2>
 
 		<div
 			style="background:#ECECEC;border:1px solid #CCC;padding:0 10px;margin-top:5px;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;">
-			<p><?php esc_html_e('Word list', 'the-stnc-map') ?> </p>
+			<p><?php esc_html_e('Word list', 'helix-lng') ?> </p>
 
 		</div>
 
@@ -660,7 +660,7 @@ function stnc_wp_floor_render_list_page()
 			<input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
 			<!-- Now we can render the completed list table -->
 			<?php
-			$searchLang =  __('Word list', 'the-stnc-map');
+			$searchLang =  __('Word list', 'helix-lng');
 			$testListTable->search_box($searchLang, 'search_id');
 			$testListTable->display() ?>
 		</form>

@@ -5,23 +5,23 @@ $id =   isset($_GET['id']) ? sanitize_text_field($_GET['id']) : "";
 
 
 // $title = "Add"; 
-$form = '<form action="/wp-admin/admin.php?page=stnc_building_company&st_trigger=store" method="post">';
+$form = '<form action="/wp-admin/admin.php?page=helix_building_company&st_trigger=store" method="post">';
 
 if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) {
-    // $title = esc_html_e('Show', 'the-stnc-map');
-    $form = '<form action="/wp-admin/admin.php?page=stnc_building_company&st_trigger=update&id=' . $id . '" method="post">';
+    // $title = esc_html_e('Show', 'helix-lng');
+    $form = '<form action="/wp-admin/admin.php?page=helix_building_company&st_trigger=update&id=' . $id . '" method="post">';
 }
 
 include("_header-show.php");
 
 
 
-if (isset($_SESSION['stnc_map_flash_msg'])) {
+if (isset($_SESSION['helix_map_flash_msg'])) {
 ?>
     <p class="alert alert-success">
-        <?php echo $_SESSION['stnc_map_flash_msg']; ?>
+        <?php echo $_SESSION['helix_map_flash_msg']; ?>
     </p>
-    <?php unset($_SESSION['stnc_map_flash_msg']); ?>
+    <?php unset($_SESSION['helix_map_flash_msg']); ?>
 <?php } ?>
 
 

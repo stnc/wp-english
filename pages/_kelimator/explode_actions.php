@@ -1,28 +1,19 @@
 <?php
 
 // session_start();
-//  stnc_building_company
 use Nette\Utils\Arrays;
 use Nette\Utils\Strings;
 
 // Other name under which transcripts, certificates, and former applications may be listed: 
-function stnc_wp_floor_adminMenu_explode()
+function helix_wp__adminMenu_explode()
 {
 
     include('eng_library.php');
 
-    if (file_exists(__DIR__.'/../../vendor/autoload.php')) {
-        require __DIR__.'/../../vendor/autoload.php';
-    } else {
-        echo "<h1>Lütfen composer.json ı yükleyin </h1>";
-        echo "<p>Örnekler <a href='https://getcomposer.org/doc/00-intro.md#globally'>https://getcomposer.org/doc/00-intro.md#globally</a></p>";
-        echo "<p> terminal yada cmd yi açarak  'composer install' yazınız</p>";
-        echo "<p> eğer yuklü ise terminal yada cmd yi açarak  'composer update' yazınız</p>";
-        exit();
-    }
+
 
     global $wpdb;
-    $stncForm_tableNameMain = $wpdb->prefix . 'helix_words';
+    $helixForm_tableNameMain = $wpdb->prefix . 'helix_words';
 
     date_default_timezone_set('Europe/Istanbul');
     $date = date('Y-m-d h:i:s');
@@ -30,7 +21,7 @@ function stnc_wp_floor_adminMenu_explode()
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'new')) {
 
         $editId = sanitize_text_field($_GET['id']);
-        $data = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tableNameMain . "  WHERE id = %d", $editId));
+        $data = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $helixForm_tableNameMain . "  WHERE id = %d", $editId));
 
         $id =  $data->id;
         // $level_cat_id =  $data->level_cat_id;
@@ -89,6 +80,7 @@ function stnc_wp_floor_adminMenu_explode()
 
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'store')) {
 
+     
         $editId = sanitize_text_field($_GET['id']);
 
         $main_language = ($_POST['main_language_json']);
@@ -113,7 +105,7 @@ function stnc_wp_floor_adminMenu_explode()
     //    print_r($main_language_json);
 
         $wpdb->update(
-            $stncForm_tableNameMain,
+            $helixForm_tableNameMain,
             array(
                 'main_language_json' =>  $main_language_json,
                 'translate_json' =>  $translate_json,
@@ -130,7 +122,7 @@ function stnc_wp_floor_adminMenu_explode()
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) {
         // $translate_decode = json_decode($translate_json, false, 512, JSON_BIGINT_AS_STRING);
         $editId = sanitize_text_field($_GET['id']);
-        $data = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $stncForm_tableNameMain . "  WHERE id = %d", $editId));
+        $data = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $helixForm_tableNameMain . "  WHERE id = %d", $editId));
         $id =  $data->id;
         $main_language =  $data->main_language;
         $translate =  $data->translate;

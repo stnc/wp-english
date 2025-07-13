@@ -1,3 +1,79 @@
+
+https://github.com/DevinVinson/WordPress-Plugin-Boilerplate/tree/master
+
+
+# ajax 
+
+https://wpmudev.com/blog/using-ajax-with-wordpress/
+
+https://wordpress.stackexchange.com/questions/277343/basic-wordpress-ajax-call
+
+https://gist.github.com/devinsays/69a305053e35a10584f94d6011bba2d6
+
+https://www.google.com/search?q=wordpress+ajax+example&client=firefox-b-1-d&sca_esv=63c2fe5e06952359&biw=1920&bih=947&sxsrf=AE3TifMtf6-vddJ9xuGK2X-UhUn6NU5GpA%3A1752375921665&ei=cSJzaMKyKMrRkPIPkb2l8A4&oq=wordpress+how+to+ajax+&gs_lp=Egxnd3Mtd2l6LXNlcnAiFndvcmRwcmVzcyBob3cgdG8gYWpheCAqAggCMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMgYQABgWGB4yBhAAGBYYHjIGEAAYFhgeMgYQABgWGB5Ivh5QnwNYvQtwAXgAkAEAmAGDAaABnQWqAQMxLjW4AQHIAQD4AQGYAgegAsQFwgILEAAYgAQYsAMYogTCAggQABiwAxjvBcICCxAAGLADGKIEGIkFwgIEECMYJ8ICCxAAGIAEGJECGIoFwgIFEAAYgASYAwCIBgGQBgSSBwMxLjagB9YlsgcDMC42uAe_BcIHAzItN8gHHg&sclient=gws-wiz-serp
+
+
+
+# wp for rest application pasword uses 
+https://melapress.com/wordpress-application-passwords/
+
+https://melapress.com/wordpress-rest-api-security/
+
+https://github.com/rnaga/wordpress-rest-admin/blob/master/src/services/auth.js
+
+https://medium.com/@omobolanlearogundade/creating-a-simple-web-app-using-wordpress-rest-api-with-javascript-ab4e3bfa4898
+
+https://www.shawnhooper.ca/2017/02/02/wordpress-rest-cache/
+
+
+https://www.voxfor.com/understanding-the-wordpress-rest-api-and-how-to-create-or-modify-custom-endpoints/  onemli 
+
+https://tryhoverify.com/blog/wordpress-rest-api-implementation-examples/  ersiim listeleri var 
+
+https://www.cloudways.com/blog/setup-basic-authentication-in-wordpress-rest-api/
+
+
+https://panchalharit.medium.com/basic-authentication-in-wordpress-how-to-use-decode-and-implement-on-front-end-applications-7b1d87ae7f21
+
+
+
+
+https://www.masterdc.com/blog/wordpress-rest-api-application-for-publishing-posts/
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://www.multidots.com/blog/wordpress-api-integration/
+
+
+https://github.com/sfmok/hello-world/blob/main/tests/HelloWorldTest.php
+https://aschmelyun.com/blog/installing-a-local-composer-package-in-your-php-project/
+
+https://www.codementor.io/@aaronoverton/wordpress-development-best-practices-oop-php-du107pcek
+
+https://medium.com/@sfmok/create-and-publish-a-php-composer-package-11eabcd038c1    test yapmak 
+
+
+https://stackoverflow.com/questions/21463421/a-non-empty-psr-4-prefix-must-end-with-a-namespace-separator  psr 4 ile 
+
+
+https://github.com/helix/helix-framework-skeleton
+
+https://github.com/helix/helix-framework/blob/master/composer.json
+
+
+
+
+
 composer 
 https://github.com/laravel/framework/blob/12.x/composer.json
 
