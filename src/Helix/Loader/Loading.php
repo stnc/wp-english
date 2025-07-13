@@ -4,6 +4,7 @@
 namespace Helix\Loader;
 
 use Helix\Loader\Menu;
+use Helix\Loader\I18n;
 use Helix\Loader\Assets\Admin;
 use Helix\Loader\Assets\Frontend;
 
@@ -52,9 +53,7 @@ class Loading
     public function __construct()
     {
         $this->plugin_constants();
-  
-        add_action('plugins_loaded', array($this, 'loadLanguage'));
-
+        new I18n();
         $this->registerMenu();
         $this->registerAssets();
         $this->wpDefaultsApi();
@@ -66,9 +65,6 @@ class Loading
     {
 
     }
-
-
-
 
     public function registerMenu()
     {
@@ -94,12 +90,6 @@ class Loading
 
 
 
-    public function loadLanguage()
-    {
-        // echo dirname( plugin_basename( __FILE__ ) ) . '/../../languages';
-        // die;
-        // Retrieve the directory for the internationalization files
-        load_plugin_textdomain('helix-lng', false, dirname(plugin_basename(__FILE__)) . '/../../languages');
-    }
+
 
 }

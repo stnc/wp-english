@@ -21,20 +21,6 @@ class Menu
 
 
 
-    /**
-     * Throws an unauthorized exception.
-     *
-     * @param  string|null  $message
-     * @param  mixed|null  $code
-     * @return \Illuminate\Auth\Access\Response
-     */
-    // protected function deny($message = null, $code = null)
-    // {
-    //     return Response::deny($message, $code);
-    // }
-
-
-
 
     public function registerMenu()
     {

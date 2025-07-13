@@ -11,7 +11,7 @@ function stnc_wp_floor_plans_adminMenu_About_contents()
     <div id="advanced" class="postbox ">
         <div class="inside">
             <div class="card shadow1" style="max-width:100%!important">
-                <h2>    <?php esc_html_e( 'Support', 'the-stnc-map' ) ?>  </h2>
+                <h2>    <?php esc_html_e( 'Support', 'helix-lng' ) ?>  </h2>
 
             </div>
 <pre>

@@ -30,18 +30,18 @@ function helix_admin_homepage()
         <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="/wp-admin/admin.php?page=stnc_map_homepage"><?php esc_html_e('Kelimator Homepage', 'the-stnc-map') ?></a>
+              <a class="nav-link" href="/wp-admin/admin.php?page=stnc_map_homepage"><?php esc_html_e('Kelimator Homepage', 'helix-lng') ?></a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/wp-admin/admin.php?page=helix_word_list"><?php esc_html_e('Kelime Listesi', 'the-stnc-map') ?></a>
+              <a class="nav-link active" aria-current="page" href="/wp-admin/admin.php?page=helix_word_list"><?php esc_html_e('Kelime Listesi', 'helix-lng') ?></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/wp-admin"><?php esc_html_e('Wordpress Panel', 'the-stnc-map') ?></a>
+              <a class="nav-link active" aria-current="page" href="/wp-admin"><?php esc_html_e('Wordpress Panel', 'helix-lng') ?></a>
             </li>
           </ul>
           <div class="text-center">
-            <h1 class="stnc-title fw-bold"><?php esc_html_e('Kelime Generator', 'the-stnc-map') ?></h1>
+            <h1 class="stnc-title fw-bold"><?php esc_html_e('Kelime Generator', 'helix-lng') ?></h1>
           </div>
         </div>
       </div>

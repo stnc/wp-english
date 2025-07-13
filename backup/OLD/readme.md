@@ -1,1 +1,0 @@
-bu surumde sadece "pages\_kelimator\explode_view.php  " bolumunde tablo parcalama ornegi var  

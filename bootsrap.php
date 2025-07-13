@@ -11,7 +11,10 @@ Domain Path: /languages/
 
 require_once __DIR__ . '/vendor/autoload.php'; // Autoload files using Composer autoload
 
-
+function app_output_buffer() {
+  ob_start();
+} // soi_output_buffer
+add_action('init', 'app_output_buffer');
 
 
 function helix_default_setting(){

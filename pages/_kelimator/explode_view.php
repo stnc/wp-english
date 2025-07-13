@@ -8,7 +8,7 @@ $id =   isset($_GET['id']) ? sanitize_text_field($_GET['id']) : "";
 $form = '<form action="/wp-admin/admin.php?page=stnc_building_company&st_trigger=store" method="post">';
 
 if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) {
-    // $title = esc_html_e('Show', 'the-stnc-map');
+    // $title = esc_html_e('Show', 'helix-lng');
     $form = '<form action="/wp-admin/admin.php?page=stnc_building_company&st_trigger=update&id=' . $id . '" method="post">';
 }
 

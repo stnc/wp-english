@@ -231,8 +231,8 @@ class Helix_wp_word_list_table extends WP_List_Table
 		$delete_nonce = wp_create_nonce('sp_delete_stncMapFloors');
 
 		$title = '<strong>' . $item['main_language'] . '</strong>';
-		$showLang = __('Show', 'the-stnc-map');
-		$editLangs = __('Edit', 'the-stnc-map');
+		$showLang = __('Show', 'helix-lng');
+		$editLangs = __('Edit', 'helix-lng');
 		$actions = [
 			// 'view' => sprintf('<a href="?page=%s&action=%s&stncMapFloors=%s&_wpnonce=%s">%s</a>', esc_attr($_REQUEST['page']), 'view', absint($item['id']), $delete_nonce,	$showLang),
 			'edit' => sprintf('<a href="?page=stnc_building_company&st_trigger=edit&id=%s&_wpnonce=%s">%s</a>',  absint($item['id']), $delete_nonce, $editLangs)
@@ -427,20 +427,20 @@ class Helix_wp_word_list_table extends WP_List_Table
 					<div class="card shadow1" style="max-width:100%!important">
 						<h2> <strong><?php echo $data->company_description; ?></strong> -- Info</h2>
 
-						<div><mark class="dont"><?php esc_html_e('Company', 'the-stnc-map') ?> :</mark> <?php echo $data->company_description; ?></div>
+						<div><mark class="dont"><?php esc_html_e('Company', 'helix-lng') ?> :</mark> <?php echo $data->company_description; ?></div>
 						<hr>
-						<div><mark class="dont"><?php esc_html_e('Detail Info', 'the-stnc-map') ?>:</mark> <?php echo $data->company_name; ?></div>
+						<div><mark class="dont"><?php esc_html_e('Detail Info', 'helix-lng') ?>:</mark> <?php echo $data->company_name; ?></div>
 						<hr>
-						<div><mark class="dont"><?php esc_html_e('Phone', 'the-stnc-map') ?>:</mark> <?php echo $data->phone; ?></div>
+						<div><mark class="dont"><?php esc_html_e('Phone', 'helix-lng') ?>:</mark> <?php echo $data->phone; ?></div>
 						<hr>
-						<div><mark class="dont"><?php esc_html_e('Email', 'the-stnc-map') ?>:</mark> <?php echo $data->email; ?></div>
+						<div><mark class="dont"><?php esc_html_e('Email', 'helix-lng') ?>:</mark> <?php echo $data->email; ?></div>
 						<hr>
-						<div><mark class="dont"><?php esc_html_e('Web Site', 'the-stnc-map') ?>:</mark> <?php echo $data->web_site; ?></div>
+						<div><mark class="dont"><?php esc_html_e('Web Site', 'helix-lng') ?>:</mark> <?php echo $data->web_site; ?></div>
 						<hr>
-						<div><mark class="dont"><?php esc_html_e('Adresss', 'the-stnc-map') ?>:</mark> <?php echo $data->main_language; ?></div>
+						<div><mark class="dont"><?php esc_html_e('Adresss', 'helix-lng') ?>:</mark> <?php echo $data->main_language; ?></div>
 						<hr>
 
-						<div><mark class="dont"></mark> <a href="/wp-admin/admin.php?page=stnc_building_company&st_trigger=show&building_id=<?php echo $data->building_id; ?>&floor_id=<?php echo $data->floor_id; ?>&id=<?php echo $data->id; ?>"><?php esc_html_e('Edit', 'the-stnc-map') ?></a> </div>
+						<div><mark class="dont"></mark> <a href="/wp-admin/admin.php?page=stnc_building_company&st_trigger=show&building_id=<?php echo $data->building_id; ?>&floor_id=<?php echo $data->floor_id; ?>&id=<?php echo $data->id; ?>"><?php esc_html_e('Edit', 'helix-lng') ?></a> </div>
 						<hr>
 						<!-- <div><mark class="dont">Eklenen Dosya:</mark><?php echo $oynat ?></div> -->
 					</div>
@@ -643,14 +643,14 @@ function stnc_wp_floor_render_list_page()
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
-  cursor: pointer;" href="/wp-admin/admin.php?page=stnc_empty_building_list"><?php esc_html_e('Empty Offices', 'the-stnc-map') ?></a>
+  cursor: pointer;" href="/wp-admin/admin.php?page=stnc_empty_building_list"><?php esc_html_e('Empty Offices', 'helix-lng') ?></a>
 
 		<div id="icon-users" class="icon32"><br /></div>
-		<h2> <?php esc_html_e('Word list', 'the-stnc-map') ?></h2>
+		<h2> <?php esc_html_e('Word list', 'helix-lng') ?></h2>
 
 		<div
 			style="background:#ECECEC;border:1px solid #CCC;padding:0 10px;margin-top:5px;border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;">
-			<p><?php esc_html_e('Word list', 'the-stnc-map') ?> </p>
+			<p><?php esc_html_e('Word list', 'helix-lng') ?> </p>
 
 		</div>
 
@@ -660,7 +660,7 @@ function stnc_wp_floor_render_list_page()
 			<input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
 			<!-- Now we can render the completed list table -->
 			<?php
-			$searchLang =  __('Word list', 'the-stnc-map');
+			$searchLang =  __('Word list', 'helix-lng');
 			$testListTable->search_box($searchLang, 'search_id');
 			$testListTable->display() ?>
 		</form>

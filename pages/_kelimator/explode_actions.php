@@ -11,15 +11,7 @@ function stnc_wp_floor_adminMenu_explode()
 
     include('eng_library.php');
 
-    if (file_exists(__DIR__.'/../../vendor/autoload.php')) {
-        require __DIR__.'/../../vendor/autoload.php';
-    } else {
-        echo "<h1>Lütfen composer.json ı yükleyin </h1>";
-        echo "<p>Örnekler <a href='https://getcomposer.org/doc/00-intro.md#globally'>https://getcomposer.org/doc/00-intro.md#globally</a></p>";
-        echo "<p> terminal yada cmd yi açarak  'composer install' yazınız</p>";
-        echo "<p> eğer yuklü ise terminal yada cmd yi açarak  'composer update' yazınız</p>";
-        exit();
-    }
+
 
     global $wpdb;
     $stncForm_tableNameMain = $wpdb->prefix . 'helix_words';
@@ -89,6 +81,7 @@ function stnc_wp_floor_adminMenu_explode()
 
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'store')) {
 
+     
         $editId = sanitize_text_field($_GET['id']);
 
         $main_language = ($_POST['main_language_json']);

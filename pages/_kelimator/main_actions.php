@@ -87,7 +87,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
                 }
             }
 
-            $_SESSION['stnc_map_flash_msg'] =  __('Record Save', 'the-stnc-map');
+            $_SESSION['stnc_map_flash_msg'] =  __('Record Save', 'helix-lng');
             wp_redirect('/wp-admin/admin.php?page=stnc_building_company&st_trigger=edit&id=' . $lastid, 302);
             die;
         }
@@ -208,7 +208,7 @@ function stnc_wp_floor_adminMenu_stnc_building_company()
 
         // if ($success1) {
         //   print_r("gelir last");
-        $_SESSION['stnc_map_flash_msg'] =  __('Record Updated', 'the-stnc-map');
+        $_SESSION['stnc_map_flash_msg'] =  __('Record Updated', 'helix-lng');
         wp_redirect('/wp-admin/admin.php?page=stnc_building_company&st_trigger=edit&id=' .  $id1, 302);
         die;
         // }
