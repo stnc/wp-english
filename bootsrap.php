@@ -32,29 +32,29 @@ function helix_default_setting(){
 }
 
 
-function stnc_wp_floor_plans_admin_body_class($classes = '')
+function helix_wp_floor_plans_admin_body_class($classes = '')
 {
-  // $onboarding_class = isset( $_GET['page'] ) && 'stnc_map_homepage' === $_GET['page'] ? 'stnc-header-page' : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+  // $onboarding_class = isset( $_GET['page'] ) && 'helix_homepage' === $_GET['page'] ? 'helix-header-page' : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
   // $classes .= ' ' . $onboarding_class . ' ';
   $onboarding_class = '';
   if (isset($_GET['page']) && 'helix_homepage' === $_GET['page']) {
-    $onboarding_class = 'stnc-header-page';
-  } else if (isset($_GET['page']) && 'stnc_map_view' === $_GET['page']) {
-    $onboarding_class = 'stnc-header-page';
-  } else if (isset($_GET['page']) && 'stnc_building_company' === $_GET['page']) {
-    $onboarding_class = 'stnc-header-page';
+    $onboarding_class = 'helix-header-page';
+  } else if (isset($_GET['page']) && 'helix_map_view' === $_GET['page']) {
+    $onboarding_class = 'helix-header-page';
+  } else if (isset($_GET['page']) && 'helix_building_company' === $_GET['page']) {
+    $onboarding_class = 'helix-header-page';
   }  else if (isset($_GET['page']) && 'helix_explode' === $_GET['page']) {
-    $onboarding_class = 'stnc-header-page';
-  } else if (isset($_GET['page']) && 'stnc_map_editor_building' === $_GET['page']) {
-    $onboarding_class = 'stnc-header-page';
+    $onboarding_class = 'helix-header-page';
+  } else if (isset($_GET['page']) && 'helix_map_editor_building' === $_GET['page']) {
+    $onboarding_class = 'helix-header-page';
   }else if (isset($_GET['page']) && 'helix_explode' === $_GET['page']) {
-    $onboarding_class = 'stnc-header-page';
+    $onboarding_class = 'helix-header-page';
   }
   $classes .= ' ' . $onboarding_class . ' ';;
   return $classes;
 }
 //https://deluxeblogtips.com/wordpress-admin-body-class/
-add_action('admin_body_class',  'stnc_wp_floor_plans_admin_body_class');
+add_action('admin_body_class',  'helix_wp_floor_plans_admin_body_class');
 
 function helix_is_check_shortcode($word)
 {
@@ -115,7 +115,7 @@ include ('pages/homepage/homepage.php');
 include ('pages/_kelimator/main_actions.php');
 include ('pages/_kelimator/explode_actions.php');
 require_once "pages/word_list_data_table/word_list.php";
-require_once "pages/about/stncForm-adminMenu_About.php";
+require_once "pages/about/helixForm-adminMenu_About.php";
 
 
 

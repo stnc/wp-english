@@ -20,7 +20,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="n_bar">
                     <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" style="color: antiquewhite;" href="/wp-admin/admin.php?page=stnc_map_homepage"><?php esc_html_e('Kelimator Homepage', 'helix-lng') ?></a>
+                    <li class="nav-item"><a class="nav-link" style="color: antiquewhite;" href="/wp-admin/admin.php?page=helix_homepage"><?php esc_html_e('Kelimator Homepage', 'helix-lng') ?></a>
 </li>
 <li class="nav-item">
                         <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin/admin.php?page=helix_word_list"><?php esc_html_e('Kelimeler Listesi', 'helix-lng') ?></a>
@@ -29,7 +29,7 @@
                         <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin"><?php esc_html_e('WP Dashbord', 'helix-lng') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin/admin.php?page=stnc_building_company&st_trigger=new"><?php esc_html_e('Add', 'helix-lng') ?></a>
+                        <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin/admin.php?page=helix_building_company&st_trigger=new"><?php esc_html_e('Add', 'helix-lng') ?></a>
                     </li>
                     </ul>
                 </div>

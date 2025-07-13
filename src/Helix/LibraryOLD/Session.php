@@ -3,7 +3,7 @@
 namespace Lib;
 
 /**
- * STNC FW
+ * helix FW
  *
  * Copyright (c) 2015
  *

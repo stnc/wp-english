@@ -17,7 +17,7 @@ namespace Lib;
  *
  * @author Selman TUNÇ <selmantunc@gmail.com>
  * @copyright Copyright (c) 2015 SAVEAS YAZILIM
- * @link http://github.com/stnc
+ * @link http://github.com/helix
  * @link http://www.saveas.com.tr/
  * @license http://www.opensource.org/licenses/mit-license.php The MIT License
  */
@@ -42,7 +42,7 @@ class Cart
      */
     public $Cookie_Date = 86400;
     // 1 Gün --- one date
-    
+
     /**
      * burası session a eklenecek tüm array verisini tutar
      *
@@ -106,22 +106,22 @@ class Cart
         $this->$PublicPath = $PublicPath;
         $this->getSessionCart();
     }
-    
+
     // destruct - unset cart var
     public function __destruct()
     {
         unset($this->session);
     }
-    
+
     // sihirli ayarlar
     public function __set($name, $value)
     {
         switch ($name) {
             case 'discount': // indirim
             case 'bonusProduct': // hediye urun falan
-                                 
+
                 // Burada daha yeni şeyler ekleyebilir
-                                 // son eklenen ürünler içindir
+                // son eklenen ürünler içindir
                 $this->session[$this->lastAdded][$name] = $value;
                 $this->setSessionCart();
                 break;
@@ -175,7 +175,7 @@ class Cart
         $productWarehouseTotal_stok_miktari = $data["StokMiktari"];
         $productWarehouseTotal_compare = number_format((int) $productWarehouseTotal, 2, '.', '');
         $talep_edilen_total_compare = number_format((int) $talep_edilen_total, 2, '.', '');
-        
+
         /*
          * burada ilk aşama kontrolu vardır yani talep ettiğim tutar , stok dakinden fazla olursa hata verir
          */
@@ -183,9 +183,9 @@ class Cart
             $_SESSION[SESSION_PREFIX . $this->productWareHouseControl] = true;
             exit();
         }
-        
+
         if (array_key_exists($id, $this->session)) {
-            
+
             $sepettekiToplamAdet_compare = number_format((int) $gelenUrununsepettekiToplamAdeti, 2, '.', '');
             /*
              * if ( $sepettekiToplamAdet_compare>$talep_edilen_total_compare) {
@@ -193,14 +193,13 @@ class Cart
              * return $this->setSessionCart();
              * }
              */
-            
+
             $this->session[$id]['ToplamAdet'] = $this->session[$id]['ToplamAdet'] + $talep_edilen_total;
             $this->session[$id]['ToplamFiyat'] = ($this->session[$id]['Fiyat'] * $this->session[$id]['ToplamAdet']);
-        }  /* yeni urunse sepete tekardan ekle */
-else {
+        }  /* yeni urunse sepete tekardan ekle */ else {
             $this->session[$id] = $data;
         }
-        
+
         return $this->setSessionCart();
     }
 
@@ -213,14 +212,14 @@ else {
          */
         $this->lastAdded = $id;
         // urun zaten eklenmişse ve tekrar gelirse ToplamAdetini artır
-        
+
         if (array_key_exists($id, $this->session)) {
             $total = $data["ToplamAdet"];
             // $this->session[$id]['ToplamAdet'] = $this->v[$id]['ToplamAdet'] + $this->session[$id]['ToplamAdet'];
             $this->session[$id]['ToplamAdet'] = $this->session[$id]['ToplamAdet'] += $total;
             $this->session[$id]['ToplamFiyat'] = ($this->session[$id]['Fiyat'] * $this->session[$id]['ToplamAdet']);
         }  // yeni urunse ekle
-else {
+        else {
             $this->session[$id] = $data;
         }
         // bu kısım alt tarafı //$_SESSION[$this->SessionName][$id]['ToplamAdet'] += $_SESSION[$this->SessionName][$id]['ToplamAdet'] + $total; echo $_SESSION[$this->SessionName][$id]['ToplamAdet'];
@@ -292,11 +291,9 @@ else {
             $products .= "
 		</tbody>
 		</table>";
-            
-            return $products;
-        }
 
-        else {
+            return $products;
+        } else {
             return "<h1>Alışveriş Sepetiniz Boş</h1><br> Sepetiniz Boş";
         }
     }
@@ -329,15 +326,15 @@ else {
             $products .= "
 		</tbody>
 		</table>	</div>";
-            
+
             $products .= '<div class="mini-cart-total">' . $this->viewCartTablePrice() . '</div>
 			<div class="checkout"><a href="/sepetim/" class="button">Sepetim</a> &nbsp;
 			<a class="button" href="/adres">Ödeme Yap</a>
 			</div>';
-            
+
             return $products;
         }  // direk olarak sepet boş uyarısı vermesi içindir
-else {
+        else {
             return "<h1>Alışveriş Sepetiniz Boş</h1><br>
 					Sepetiniz boş";
         }
@@ -365,12 +362,12 @@ else {
               </tr>
             </thead>
             <tbody class="sepetsatirlari">';
-            
+
             foreach ($this->session as $id => $item) {
                 // $this->session [$id] ['ToplamFiyat'] = ($this->session [$id] ['Fiyat'] * $this->session [$id] ['ToplamAdet']);
-                
+
                 // sil diğer kodları <a onclick="sepeti_sil_sepetim(' . $id . ',true );" href="javascript: void(0)" class="sil">
-                
+
                 if ($liste != "liste") {
                     $deger = '    <input type="text"  name="" value="' . $item['ToplamAdet'] . '" size="1">
                  					<a href="/sepet/sepet_sil/' . $id . '"  class="sil">
@@ -378,7 +375,7 @@ else {
                 } else {
                     $deger = $item['ToplamAdet'];
                 }
-                
+
                 $products .= '<tr id="full-cart' . $id . '" class="sepetsatiri">
                 <td class="image">
 				<a href="' . $item['URL'] . '">
@@ -417,7 +414,7 @@ else {
 		<tbody>
 		";
         if (sizeof($this->session) > 0) {
-            
+
             $tot = $this->cartCount();
             $products .= '<tr>
 							<td class="right"><b>Toplam Ürün:</b></td>
@@ -452,7 +449,7 @@ else {
         $products .= "
 		</tbody>
 		</table>";
-        
+
         return $products;
     }
 
@@ -478,7 +475,7 @@ else {
      */
     public function getJSON()
     {
-        if (! $_SESSION[SESSION_PREFIX . $this->productWareHouseControl]) {
+        if (!$_SESSION[SESSION_PREFIX . $this->productWareHouseControl]) {
             if (sizeof($this->session) > 0) {
                 $tot = $this->cartCount();
                 $json = array(
@@ -490,7 +487,6 @@ else {
                 );
                 return json_encode($json);
             }  // sıkıntı
-
             else {
                 $json = array(
                     "DURUM" => 'bos',
@@ -502,7 +498,7 @@ else {
                 return json_encode($json);
             }
         } else {
-            
+
             $json = array(
                 "DURUM" => 'stok_asimi',
                 "SepetSatirlari" => $this->viewCartTableMiniJSON(),
@@ -526,11 +522,11 @@ else {
             foreach ($this->session as $val2) {
                 $ToplamAdet[] = $val2['ToplamAdet'];
             }
-            
+
             $toplam_urun = count($this->session); // sadecce tekil ürünü verir
-            
+
             $toplam_adet = array_sum($ToplamAdet); // tumunun toplamını verir yani bir ürünü bi kaç sepete atmış olablir onları da sayar
-            
+
             return array(
                 "toplam_urun" => $toplam_urun,
                 "toplam_adet" => $toplam_adet
@@ -565,7 +561,7 @@ else {
                 'toplam_tutar' => 0
             );
         }
-        
+
         return $products;
     }
 
@@ -603,31 +599,31 @@ else {
     protected function getSessionCart()
     {
         // $this->session = isset ( $_SESSION [$this->SessionName] ) ? $_SESSION [$this->SessionName] : array (); // org
-        if (! isset($_SESSION[$this->SessionName]) && (isset($_COOKIE[$this->SessionName]))) {
+        if (!isset($_SESSION[$this->SessionName]) && (isset($_COOKIE[$this->SessionName]))) {
             $this->session = unserialize(base64_decode($_COOKIE[$this->SessionName]));
         } else {
             $this->session = isset($_SESSION[$this->SessionName]) ? $_SESSION[$this->SessionName] : array(); // org
         }
-        
+
         $this->updateSubTotal(); // Fiyatları güncelle
-                                 // echo "<pre>"; print_r($this->session); echo "<pre>";
+        // echo "<pre>"; print_r($this->session); echo "<pre>";
         return true;
     }
-    
+
     // sessoin lar set edilir [ session = object ]
     // en önemli yer
     protected function setSessionCart()
     {
         $_SESSION[$this->SessionName] = $this->session;
         $this->updateSubTotal(); // Fiyatları güncelle
-        
+
         /*
          * if ($this->cookie_enabled) {
          * $arrays = base64_encode ( serialize ( $_SESSION [$this->SessionName] ) );
          * setcookie ( $this->SessionName, $arrays, time () + $this->Cookie_Date, '/' );
          * }
          */
-        
+
         return true;
     }
 }
@@ -636,7 +632,7 @@ else {
 
 // ////class sonu
 /*
-$cart = new STNC_cart ( "STNC_ShopCart" );
+$cart = new helix_cart ( "helix_ShopCart" );
 
 if (isset ( $_POST ['gonder1'] ) == "ekle 34") {
 	// echo "sepete eklendi <br>";

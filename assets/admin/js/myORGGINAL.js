@@ -59,7 +59,7 @@ jQuery.noConflict();
          #Upload wp manager (Upload Image) metabox  media gallery click  trigger
          ========================================================================== */
         // when click on the upload button
-        jQuery('.STNCupload_button').on('click', function (e) {
+        jQuery('.helixupload_button').on('click', function (e) {
             // json field
             var field = jQuery(this).parent().find('.media_field_content');
             // gallery container

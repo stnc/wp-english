@@ -9,11 +9,11 @@ class Admin
 
     public function __construct()
     {
-        if (isset($_GET["page"]) && $_GET["page"] === "stnc_map_homepage") {
+        if (isset($_GET["page"]) && $_GET["page"] === "helix_homepage") {
             $this->helix_admin_scritps();
         }
 
-        if (isset($_GET["page"]) && $_GET["page"] === "stnc_building_company") {
+        if (isset($_GET["page"]) && $_GET["page"] === "helix_building_company") {
             $this->helix_admin_scritps();
         }
 
@@ -22,12 +22,12 @@ class Admin
             $this->helix_admin_scritps();
         }
 
-        if (isset($_GET["page"]) && $_GET["page"] === "stnc_map_view") {
-            // stnc_wp_floor_front() ;
+        if (isset($_GET["page"]) && $_GET["page"] === "helix_map_view") {
+            // helix_wp_floor_front() ;
             $this->helix_admin_scritps();
         }
 
-        if (isset($_GET["page"]) && $_GET["page"] === "stnc_map_editor_building") {
+        if (isset($_GET["page"]) && $_GET["page"] === "helix_map_editor_building") {
             $this->helix_admin_scritps();
         }
 

@@ -135,7 +135,7 @@ https://preply.com/en/blog/list-of-prepositions/
 
 
 
-/wp-admin/admin.php?page=stnc_building_list  -- why doesn't it show vacant offices marked
+/wp-admin/admin.php?page=helix_building_list  -- why doesn't it show vacant offices marked
 
 
 bu projede php ile checkbox in post degerini  alma  ornegi var 

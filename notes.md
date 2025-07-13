@@ -66,9 +66,9 @@ https://medium.com/@sfmok/create-and-publish-a-php-composer-package-11eabcd038c1
 https://stackoverflow.com/questions/21463421/a-non-empty-psr-4-prefix-must-end-with-a-namespace-separator  psr 4 ile 
 
 
-https://github.com/stnc/stnc-framework-skeleton
+https://github.com/helix/helix-framework-skeleton
 
-https://github.com/stnc/stnc-framework/blob/master/composer.json
+https://github.com/helix/helix-framework/blob/master/composer.json
 
 
 

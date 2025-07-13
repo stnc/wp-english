@@ -1,10 +1,10 @@
 
 
-.stnc-header-page #adminmenumain,
-.stnc-header-page #wpadminbar,
-.stnc-header-page #adminmenuback,
-.stnc-header-page #adminmenuwrap,
-.stnc-header-page #wpfooter {
+.helix-header-page #adminmenumain,
+.helix-header-page #wpadminbar,
+.helix-header-page #adminmenuback,
+.helix-header-page #adminmenuwrap,
+.helix-header-page #wpfooter {
     display: none;
 }
 

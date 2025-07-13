@@ -1,5 +1,5 @@
 
-// curl --user stnc:cansuyum http://english.test/wp-json/wp/v2/categoriesAndDepencyPostList
+// curl --user helix:cansuyum http://english.test/wp-json/wp/v2/categoriesAndDepencyPostList
 
 
 

@@ -27,7 +27,7 @@ add_shortcode( "helix_wordTL_sc",  "helix_word_translate_shortcode");
 function helix_word_translate_shortcode($attr)
 {
     global $wpdb;
-    $stncForm_tableNameMain = $wpdb->prefix . 'helix_words';
+    $helixForm_tableNameMain = $wpdb->prefix . 'helix_words';
 
     $attr = shortcode_atts(
         [
@@ -40,7 +40,7 @@ function helix_word_translate_shortcode($attr)
 
 
     $editId = sanitize_text_field($attr['id']);
-    $data = $wpdb->get_row($wpdb->prepare("SELECT translate_json, id  FROM " . $stncForm_tableNameMain . "  WHERE id = %d", $editId));
+    $data = $wpdb->get_row($wpdb->prepare("SELECT translate_json, id  FROM " . $helixForm_tableNameMain . "  WHERE id = %d", $editId));
 
     $translate_json =  $data->translate_json;
 
@@ -80,7 +80,7 @@ add_shortcode( "helix_wordML_sc",  "helix_word_main_language_shortcode");
 function helix_word_main_language_shortcode($attr)
 {
     global $wpdb;
-    $stncForm_tableNameMain = $wpdb->prefix . 'helix_words';
+    $helixForm_tableNameMain = $wpdb->prefix . 'helix_words';
 
     $attr = shortcode_atts(
         [
@@ -93,7 +93,7 @@ function helix_word_main_language_shortcode($attr)
 
 
     $editId = sanitize_text_field($attr['id']);
-    $data = $wpdb->get_row($wpdb->prepare("SELECT main_language_json , id   FROM " . $stncForm_tableNameMain . "  WHERE id = %d", $editId));
+    $data = $wpdb->get_row($wpdb->prepare("SELECT main_language_json , id   FROM " . $helixForm_tableNameMain . "  WHERE id = %d", $editId));
 
     $main_language_data =  $data->main_language_json;
 

@@ -5,11 +5,11 @@
 
 
 // $title = "Add";
-$form = '<form action="/wp-admin/admin.php?page=stnc_building_company&st_trigger=store" method="post">';
+$form = '<form action="/wp-admin/admin.php?page=helix_building_company&st_trigger=store" method="post">';
 
 if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) {
     //$title = esc_html_e('Show', 'helix-lng');
-    $form = '<form action="/wp-admin/admin.php?page=stnc_building_company&st_trigger=update&id=' . $id . '" method="post">';
+    $form = '<form action="/wp-admin/admin.php?page=helix_building_company&st_trigger=update&id=' . $id . '" method="post">';
 }
 
 include("_header-show.php");
@@ -20,23 +20,23 @@ include("_header-show.php");
 
 
 <main class="flex-shrink-0" style="">
-    <div class="stnc-container-fluid">
+    <div class="helix-container-fluid">
 
         <?php
-        if (isset($_SESSION['stnc_map_flash_msg'])) {
+        if (isset($_SESSION['helix_map_flash_msg'])) {
         ?>
             <p class="alert alert-success">
-                <?php echo $_SESSION['stnc_map_flash_msg']; ?>
+                <?php echo $_SESSION['helix_map_flash_msg']; ?>
             </p>
-            <?php unset($_SESSION['stnc_map_flash_msg']); ?>
+            <?php unset($_SESSION['helix_map_flash_msg']); ?>
         <?php } ?>
 
         <?php echo $form  ?>
 
         <input type="hidden" value="<?php echo $media_id ?>" name="media_id" id="media_id">
-        <div class="stnc-row">
+        <div class="helix-row">
 
-            <div class="stnc-col-8">
+            <div class="helix-col-8">
             <h5 class="card-title"> <?php esc_html_e('Language Add', 'helix-lng') ?></h5>
                 <div class="card" style="max-width:100%">
                     <div class="card-body">
@@ -141,7 +141,7 @@ include("_header-show.php");
 
             </div>
 
-            <!-- <div class="stnc-col-4">
+            <!-- <div class="helix-col-4">
                 <div class="card">
                     <div class="card-body">
 
@@ -152,16 +152,16 @@ include("_header-show.php");
             </div> -->
 
 
-            <div class="stnc-col-2">
+            <div class="helix-col-2">
 
                 <br>
                 <br>
 
                 <div class="form-group">
 
-                    <input id="stnc_wp_kiosk_Metabox_video_extra"
+                    <input id="helix_wp_kiosk_Metabox_video_extra"
                         class="page_upload_trigger_element button btn btn-warning"
-                        name="stnc_wp_kiosk_Metabox_video_extra" type="button" value="<?php esc_html_e('Upload / Select Image', 'helix-lng') ?>" style="">
+                        name="helix_wp_kiosk_Metabox_video_extra" type="button" value="<?php esc_html_e('Upload / Select Image', 'helix-lng') ?>" style="">
 
                     <?php  //if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) : 
                     // $image = wp_get_attachment_image_src(    $media_id  ,'full' );
@@ -177,16 +177,16 @@ include("_header-show.php");
                 </div>
   
                 <div class="form-group">
-                    <button type="submit" value="Kaydet" id="savebtn-stncMap" class="btn btn-success"> <?php esc_html_e('Save', 'helix-lng') ?></button>
+                    <button type="submit" value="Kaydet" id="savebtn-helixMap" class="btn btn-success"> <?php esc_html_e('Save', 'helix-lng') ?></button>
                     <?php if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) : 
-                        		$delete_nonce = wp_create_nonce('sp_delete_stncMapFloors'); ?>
+                        		$delete_nonce = wp_create_nonce('sp_delete_helixMapFloors'); ?>
 
                  <?php if ($is_json == 1) :  ?>
-                   <a  href="/wp-admin/admin.php?page=helix_explode&st_trigger=edit&id=<?php echo  $id ;?>&_wpnonce=<?php echo  $delete_nonce ;?>" id="savebtn-stncMap2" class="btn btn-primary">Parcalanmis Kelimeyi Duzenle</a>
+                   <a  href="/wp-admin/admin.php?page=helix_explode&st_trigger=edit&id=<?php echo  $id ;?>&_wpnonce=<?php echo  $delete_nonce ;?>" id="savebtn-helixMap2" class="btn btn-primary">Parcalanmis Kelimeyi Duzenle</a>
                  <?php endif; ?> 
                  
                  <?php if ($is_json == 0) :  ?>
-                   <a  href="/wp-admin/admin.php?page=helix_explode&st_trigger=new&id=<?php echo  $id ;?>&_wpnonce=<?php echo  $delete_nonce ;?>" id="savebtn-stncMap2" class="btn btn-primary">Kelimeyi Parcala</a>
+                   <a  href="/wp-admin/admin.php?page=helix_explode&st_trigger=new&id=<?php echo  $id ;?>&_wpnonce=<?php echo  $delete_nonce ;?>" id="savebtn-helixMap2" class="btn btn-primary">Kelimeyi Parcala</a>
                  <?php endif; ?> 
                  
                    <?php endif ?>

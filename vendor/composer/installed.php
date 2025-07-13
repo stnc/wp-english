@@ -1,6 +1,6 @@
 <?php return array(
     'root' => array(
-        'name' => 'stnc/wpfw',
+        'name' => 'helix/wpfw',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
         'reference' => 'd8adf212d8c2b41b4edbb8fec5558b349d61dec8',
@@ -19,7 +19,7 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'stnc/wpfw' => array(
+        'helix/wpfw' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'reference' => 'd8adf212d8c2b41b4edbb8fec5558b349d61dec8',
