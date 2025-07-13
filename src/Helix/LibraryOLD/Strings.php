@@ -344,7 +344,7 @@ class Strings
      * @example strto('lower veya upper', 'İşlem Yapılacak Metin');
      *
      */
-    private function tr_replace_kucuk($str)
+    private static  function tr_replace_kucuk($str)
     {
         return str_replace(array(
             'I',
@@ -374,7 +374,7 @@ class Strings
      * @example strto('lower veya upper', 'İşlem Yapılacak Metin');
      *
      */
-    private function tr_replace_buyuk($str)
+    private static  function tr_replace_buyuk($str)
     {
         return str_replace(array(
             'ı',
@@ -402,7 +402,7 @@ class Strings
      * @return string
      *
      */
-    public function strtoupper_tr($s)
+    public static  function strtoupper_tr($s)
     {
         $temp = str_replace(array(
             "a",
@@ -481,7 +481,7 @@ class Strings
      * @return string
      *
      */
-    public function strtolower_tr($s)
+    public static  function strtolower_tr($s)
     {
         $temp = str_replace(array(
             "A",
@@ -638,7 +638,7 @@ class Strings
      * @return string
      * @package strto_tr_ucwords
      */
-    private function strto_tr_ucwords_kucuk_yap($gelen)
+    private static  function strto_tr_ucwords_kucuk_yap($gelen)
     {
         $gelen = str_replace('Ç', 'ç', $gelen);
         $gelen = str_replace('Ğ', 'ğ', $gelen);

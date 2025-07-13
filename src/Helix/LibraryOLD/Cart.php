@@ -173,7 +173,7 @@ class Cart
         $talep_edilen_total = $data["ToplamAdet"];
         $gelenUrununsepettekiToplamAdeti = $this->session[$id]['ToplamAdet']; // onemlidir....
         $productWarehouseTotal_stok_miktari = $data["StokMiktari"];
-        $productWarehouseTotal_compare = number_format((int) $productWarehouseTotal, 2, '.', '');
+        // $productWarehouseTotal_compare = number_format((int) $productWarehouseTotal, 2, '.', '');
         $talep_edilen_total_compare = number_format((int) $talep_edilen_total, 2, '.', '');
 
         /*
@@ -475,9 +475,10 @@ class Cart
      */
     public function getJSON()
     {
+        $tot = $this->cartCount();
         if (!$_SESSION[SESSION_PREFIX . $this->productWareHouseControl]) {
             if (sizeof($this->session) > 0) {
-                $tot = $this->cartCount();
+        
                 $json = array(
                     "DURUM" => 'ok',
                     "SepetSatirlari" => $this->viewCartTableMiniJSON(),
