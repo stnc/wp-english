@@ -1,0 +1,49 @@
+# Binaries for programs and plugins
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
+.vscode/
+uploads/
+tmp/
+public/upl/*
+CI/*
+
+
+/wp-admin/
+/wp-content/index.php
+/wp-content/languages
+/wp-content/plugins/index.php
+/wp-content/themes/index.php
+/wp-includes/
+/index.php
+/license.txt
+/readme.html
+/wp-*.php
+/xmlrpc.php
+
+# Configuration
+wp-config.php
+
+# Example themes
+/wp-content/themes/twenty*/
+
+# Example plugin
+/wp-content/plugins/hello.php
+
+# Uploads
+/wp-content/uploads/
+
+# Log files
+*.log
+
+# htaccess
+/.htaccess
