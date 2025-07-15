@@ -27,6 +27,7 @@ class Menu
 
         add_menu_page('HELIX LANGUAGE',__( 'Kelimator', 'helix-lng' ) , 'manage_options', 'helix_homepage', 'helix_admin_homepage','dashicons-networking',67); // top 
         add_submenu_page( "helix_homepage", 'Build',  __( 'Kelimeler', 'helix-lng' ) , 'manage_options', 'helix_word_list', 'helix_wp__render_list_page',null ); //sub 
+        add_submenu_page( "helix_homepage", 'Build',  __( 'test page', 'helix-lng' ) , 'manage_options', 'helix_test', 'helix_admin_test_page',null ); //sub 
        //  add_submenu_page( "helix_homepage", 'Build', __( 'Shortcut', 'helix-lng' ), 'manage_options', 'helix_map_shortcut', 'helix_wp__shortcut_page' ,null); //sub 
         add_submenu_page( "helix_homepage", 'Build', __( 'About', 'helix-lng' ), 'manage_options', 'helix_about', 'helix_wp__plans_adminMenu_About_contents',null ); //sub 
         

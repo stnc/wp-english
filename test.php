@@ -1,11 +1,19 @@
 <?php 
-class Controller extends BaseController
+class Controller 
 {
 }
 
 
 class ProductController extends Controller
 {
+
+
+    public function __construct()
+    {
+
+    }
+
+
     /**
      * Display a listing of the resource.
      */
@@ -25,7 +33,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProductRequest $request) 
+    public function store() 
     {
 
     }
@@ -33,7 +41,7 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product) 
+    public function show() 
     {
 
     }
@@ -41,7 +49,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product) 
+    public function edit() 
     {
 
     }
@@ -49,7 +57,7 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductRequest $request, Product $product) 
+    public function update() 
     {
 
     }
@@ -57,8 +65,13 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function delete(Product $product) : 
+    public function delete() 
     {
 
     }
+}
+
+function helix_admin_test_page() {
+    include ('view/test_xhtml.php');
+
 }
