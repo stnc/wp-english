@@ -10,7 +10,10 @@ class ProductController extends Controller
 
     public function __construct()
     {
-
+        include ('view/test_xhtml.php');
+        if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'store')) {
+           $this->store();
+        }
     }
 
 
@@ -35,7 +38,7 @@ class ProductController extends Controller
      */
     public function store() 
     {
-
+        echo "store";
     }
 
     /**
@@ -72,6 +75,6 @@ class ProductController extends Controller
 }
 
 function helix_admin_test_page() {
-    include ('view/test_xhtml.php');
+    new ProductController();
 
 }

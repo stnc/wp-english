@@ -23,7 +23,7 @@ new Loading();
 include ('pages/homepage/homepage.php');
 include ('pages/_kelimator/main_actions.php');
 include ('pages/_kelimator/explode_actions.php');
-require_once "pages/word_list_data_table/word_list.php";
+require_once "pages/DattaTaable/db_list.php.php";
 require_once "pages/about/helixForm-adminMenu_About.php";
 require_once "test.php";
 
