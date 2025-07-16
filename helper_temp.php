@@ -27,14 +27,12 @@ function helix_admin_body_class($classes = '')
   $onboarding_class = '';
   if (isset($_GET['page']) && 'helix_homepage' === $_GET['page']) {
     $onboarding_class = 'helix-header-page';
-  } else if (isset($_GET['page']) && 'helix_map_view' === $_GET['page']) {
+  
+  } else if (isset($_GET['page']) && 'helix_language_editor' === $_GET['page']) {
     $onboarding_class = 'helix-header-page';
-  } else if (isset($_GET['page']) && 'helix_building_company' === $_GET['page']) {
+  }  else if (isset($_GET['page']) && 'helix_language_editor' === $_GET['page']) {
     $onboarding_class = 'helix-header-page';
-  }  else if (isset($_GET['page']) && 'helix_explode' === $_GET['page']) {
-    $onboarding_class = 'helix-header-page';
-  } else if (isset($_GET['page']) && 'helix_map_editor_building' === $_GET['page']) {
-    $onboarding_class = 'helix-header-page';
+  
   }else if (isset($_GET['page']) && 'helix_explode' === $_GET['page']) {
     $onboarding_class = 'helix-header-page';
   }
