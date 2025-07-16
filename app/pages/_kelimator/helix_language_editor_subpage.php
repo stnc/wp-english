@@ -5,11 +5,11 @@ $id = isset($_GET['id']) ? sanitize_text_field($_GET['id']) : "";
 
 
 // $title = "Add";
-$form = '<form action="/wp-admin/admin.php?page=helix_language_editor&st_trigger=store" method="post">';
+$form = '<form action="/wp-admin/admin.php?page=helix_language_editor&trigger=store" method="post">';
 
-if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) {
+if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'edit')) {
     //$title = esc_html_e('Show', 'helix-lng');
-    $form = '<form action="/wp-admin/admin.php?page=helix_language_editor&st_trigger=update&id=' . $id . '" method="post">';
+    $form = '<form action="/wp-admin/admin.php?page=helix_language_editor&trigger=update&id=' . $id . '" method="post">';
 }
 
 include("common_header.php");
@@ -47,7 +47,7 @@ include("common_header.php");
 
                         <div class="form-group">
                             <span>Ne tur bir konusma metni? </span>
-                            <?php if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) { ?>
+                            <?php if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'edit')) { ?>
                                 <?php foreach ($categoriesSpeakLevelList as $categories):
                                     $checkControl = helix_searchArray($nlist, $categories->level_id);
                                     ?>
@@ -190,7 +190,7 @@ include("common_header.php");
                         name="helix_wp_kiosk_Metabox_video_extra" type="button"
                         value="<?php esc_html_e('Upload / Select Image', 'helix-lng') ?>" style="">
 
-                    <?php  //if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'show')) : 
+                    <?php  //if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'show')) : 
                     // $image = wp_get_attachment_image_src(    $media_id  ,'full' );
                     
                     ?>
@@ -207,16 +207,16 @@ include("common_header.php");
                 <div class="form-group">
                     <button type="submit" value="Kaydet" id="savebtn-helixMap" class="btn btn-success">
                         <?php esc_html_e('Save', 'helix-lng') ?></button>
-                    <?php if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')):
+                    <?php if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'edit')):
                         $delete_nonce = wp_create_nonce('sp_delete_helixMaps'); ?>
 
                         <?php if ($is_json == 1): ?>
-                            <a href="/wp-admin/admin.php?page=helix_language_editor_explode&st_trigger=edit&id=<?php echo $id; ?>&_wpnonce=<?php echo $delete_nonce; ?>"
+                            <a href="/wp-admin/admin.php?page=helix_language_editor_explode&trigger=edit&id=<?php echo $id; ?>&_wpnonce=<?php echo $delete_nonce; ?>"
                                 id="savebtn-helixMap2" class="btn btn-primary">Parcalanmis Kelimeyi Duzenle</a>
                         <?php endif; ?>
 
                         <?php if ($is_json == 0): ?>
-                            <a href="/wp-admin/admin.php?page=helix_language_editor_explode&st_trigger=new&id=<?php echo $id; ?>&_wpnonce=<?php echo $delete_nonce; ?>"
+                            <a href="/wp-admin/admin.php?page=helix_language_editor_explode&trigger=new&id=<?php echo $id; ?>&_wpnonce=<?php echo $delete_nonce; ?>"
                                 id="savebtn-helixMap2" class="btn btn-primary">Kelimeyi Parcala</a>
                         <?php endif; ?>
 

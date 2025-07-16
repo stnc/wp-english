@@ -13,7 +13,7 @@ function helix_wp__adminMenu_helix_building_company()
 
 
 
-    if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'new')) {
+    if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'new')) {
         // session_start();
         $level_cat_id = isset($_POST["level_cat_id"]) ? sanitize_text_field($_POST["level_cat_id"]) : 1;
         $tense_id = isset($_POST["tense_id"]) ? sanitize_text_field($_POST["tense_id"]) : 1;
@@ -46,7 +46,7 @@ function helix_wp__adminMenu_helix_building_company()
         include('main_view.php');
     }
 
-    if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'store')) {
+    if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'store')) {
         // session_start();
         $level_cat_id = isset($_POST["level_cat_id"]) ? sanitize_text_field($_POST["level_cat_id"]) : 1;
         $tense_id = isset($_POST["tense_id"]) ? sanitize_text_field($_POST["tense_id"]) : 1;
@@ -88,14 +88,14 @@ function helix_wp__adminMenu_helix_building_company()
             }
 
             $_SESSION['helix_map_flash_msg'] =  __('Record Save', 'helix-lng');
-            wp_redirect('/wp-admin/admin.php?page=helix_building_company&st_trigger=edit&id=' . $lastid, 302);
+            wp_redirect('/wp-admin/admin.php?page=helix_building_company&trigger=edit&id=' . $lastid, 302);
             die;
         }
     }
 
 
 
-    if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) {
+    if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'edit')) {
         // session_start();
         $editId = sanitize_text_field($_GET['id']);
         $data = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $helixForm_tableNameMain . "  WHERE id = %d", $editId));
@@ -150,7 +150,7 @@ function helix_wp__adminMenu_helix_building_company()
         include('main_view.php');
     }
 
-    if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'update')) {
+    if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'update')) {
         // session_start();
         // print_r("gelir");
 
@@ -209,7 +209,7 @@ function helix_wp__adminMenu_helix_building_company()
         // if ($success1) {
         //   print_r("gelir last");
         $_SESSION['helix_map_flash_msg'] =  __('Record Updated', 'helix-lng');
-        wp_redirect('/wp-admin/admin.php?page=helix_building_company&st_trigger=edit&id=' .  $id1, 302);
+        wp_redirect('/wp-admin/admin.php?page=helix_building_company&trigger=edit&id=' .  $id1, 302);
         die;
         // }
     }

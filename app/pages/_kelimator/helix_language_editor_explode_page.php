@@ -17,7 +17,7 @@ function helix_language_editor_explode_page()
 
     $date = date('Y-m-d h:i:s');
 
-    if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'new')) {
+    if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'new')) {
 
         $editId = sanitize_text_field($_GET['id']);
         $data = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $helixForm_tableNameMain . "  WHERE id = %d", $editId));
@@ -77,7 +77,7 @@ function helix_language_editor_explode_page()
         include('helix_language_editor_explode_subpage.php');
     }
 
-    if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'store')) {
+    if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'store')) {
 
  
         echo $editId = sanitize_text_field($_GET['id']);
@@ -113,12 +113,12 @@ function helix_language_editor_explode_page()
             ),
             array('id' =>  $editId)
         );
-        wp_redirect('/wp-admin/admin.php?page=helix_language_editor_explode&st_trigger=edit&id=' .  $editId, 302);
+        wp_redirect('/wp-admin/admin.php?page=helix_language_editor_explode&trigger=edit&id=' .  $editId, 302);
         die;
     }
 
 
-    if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) {
+    if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'edit')) {
         // $translate_decode = json_decode($translate_json, false, 512, JSON_BIGINT_AS_STRING);
         $editId = sanitize_text_field($_GET['id']);
         $data = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $helixForm_tableNameMain . "  WHERE id = %d", $editId));

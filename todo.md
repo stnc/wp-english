@@ -4,7 +4,7 @@ kaydet ve kelimeyi parcala butonu eklenecek
 
 
 mesela alltaki linkte editore git butonu eklenebilir 
-http://english.test/wp-admin/admin.php?page=helix_language_editor_explode&st_trigger=edit&id=106&_wpnonce=5098c96fd8
+http://english.test/wp-admin/admin.php?page=helix_language_editor_explode&trigger=edit&id=106&_wpnonce=5098c96fd8
 
 
 

@@ -4,14 +4,14 @@ class Controller
 }
 
 
-class HelixEditor extends Controller
+class Editor extends Controller
 {
 
 
     public function __construct()
     {
         include ('app/view/test_xhtml.php');
-        if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'store')) {
+        if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'store')) {
            $this->store();
         }
     }

@@ -25,7 +25,7 @@ include ('app/pages/_kelimator/helix_language_editor_page.php');
 include ('app/pages/_kelimator/helix_language_editor_explode_page.php');
 require_once "app/view/DattaTaable/db_list.php";
 require_once "app/view/about/helixForm-adminMenu_About.php";
-require_once "app/controller/HelixEditor.php";
+require_once "app/controller/Editor.php";
 require_once "app/shortcut/helix_shortcut.php";
 
 //TODO: database install 

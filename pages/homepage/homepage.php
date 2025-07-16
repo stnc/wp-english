@@ -52,7 +52,7 @@ function helix_admin_homepage()
   <main class="flex-shrink-0" style="margin-top:88px">
     <div class="helix-container-fluid">
       <div class="helix-row">
-        <a href="/wp-admin/admin.php?page=helix_building_company&st_trigger=new">EKLE</a>
+        <a href="/wp-admin/admin.php?page=helix_building_company&trigger=new">EKLE</a>
   </main>
   <script type="text/javascript">
     function handleSelect(elm) {

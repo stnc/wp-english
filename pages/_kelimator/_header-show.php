@@ -29,7 +29,7 @@
                         <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin"><?php esc_html_e('WP Dashbord', 'helix-lng') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin/admin.php?page=helix_building_company&st_trigger=new"><?php esc_html_e('Add', 'helix-lng') ?></a>
+                        <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin/admin.php?page=helix_building_company&trigger=new"><?php esc_html_e('Add', 'helix-lng') ?></a>
                     </li>
                     </ul>
                 </div>
