@@ -20,13 +20,13 @@ use Helix\Loader\Loading;
 new Loading();
 
 
-include ('view/homepage/homepage.php');
-include ('pages/_kelimator/helix_language_editor_page.php');
-include ('pages/_kelimator/helix_language_editor_explode_page.php');
-require_once "view/DattaTaable/db_list.php";
-require_once "view/about/helixForm-adminMenu_About.php";
-require_once "oop.php";
-require_once "shortcut/helix_shortcut.php";
+include ('app/view/homepage/homepage.php');
+include ('app/pages/_kelimator/helix_language_editor_page.php');
+include ('app/pages/_kelimator/helix_language_editor_explode_page.php');
+require_once "app/view/DattaTaable/db_list.php";
+require_once "app/view/about/helixForm-adminMenu_About.php";
+require_once "app//controller/oop.php";
+require_once "app/shortcut/helix_shortcut.php";
 
 //TODO: database install 
 /*

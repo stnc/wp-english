@@ -235,7 +235,7 @@ class Helix_wp_word_list_table extends WP_List_Table
 		$editLangs = __('Edit', 'helix-lng');
 		$actions = [
 			// 'view' => sprintf('<a href="?page=%s&action=%s&helixMaps=%s&_wpnonce=%s">%s</a>', esc_attr($_REQUEST['page']), 'view', absint($item['id']), $delete_nonce,	$showLang),
-			'edit' => sprintf('<a href="?page=helix_language_editor_explode&st_trigger=edit&id=%s&_wpnonce=%s">%s</a>',  absint($item['id']), $delete_nonce, $editLangs)
+			'edit' => sprintf('<a href="?page=helix_language_editor&st_trigger=edit&id=%s&_wpnonce=%s">%s</a>',  absint($item['id']), $delete_nonce, $editLangs)
 		];
 
 		return $title . $this->row_actions($actions);

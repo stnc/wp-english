@@ -15,7 +15,6 @@ function helix_language_editor_explode_page()
     global $wpdb;
     $helixForm_tableNameMain = $wpdb->prefix . 'helix_words';
 
-    date_default_timezone_set('Europe/Istanbul');
     $date = date('Y-m-d h:i:s');
 
     if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'new')) {

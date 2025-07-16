@@ -30,12 +30,11 @@ function helix_admin_body_class($classes = '')
   
   } else if (isset($_GET['page']) && 'helix_language_editor' === $_GET['page']) {
     $onboarding_class = 'helix-header-page';
-  }  else if (isset($_GET['page']) && 'helix_language_editor' === $_GET['page']) {
-    $onboarding_class = 'helix-header-page';
-  
-  }else if (isset($_GET['page']) && 'helix_explode' === $_GET['page']) {
+
+  }  else if (isset($_GET['page']) && 'helix_language_editor_explode' === $_GET['page']) {
     $onboarding_class = 'helix-header-page';
   }
+  
   $classes .= ' ' . $onboarding_class . ' ';;
   return $classes;
 }

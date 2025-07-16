@@ -123,8 +123,6 @@ function ComplexPrepositions($value)
         "thanks to",
         "in spite of",
         "up to",
-
-
     );
 
     if (in_array($value, $arr)) {
@@ -184,9 +182,6 @@ function conjunctions($value)
 
 function main_language_html($value)
 {
-
-
-
     return '<div class="mb-3 col-md-3">
         <input type="text" class="form-control" name="main_language_json[]" value="' . $value . '">
         <a href="javascript:void(0);" class="remove_button"><img src="/wp-content/uploads/2025/03/remove-icon.png"></a>

@@ -1,3 +1,13 @@
+
+kaydet ve kelimeyi parcala butonu eklenecek 
+
+
+
+mesela alltaki linkte editore git butonu eklenebilir 
+http://english.test/wp-admin/admin.php?page=helix_language_editor_explode&st_trigger=edit&id=106&_wpnonce=5098c96fd8
+
+
+
 https://github.com/pankajibn/php-crud-using-ajax/blob/master/js/script.js
 
 https://github.com/stnc/ajax-handlebar-infinite-scroll
