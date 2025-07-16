@@ -36,3 +36,8 @@ https://sharesitecoreinfo.wordpress.com/2017/06/19/use-handlebar-template-to-bin
 
 https://themeselection.com/item/materio-dashboard-free-bootstrap/
 
+
+
+# composer code 
+
+D:\xampp\php\php.exe composer.phar install
