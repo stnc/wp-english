@@ -8,9 +8,9 @@ use Nette\Utils\Strings;
 function helix_language_editor_explode_page()
 {
 
-    include('eng_library.php');
+    include('engLibrary.php');
 
-
+    $engLib=new EngLib();
 
     global $wpdb;
     $helixForm_tableNameMain = $wpdb->prefix . 'helix_words';
@@ -43,13 +43,13 @@ function helix_language_editor_explode_page()
             // $value = Strings::fixEncoding($value);
             // echo preg_match( '/\s/', ' ' );   // 1
 
-            $value = modal_verbs($value);
-            $value = conjunctions($value);
-            $value = prepositions($value);
-            $value = ComplexPrepositions($value);
-            $value = prepositionsOfTime($value);
+            $value = $engLib->modalVerbs($value);
+            $value = $engLib->conjunctions($value);
+            $value = $engLib->prepositions($value);
+            $value = $engLib->ComplexPrepositions($value);
+            $value = $engLib->prepositionsOfTime($value);
 
-            $main_language_json .= main_language_html($value);
+            $main_language_json .= $engLib->mainLanguageHtml($value);
         }
 
         $piecesTR =  Strings::split($translate, '~ \s*~');
@@ -65,7 +65,7 @@ function helix_language_editor_explode_page()
             foreach ($translate_decode as $key => $value1) {
                 $value1 = Strings::trim($value1);
                 $value1 = Strings::lower($value1);
-                $translate_language_json .= "<td>".html_translate($value1) ."</td>" ;
+                $translate_language_json .= "<td>".$engLib->htmlTranslate($value1) ."</td>" ;
             }
         
             $translate_language_json .= "</tr>";
@@ -135,7 +135,7 @@ function helix_language_editor_explode_page()
         $button_html_json = "";
         foreach ($main_language_decode as $key => $value) {
           
-            $main_language_json .=  main_language_html($value);
+            $main_language_json .=  $engLib->mainLanguageHtml($value);
             $button_html_json .=  button_html($value, $key);
         }
 
@@ -154,7 +154,7 @@ function helix_language_editor_explode_page()
         
             foreach ($translate_decode as $key => $value) {
             
-                $translate_language_json .= "<td>".html_translate($value) ."</td>" ;
+                $translate_language_json .= "<td>".$engLib->htmlTranslate($value) ."</td>" ;
             }
         
             $translate_language_json .= "</tr>";

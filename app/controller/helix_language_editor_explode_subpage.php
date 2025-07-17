@@ -5,14 +5,14 @@ $id =   isset($_GET['id']) ? sanitize_text_field($_GET['id']) : "";
 
 
 // $title = "Add"; 
-$form = '<form action="/wp-admin/admin.php?page=helix_building_company&trigger=store" method="post">';
+$form = '<form action="/wp-admin/admin.php?page=helix_language_editor_explode&trigger=store" method="post">';
 
 if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'edit')) {
     // $title = esc_html_e('Show', 'helix-lng');
-    $form = '<form action="/wp-admin/admin.php?page=helix_building_company&trigger=update&id=' . $id . '" method="post">';
+    $form = '<form action="/wp-admin/admin.php?page=helix_language_editor_explode&trigger=update&id=' . $id . '" method="post">';
 }
 
-include("_header-show.php");
+include("common_header.php");
 
 
 
@@ -58,7 +58,7 @@ tr:nth-child(even) {
 
 
 
-<form action="/wp-admin/admin.php?page=helix_explode&trigger=store&id=<?php echo  $id ?>" method="post">
+<form action="/wp-admin/admin.php?page=helix_language_editor_explode&trigger=store&id=<?php echo  $id ?>" method="post">
     <main class="flex-shrink-0" style="">
         <section class="container" id="dracula">
 

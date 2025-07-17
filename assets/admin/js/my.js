@@ -37,7 +37,7 @@ jQuery(document).ready(function ($) {
 
     var addButton_translate= jQuery('.add_button_translate'); //Add button selector
     var wrapper_translate = jQuery('.data_translate_language'); //Input field wrapper
-    var fieldHTML_translate = '<div class="mb-3 col-md-3"><input type="text" class="form-control" name="translate_language_json[]" value=""/><a href="javascript:void(0);"  class="remove_button "><img src="/wp-content/uploads/2025/03/remove-icon.png"/></a></div>'; //New input field html 
+    var fieldhtmlTranslate = '<div class="mb-3 col-md-3"><input type="text" class="form-control" name="translate_language_json[]" value=""/><a href="javascript:void(0);"  class="remove_button "><img src="/wp-content/uploads/2025/03/remove-icon.png"/></a></div>'; //New input field html 
     var x = 1; //Initial field counter is 1
 
     // Once add button is clicked
@@ -46,7 +46,7 @@ jQuery(document).ready(function ($) {
         //Check maximum number of input fields
         if (x < maxField) {
             x++; //Increase field counter
-            jQuery(wrapper_translate).append(fieldHTML_translate); //Add field html
+            jQuery(wrapper_translate).append(fieldhtmlTranslate); //Add field html
         } else {
             alert('A maximum of ' + maxField + ' fields are allowed to be added. ');
         }
