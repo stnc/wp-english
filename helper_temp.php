@@ -28,10 +28,10 @@ function helix_admin_body_class($classes = '')
   if (isset($_GET['page']) && 'helix_homepage' === $_GET['page']) {
     $onboarding_class = 'helix-header-page';
   
-  } else if (isset($_GET['page']) && 'helix_language_editor' === $_GET['page']) {
+  } else if (isset($_GET['page']) && 'editorH' === $_GET['page']) {
     $onboarding_class = 'helix-header-page';
 
-  }  else if (isset($_GET['page']) && 'helix_language_editor_explode' === $_GET['page']) {
+  }  else if (isset($_GET['page']) && 'editorH_explode' === $_GET['page']) {
     $onboarding_class = 'helix-header-page';
   }
   

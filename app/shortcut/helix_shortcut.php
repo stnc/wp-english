@@ -83,7 +83,6 @@ function helix_word_translate_shortcode($attr)
     echo '<div class="container">';
     echo '<div class="row">';
     foreach ($main_language_decode as $key => $value) {
-
         $button_html_json .= helix_button_html($value, $key);
     }
     echo $button_html_json;

@@ -5,11 +5,11 @@ $id = isset($_GET['id']) ? sanitize_text_field($_GET['id']) : "";
 
 
 // $title = "Add";
-$form = '<form action="/wp-admin/admin.php?page=helix_language_editor&trigger=store" method="post">';
+$form = '<form action="/wp-admin/admin.php?page=editorH&trigger=store" method="post">';
 
 if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'edit')) {
     //$title = esc_html_e('Show', 'helix-lng');
-    $form = '<form action="/wp-admin/admin.php?page=helix_language_editor&trigger=update&id=' . $id . '" method="post">';
+    $form = '<form action="/wp-admin/admin.php?page=editorH&trigger=update&id=' . $id . '" method="post">';
 }
 
 include("common_header.php");
@@ -211,12 +211,12 @@ include("common_header.php");
                         $delete_nonce = wp_create_nonce('sp_delete_helixMaps'); ?>
 
                         <?php if ($is_json == 1): ?>
-                            <a href="/wp-admin/admin.php?page=helix_language_editor_explode&trigger=edit&id=<?php echo $id; ?>&_wpnonce=<?php echo $delete_nonce; ?>"
+                            <a href="/wp-admin/admin.php?page=editor_explodeH&trigger=edit&id=<?php echo $id; ?>&_wpnonce=<?php echo $delete_nonce; ?>"
                                 id="savebtn-helixMap2" class="btn btn-primary">Parcalanmis Kelimeyi Duzenle</a>
                         <?php endif; ?>
 
                         <?php if ($is_json == 0): ?>
-                            <a href="/wp-admin/admin.php?page=helix_language_editor_explode&trigger=new&id=<?php echo $id; ?>&_wpnonce=<?php echo $delete_nonce; ?>"
+                            <a href="/wp-admin/admin.php?page=editor_explodeH&trigger=new&id=<?php echo $id; ?>&_wpnonce=<?php echo $delete_nonce; ?>"
                                 id="savebtn-helixMap2" class="btn btn-primary">Kelimeyi Parcala</a>
                         <?php endif; ?>
 

@@ -128,7 +128,7 @@ class EditorH extends Controller
             }
 
             $_SESSION['helix_map_flash_msg'] = __('Record Save', 'helix-lng');
-            wp_redirect('/wp-admin/admin.php?page=helix_language_editor&trigger=edit&id=' . $lastid, 302);
+            wp_redirect('/wp-admin/admin.php?page=editorH&trigger=edit&id=' . $lastid, 302);
             die;
         }
 
@@ -259,7 +259,7 @@ class EditorH extends Controller
         // if ($success1) {
         //   print_r("gelir last");
         $_SESSION['helix_map_flash_msg'] = __('Record Updated', 'helix-lng');
-        wp_redirect('/wp-admin/admin.php?page=helix_language_editor&trigger=edit&id=' . $id1, 302);
+        wp_redirect('/wp-admin/admin.php?page=editorH&trigger=edit&id=' . $id1, 302);
         die;
         // }
     }
@@ -275,7 +275,7 @@ class EditorH extends Controller
     }
 }
 
-function helix_language_editor_page()
+function editorH_page()
 {
     new EditorH();
 }

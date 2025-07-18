@@ -22,7 +22,7 @@
                         <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin"><?php esc_html_e('WP Dashbord', 'helix-lng') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin/admin.php?page=helix_language_editor&trigger=new"><?php esc_html_e('Add', 'helix-lng') ?></a>
+                        <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin/admin.php?page=editorH&trigger=new"><?php esc_html_e('Add', 'helix-lng') ?></a>
                     </li>
                     </ul>
                 </div>

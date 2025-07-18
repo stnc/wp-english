@@ -16,13 +16,13 @@ class Admin
             $this->helix_admin_scritps();
         }
 
-        if (isset($_GET["page"]) && $_GET["page"] === "helix_language_editor") {
+        if (isset($_GET["page"]) && $_GET["page"] === "editorH") {
       
             $this->helix_admin_scritps();
         }
 
 
-        if (isset($_GET["page"]) && $_GET["page"] === "helix_language_editor_explode") {
+        if (isset($_GET["page"]) && $_GET["page"] === "editor_explodeH") {
             $this->helix_admin_scritps();
         }
 

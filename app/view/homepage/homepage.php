@@ -52,7 +52,7 @@ function helix_admin_homepage()
   <main class="flex-shrink-0" style="margin-top:88px">
     <div class="container-fluid">
       <div class="row">
-        <a href="/wp-admin/admin.php?page=helix_language_editor&trigger=new">EKLE</a>
+        <a href="/wp-admin/admin.php?page=editorH&trigger=new">EKLE</a>
   </main>
   <script type="text/javascript">
     function handleSelect(elm) {

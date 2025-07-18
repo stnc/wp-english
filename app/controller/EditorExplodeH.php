@@ -158,7 +158,7 @@ class EditorExplodeH extends Controller
             ),
             array('id' => $editId)
         );
-        wp_redirect('/wp-admin/admin.php?page=helix_language_editor_explode&trigger=edit&id=' . $editId, 302);
+        wp_redirect('/wp-admin/admin.php?page=editor_explodeH&trigger=edit&id=' . $editId, 302);
         die;
     }
 
@@ -237,7 +237,7 @@ class EditorExplodeH extends Controller
     }
 }
 
-function helix_language_editor_explode_page()
+function editor_explodeH_page()
 {
     new EditorExplodeH();
 }

@@ -197,6 +197,25 @@ class EditorExplodeLib
     {
         $no++;
     
+
+        $sho = helix_is_check_shortcode($value);
+        
+        if ($sho == '[]') {
+            $output = do_shortcode($value);
+        } 
+    
+        return ' <div class="mb-2 col-md-2">
+        <div  class="helix-element-item helixColor' . $no . '">
+        <p class="number">' . $no . '</p>
+         </div>
+        </div>';
+    }
+    
+    
+    public function helix_button_html_isotope($value, $no)
+    {
+        $no++;
+    
         $output = '<p class="symbol"> ' . $value . '</p>';
         $sho = helix_is_check_shortcode($value);
         
@@ -209,9 +228,6 @@ class EditorExplodeLib
         <p class="number">' . $no . '</p>
         </div>';
     }
-    
-    
-
 
 
 
