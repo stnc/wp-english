@@ -193,7 +193,24 @@ class EditorExplodeLib
     </div>';
     }
 
-
+    public function helix_button_html($value, $no)
+    {
+        $no++;
+    
+        $output = '<p class="symbol"> ' . $value . '</p>';
+        $sho = helix_is_check_shortcode($value);
+        
+        if ($sho == '[]') {
+            $output = do_shortcode($value);
+        } 
+    
+        return ' <div  class="helix-element-item helixColor' . $no . '">
+            ' . $output . '
+        <p class="number">' . $no . '</p>
+        </div>';
+    }
+    
+    
 
 
 

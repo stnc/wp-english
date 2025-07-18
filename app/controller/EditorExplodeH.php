@@ -10,7 +10,7 @@ class EditorExplodeH extends Controller
 
 
     private $engLib;
-    private $helixFormTableNameMain ;
+    private $helixFormTableNameMain;
 
     public function __construct()
     {
@@ -36,7 +36,7 @@ class EditorExplodeH extends Controller
 
 
     }
-    
+
 
 
 
@@ -62,7 +62,7 @@ class EditorExplodeH extends Controller
         $helixFormTableNameMain = $this->helixFormTableNameMain;
 
         $editId = sanitize_text_field($_GET['id']);
-      
+
         $data = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $helixFormTableNameMain . "  WHERE id = %d", $editId));
 
         $id = $data->id;
@@ -195,7 +195,7 @@ class EditorExplodeH extends Controller
         foreach ($main_language_decode as $key => $value) {
 
             $main_language_json .= $this->engLib->mainLanguageHtml($value);
-            $button_html_json .= button_html($value, $key);
+            $button_html_json .= helix_button_html($value, $key);
         }
 
 
