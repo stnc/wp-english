@@ -21,9 +21,9 @@ new Loading();
 
 
 include ('app/view/homepage/homepage.php');
-require_once "app/controller/EditorExplode.php";
-include ('app/pages/_kelimator/helix_language_editor_page.php');
-// include ('app/pages/_kelimator/helix_language_editor_explode_page.php');
+require_once "app/controller/Controller.php";
+require_once "app/controller/EditorExplodeH.php";
+require_once "app/controller/EditorH.php";
 require_once "app/view/DattaTaable/db_list.php";
 require_once "app/view/about/helixForm-adminMenu_About.php";
 

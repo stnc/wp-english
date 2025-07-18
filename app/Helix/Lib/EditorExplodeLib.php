@@ -1,5 +1,6 @@
 <?php
-class EngLib
+namespace Helix\Lib;
+class EditorExplodeLib
 {
 
 
@@ -207,4 +208,3 @@ class EngLib
 
     }
 }
-?>

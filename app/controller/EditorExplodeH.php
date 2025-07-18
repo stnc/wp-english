@@ -2,12 +2,10 @@
 
 // use Nette\Utils\Arrays;
 use Nette\Utils\Strings;
-class Controller
-{
-}
+use Helix\Lib\EditorExplodeLib;
 
 
-class EditorExplode extends Controller
+class EditorExplodeH extends Controller
 {
 
 
@@ -18,9 +16,9 @@ class EditorExplode extends Controller
     {
         global $wpdb;
         $this->helixFormTableNameMain = $wpdb->prefix . 'helix_words';
-        include('common_header.php');
-        include('EditorExplodeLib.php');
-        $this->engLib = new EngLib();
+        require(HELIX_PLUGIN_PATH . 'app/view/masterPage/common_header.php');
+
+        $this->engLib = new EditorExplodeLib();
 
         if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'new')) {
             $this->create();
@@ -38,6 +36,10 @@ class EditorExplode extends Controller
 
 
     }
+    
+
+
+
 
 
     /**
@@ -55,13 +57,13 @@ class EditorExplode extends Controller
     {
         global $wpdb;
 
-
         $date = date('Y-m-d h:i:s');
+
         $helixFormTableNameMain = $this->helixFormTableNameMain;
+
         $editId = sanitize_text_field($_GET['id']);
       
         $data = $wpdb->get_row($wpdb->prepare("SELECT *  FROM " . $helixFormTableNameMain . "  WHERE id = %d", $editId));
-
 
         $id = $data->id;
         // $level_cat_id =  $data->level_cat_id;
@@ -75,9 +77,8 @@ class EditorExplode extends Controller
 
         $main_language_explode = Strings::split($main_language, '~ \s*~');
 
-
-     
         $main_language_json = "";
+
         $translate_language_json = "";
 
         foreach ($main_language_explode as $key => $value) {
@@ -85,13 +86,11 @@ class EditorExplode extends Controller
             $value = Strings::lower($value);
             // $value = Strings::fixEncoding($value);
             // echo preg_match( '/\s/', ' ' );   // 1
-
             $value = $this->engLib->modalVerbs($value);
             $value = $this->engLib->conjunctions($value);
             $value = $this->engLib->prepositions($value);
             $value = $this->engLib->ComplexPrepositions($value);
             $value = $this->engLib->prepositionsOfTime($value);
-
             $main_language_json .= $this->engLib->mainLanguageHtml($value);
         }
 
@@ -115,7 +114,7 @@ class EditorExplode extends Controller
 
 
         // echo "<pre>";
-        require(HELIX_PLUGIN_PATH . 'app/view/editorExplode/helix_language_editor_explode_subpage.php');
+        require(HELIX_PLUGIN_PATH . 'app/view/editorExplode/editorExplodeXHTML.php');
     }
 
     /**
@@ -218,7 +217,7 @@ class EditorExplode extends Controller
         }
 
 
-        require(HELIX_PLUGIN_PATH . 'app/view/editorExplode/helix_language_editor_explode_subpage.php');
+        require(HELIX_PLUGIN_PATH . 'app/view/editorExplode/editorExplodeXHTML.php');
     }
 
     /**
@@ -240,5 +239,5 @@ class EditorExplode extends Controller
 
 function helix_language_editor_explode_page()
 {
-    new EditorExplode();
+    new EditorExplodeH();
 }
