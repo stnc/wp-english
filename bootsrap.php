@@ -14,7 +14,7 @@ require_once __DIR__ . '/vendor/autoload.php'; // Autoload files using Composer 
 
 
 require_once ('helper_temp.php');
-require_once "app/shortcut/helix_shortcut.php";
+require_once "app/shortcut/helix_shortcode.php";
 
 
 // use Helix\Loader\Menu as LoadMenu; // new LoadMenu();

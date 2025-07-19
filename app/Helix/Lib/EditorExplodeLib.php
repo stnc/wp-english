@@ -3,6 +3,15 @@ namespace Helix\Lib;
 class EditorExplodeLib
 {
 
+    
+ private function helix_is_check_shortcode($word)
+{
+    $firstLetter = substr($word, 0, 1); // İlk karakter
+    $lastLetter = substr($word, -1);   // Son karakter
+    return $firstLetter . $lastLetter;
+}
+
+
 
   public  function modalVerbs($value)
     {
@@ -193,22 +202,20 @@ class EditorExplodeLib
     </div>';
     }
 
-    public function helix_button_html($value, $no)
+    public function helix_button_html_bootsrap($value, $no)
     {
         $no++;
     
-
-        $sho = helix_is_check_shortcode($value);
+        $output = '<p class="symbol"> ' . $value . '</p>';
+        $sho = $this->helix_is_check_shortcode($value);
         
         if ($sho == '[]') {
             $output = do_shortcode($value);
         } 
     
         return ' <div class="mb-2 col-md-2">
-        <div  class="helix-element-item helixColor' . $no . '">
-        <p class="number">' . $no . '</p>
-         </div>
-        </div>';
+                    <div  class="helix-element-item helixColor' . $no . '"> ' . $output . ' <p class="number">' . $no . '</p></div>
+              </div>';
     }
     
     
@@ -217,7 +224,7 @@ class EditorExplodeLib
         $no++;
     
         $output = '<p class="symbol"> ' . $value . '</p>';
-        $sho = helix_is_check_shortcode($value);
+        $sho =$this->helix_is_check_shortcode($value);
         
         if ($sho == '[]') {
             $output = do_shortcode($value);

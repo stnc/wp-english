@@ -195,7 +195,7 @@ class EditorExplodeH extends Controller
         foreach ($main_language_decode as $key => $value) {
 
             $main_language_json .= $this->engLib->mainLanguageHtml($value);
-            $button_html_json .= helix_button_html($value, $key);
+            $button_html_json .= $this->engLib->helix_button_html_bootsrap($value, $key);
         }
 
 
