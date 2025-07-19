@@ -213,7 +213,7 @@ class EditorExplodeLib
             $output = do_shortcode($value);
         } 
     
-        return ' <div class="mb-2 col-md-2">
+        return ' <div style="margin-left: 5px; " class="mb-2 col-md-2">
                     <div  class="helix-element-item helixColor' . $no . '"> ' . $output . ' <p class="number">' . $no . '</p></div>
               </div>';
     }
