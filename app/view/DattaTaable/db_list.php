@@ -235,7 +235,7 @@ class Helix_wp_word_list_table extends WP_List_Table
 		$editLangs = __('Edit', 'helix-lng');
 		$actions = [
 			// 'view' => sprintf('<a href="?page=%s&action=%s&helixMaps=%s&_wpnonce=%s">%s</a>', esc_attr($_REQUEST['page']), 'view', absint($item['id']), $delete_nonce,	$showLang),
-			'edit' => sprintf('<a href="?page=helix_building_company&st_trigger=edit&id=%s&_wpnonce=%s">%s</a>',  absint($item['id']), $delete_nonce, $editLangs)
+			'edit' => sprintf('<a href="?page=editorH&trigger=edit&id=%s&_wpnonce=%s">%s</a>',  absint($item['id']), $delete_nonce, $editLangs)
 		];
 
 		return $title . $this->row_actions($actions);
@@ -440,7 +440,7 @@ class Helix_wp_word_list_table extends WP_List_Table
 						<div><mark class="dont"><?php esc_html_e('Adresss', 'helix-lng') ?>:</mark> <?php echo $data->main_language; ?></div>
 						<hr>
 
-						<div><mark class="dont"></mark> <a href="/wp-admin/admin.php?page=helix_building_company&st_trigger=show&building_id=<?php echo $data->building_id; ?>&_id=<?php echo $data->_id; ?>&id=<?php echo $data->id; ?>"><?php esc_html_e('Edit', 'helix-lng') ?></a> </div>
+						<div><mark class="dont"></mark> <a href="/wp-admin/admin.php?page=editor_explodeH&trigger=show&building_id=<?php echo $data->building_id; ?>&_id=<?php echo $data->_id; ?>&id=<?php echo $data->id; ?>"><?php esc_html_e('Edit', 'helix-lng') ?></a> </div>
 						<hr>
 						<!-- <div><mark class="dont">Eklenen Dosya:</mark><?php echo $oynat ?></div> -->
 					</div>
@@ -623,7 +623,7 @@ class Helix_wp_word_list_table extends WP_List_Table
  * so we've instead called those methods explicitly. It keeps things flexible, and
  * it's the way the list tables are used in the WordPress core.
  */
-function helix_wp__render_list_page()
+function helix_DataTABLE_page()
 {
 
 	//Create an instance of our package class...

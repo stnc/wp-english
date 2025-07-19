@@ -9,27 +9,25 @@ class Admin
 
     public function __construct()
     {
-        if (isset($_GET["page"]) && $_GET["page"] === "helix_homepage") {
+        if (isset($_GET["page"]) && $_GET["page"] === "helix_admin_homepage") {
+            $this->helix_admin_scritps();
+        }
+       if (isset($_GET["page"]) && $_GET["page"] === "helix_test") {
             $this->helix_admin_scritps();
         }
 
-        if (isset($_GET["page"]) && $_GET["page"] === "helix_building_company") {
+        if (isset($_GET["page"]) && $_GET["page"] === "editorH") {
+      
             $this->helix_admin_scritps();
         }
 
 
-        if (isset($_GET["page"]) && $_GET["page"] === "helix_explode") {
+        if (isset($_GET["page"]) && $_GET["page"] === "editor_explodeH") {
             $this->helix_admin_scritps();
         }
 
-        if (isset($_GET["page"]) && $_GET["page"] === "helix_map_view") {
-            // helix_wp__front() ;
-            $this->helix_admin_scritps();
-        }
 
-        if (isset($_GET["page"]) && $_GET["page"] === "helix_map_editor_building") {
-            $this->helix_admin_scritps();
-        }
+
 
 
 
@@ -39,10 +37,11 @@ class Admin
     public function helix_main_enqueue_style()
     {
         wp_enqueue_style("helix-admin-css", HELIX_PLUGIN_DIR_URL ."assets/admin/css/helix-admin.css", "", HELIX_VERSION);
+        wp_enqueue_style("helix-bootstrap-css", HELIX_PLUGIN_DIR_URL ."assets/admin/css/bootstrap.min.css", "", HELIX_VERSION);
         wp_enqueue_style("helix-common2-css", HELIX_PLUGIN_DIR_URL ."assets/common/css/helix.css", "", HELIX_VERSION);
 
 
-        // wp_enqueue_style( "helix-tooltipstercss", plugins_url("assets/admin/css/tooltipster.bundle.min.css", __FILE__) ,"",$ver);
+        //  wp_enqueue_style( "helix-tooltipstercss", HELIX_PLUGIN_DIR_URL ."assets/admin/css/tooltipster.bundle.min.css" ,"",HELIX_VERSION);
     }
 
     public function helix_script_in_admin($hook)

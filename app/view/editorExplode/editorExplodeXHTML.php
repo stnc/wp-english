@@ -5,14 +5,14 @@ $id =   isset($_GET['id']) ? sanitize_text_field($_GET['id']) : "";
 
 
 // $title = "Add"; 
-$form = '<form action="/wp-admin/admin.php?page=helix_building_company&st_trigger=store" method="post">';
+$form = '<form action="/wp-admin/admin.php?page=editor_explodeH&trigger=store" method="post">';
 
-if ((isset($_GET['st_trigger'])) && ($_GET['st_trigger'] === 'edit')) {
+if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'edit')) {
     // $title = esc_html_e('Show', 'helix-lng');
-    $form = '<form action="/wp-admin/admin.php?page=helix_building_company&st_trigger=update&id=' . $id . '" method="post">';
+    $form = '<form action="/wp-admin/admin.php?page=editor_explodeH&trigger=update&id=' . $id . '" method="post">';
 }
 
-include("_header-show.php");
+include("common_header.php");
 
 
 
@@ -58,7 +58,7 @@ tr:nth-child(even) {
 
 
 
-<form action="/wp-admin/admin.php?page=helix_explode&st_trigger=store&id=<?php echo  $id ?>" method="post">
+<form action="/wp-admin/admin.php?page=editor_explodeH&trigger=store&id=<?php echo  $id ?>" method="post">
     <main class="flex-shrink-0" style="">
         <section class="container" id="dracula">
 
@@ -80,7 +80,7 @@ tr:nth-child(even) {
                         <div class="card-header">card olarak</div>
                         <div class="card-body">
                             <h5 class="card-title"><?php echo  $main_language  ?></h5>
-                            <div class="row2 g-2 data_main_language "  id="data_main_language ">
+                            <div class="row g-2 data_main_language "  id="data_main_language ">
                         
                                 <?php echo $button_html_json ?>
 

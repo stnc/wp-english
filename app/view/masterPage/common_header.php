@@ -1,10 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
-    integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
 
 
   <style>
@@ -29,7 +22,7 @@
                         <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin"><?php esc_html_e('WP Dashbord', 'helix-lng') ?></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin/admin.php?page=helix_building_company&st_trigger=new"><?php esc_html_e('Add', 'helix-lng') ?></a>
+                        <a class="nav-link active" style="color: antiquewhite;" aria-current="page" href="/wp-admin/admin.php?page=editorH&trigger=new"><?php esc_html_e('Add', 'helix-lng') ?></a>
                     </li>
                     </ul>
                 </div>

@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
-        'name' => 'helix/wpfw',
+        'name' => 'wp_helix/framework',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'd8adf212d8c2b41b4edbb8fec5558b349d61dec8',
+        'reference' => '185553062c494231c4facde8cab8521dd348ba62',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -19,10 +19,10 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'helix/wpfw' => array(
+        'wp_helix/framework' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'd8adf212d8c2b41b4edbb8fec5558b349d61dec8',
+            'reference' => '185553062c494231c4facde8cab8521dd348ba62',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

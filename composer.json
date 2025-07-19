@@ -1,13 +1,13 @@
 {
-	"name" : "helix english",
+	"name" : "wp_helix/framework",
 	"type" : "project",
 	"description" : "helix wp english center",
 	"homepage" : "https://github.com/helix",
 	"authors" : [{
-			"name" : "UAMA TEAM",
-			"email" : "uama@gmail.com",
-			"homepage" : "http://uama.com",
-			"role" : "Developer,ecommerce "
+			"name" : "helix",
+			"email" : "helix@gmail.com",
+			"homepage" : "http://helix.com",
+			"role" : "helix,helix "
 		}
 	],
 	"require" : {
@@ -17,7 +17,7 @@
     
 	"autoload" : {
 		"psr-4" : {
-			"Helix\\": "src/Helix/"
+			"Helix\\": "app/Helix/"
 		}
 	}
 	

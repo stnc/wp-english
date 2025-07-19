@@ -23,8 +23,8 @@ class Loading
      */
     public $name = 'HELIX ENGLISH';
 
-    const class_version = '2.0.1';
-    const version = '2.0.1';
+    const class_version = '2.0.2';
+    const version = '2.0.2';
 
     /**
      * Define Plugin Constants

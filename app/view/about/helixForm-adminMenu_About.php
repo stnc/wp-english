@@ -1,6 +1,6 @@
 <?php
 
-function helix_wp__plans_adminMenu_About_contents()
+function helix_about_page()
 {
     //  $to = get_option('admin_email');
     // $options = get_option( 'helix_wp__option' ); 

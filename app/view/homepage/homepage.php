@@ -22,7 +22,7 @@ function helix_admin_homepage()
   <header>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-secondary fixed-top bg-black">
-      <div class="helix-container-fluid">
+      <div class="container-fluid">
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -41,7 +41,7 @@ function helix_admin_homepage()
             </li>
           </ul>
           <div class="text-center">
-            <h1 class="helix-title fw-bold"><?php esc_html_e('Kelime Generator', 'helix-lng') ?></h1>
+            <h1 class="title fw-bold"><?php esc_html_e('Kelime Generator', 'helix-lng') ?></h1>
           </div>
         </div>
       </div>
@@ -50,16 +50,16 @@ function helix_admin_homepage()
     </nav>
   </header>
   <main class="flex-shrink-0" style="margin-top:88px">
-    <div class="helix-container-fluid">
-      <div class="helix-row">
-        <a href="/wp-admin/admin.php?page=helix_building_company&st_trigger=new">EKLE</a>
+    <div class="container-fluid">
+      <div class="row">
+        <a href="/wp-admin/admin.php?page=editorH&trigger=new">EKLE</a>
   </main>
   <script type="text/javascript">
     function handleSelect(elm) {
       window.location = elm.value;
     }
   </script>
-  <footer class="footer mt-auto py-3 bg-light helix-footer">
+  <footer class="footer mt-auto py-3 bg-light footer">
     <div class="container">
       <span class="text-muted"></span>
     </div>
