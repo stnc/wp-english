@@ -33,14 +33,7 @@ class EditorExplodeH extends Controller
         if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'edit')) {
             $this->edit();
         }
-
-
     }
-
-
-
-
-
 
     /**
      * Display a listing of the resource.
