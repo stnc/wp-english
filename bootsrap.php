@@ -21,9 +21,7 @@ require_once "app/shortcut/helix_shortcode.php";
 use Helix\Loader\Loading;
 new Loading();
 include ('app/view/homepage/homepage.php');
-require_once "app/controller/Controller.php";
-require_once "app/controller/EditorExplodeH.php";
-require_once "app/controller/EditorH.php";
+require_once "app/controller/router.php";
 require_once "app/view/DattaTaable/db_list.php";
 require_once "app/view/about/helixForm-adminMenu_About.php";
 
