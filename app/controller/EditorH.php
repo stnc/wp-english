@@ -19,7 +19,7 @@ class EditorH extends Controller
         }
 
         if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'store')) {
-            $this->DataPost();
+            $this->dataPost();
             $this->store();
           
         }
@@ -29,7 +29,7 @@ class EditorH extends Controller
         }
 
         if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'update')) {
-            $this->DataPost();
+            $this->dataPost();
             $this->update();
         }
     }
@@ -39,7 +39,7 @@ class EditorH extends Controller
     /**
      * Display a listing of the resource.
      */
-    private function DataPost()
+    private function dataPost()
     {
         $this->model["level_cat_id"] = isset($_POST["level_cat_id"]) ? sanitize_text_field($_POST["level_cat_id"]) : 1;
         $this->model["tense_id"] = isset($_POST["tense_id"]) ? sanitize_text_field($_POST["tense_id"]) : 1;
