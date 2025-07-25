@@ -6,6 +6,8 @@ class EditorH extends Controller
     private $engLib;
     private $helixFormTableNameMain;
 
+   private  $model =array();
+
     public function __construct()
     {
         global $wpdb;
@@ -17,7 +19,9 @@ class EditorH extends Controller
         }
 
         if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'store')) {
+            $this->DataPost();
             $this->store();
+          
         }
 
         if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'edit')) {
@@ -25,12 +29,26 @@ class EditorH extends Controller
         }
 
         if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'update')) {
+            $this->DataPost();
             $this->update();
         }
     }
 
 
 
+    /**
+     * Display a listing of the resource.
+     */
+    private function DataPost()
+    {
+        $this->model["level_cat_id"] = isset($_POST["level_cat_id"]) ? sanitize_text_field($_POST["level_cat_id"]) : 1;
+        $this->model["tense_id"] = isset($_POST["tense_id"]) ? sanitize_text_field($_POST["tense_id"]) : 1;
+        $this->model["vocable_level"]  = isset($_POST["vocable_level_id"]) ? sanitize_text_field($_POST["vocable_level_id"]) : 1;
+        $this->model["main_language"]    = isset($_POST["main_language"]) ? sanitize_text_field($_POST["main_language"]) : " ";
+        $this->model["source"]   = isset($_POST["source"]) ? sanitize_text_field($_POST["source"]) : " ";
+        $this->model["translate"]     = isset($_POST["translate"]) ? sanitize_text_field($_POST["translate"]) : " ";
+        $this->model["id"]    = sanitize_text_field($_GET['id']);
+    }
 
 
 
@@ -39,6 +57,8 @@ class EditorH extends Controller
      */
     public function index()
     {
+
+
 
     }
 
@@ -49,12 +69,7 @@ class EditorH extends Controller
     {
         global $wpdb;
 
-        $level_cat_id = isset($_POST["level_cat_id"]) ? sanitize_text_field($_POST["level_cat_id"]) : 1;
-        $tense_id = isset($_POST["tense_id"]) ? sanitize_text_field($_POST["tense_id"]) : 1;
-        $vocable_level = isset($_POST["vocable_level_id"]) ? sanitize_text_field($_POST["vocable_level_id"]) : 1;
-        $main_language = isset($_POST["main_language"]) ? sanitize_text_field($_POST["main_language"]) : " ";
-        $source = isset($_POST["source"]) ? sanitize_text_field($_POST["source"]) : " ";
-        $translate = isset($_POST["translate"]) ? sanitize_text_field($_POST["translate"]) : " ";
+
         // $web_permission = '[{\"door_number_permission\":false,\"square_meters_permission\":false,\"email_permission\":false,\"phone_permission\":false,\"mobile_phone_permission\":false,\"web_site_permission\":false,\"translate_permission\":false,\"main_language_permission\":false}]';
         // $data =  str_replace([" ", '\\'], "", $web_permission);
         // $web_permission =  json_decode($data, true, JSON_UNESCAPED_SLASHES);
@@ -86,29 +101,17 @@ class EditorH extends Controller
      */
     public function store()
     {
-        $helixFormTableNameMain = $this->helixFormTableNameMain;
         global $wpdb;
-        $level_cat_id = isset($_POST["level_cat_id"]) ? sanitize_text_field($_POST["level_cat_id"]) : 1;
-        $tense_id = isset($_POST["tense_id"]) ? sanitize_text_field($_POST["tense_id"]) : 1;
-        $vocable_level = isset($_POST["vocable_level"]) ? sanitize_text_field($_POST["vocable_level"]) : 1;
-        $building_id = isset($_GET["building_id"]) ? sanitize_text_field($_GET["building_id"]) : " ";
-
-        $translate = isset($_POST["translate"]) ? sanitize_text_field($_POST["translate"]) : " ";
-
-        $main_language = isset($_POST["main_language"]) ? sanitize_text_field($_POST["main_language"]) : " ";
-        $source = isset($_POST["source"]) ? sanitize_text_field($_POST["source"]) : " ";
-
-
-
+        $helixFormTableNameMain = $this->helixFormTableNameMain;
         $success = $wpdb->insert(
             $helixFormTableNameMain,
             array(
-                'level_cat_id' => $level_cat_id,
-                'vocable_level_id' => $vocable_level,
-                'tense_id' => $tense_id,
-                'translate' => $translate,
-                'main_language' => $main_language,
-                'source' => $source,
+                'level_cat_id' =>  $this->model["level_cat_id"] ,
+                'vocable_level_id' =>  $this->model["vocable_level"] ,
+                'tense_id' =>  $this->model["tense_id"],
+                'translate' =>  $this->model["translate"],
+                'main_language' =>  $this->model["main_language"],
+                'source' =>  $this->model["source"],
             ),
         );
 
@@ -213,25 +216,19 @@ class EditorH extends Controller
 
         global $wpdb;
         $helixFormTableNameMain = $this->helixFormTableNameMain;
-        $id1 = sanitize_text_field($_GET['id']);
-        $translate = isset($_POST["translate"]) ? sanitize_text_field($_POST["translate"]) : " ";
-        $main_language = isset($_POST["main_language"]) ? sanitize_text_field($_POST["main_language"]) : " ";
-        $source = isset($_POST["source"]) ? sanitize_text_field($_POST["source"]) : " ";
-        $level_cat_id = isset($_POST["level_cat_id"]) ? sanitize_text_field($_POST["level_cat_id"]) : 1;
-        $vocable_level = isset($_POST["vocable_level"]) ? sanitize_text_field($_POST["vocable_level"]) : 1;
-        $tense_id = isset($_POST["tense_id"]) ? sanitize_text_field($_POST["tense_id"]) : 1;
+
 
         $success1 = $wpdb->update(
             $helixFormTableNameMain,
             array(
-                'level_cat_id' => $level_cat_id,
-                'vocable_level_id' => $vocable_level,
-                'tense_id' => $tense_id,
-                'translate' => $translate,
-                'main_language' => $main_language,
-                'source' => $source,
+                'level_cat_id' =>  $this->model["level_cat_id"] ,
+                'vocable_level_id' =>  $this->model["vocable_level"] ,
+                'tense_id' =>  $this->model["tense_id"],
+                'translate' =>  $this->model["translate"],
+                'main_language' =>  $this->model["main_language"],
+                'source' =>  $this->model["source"],
             ),
-            array('id' => $id1)
+            array('id' =>  $this->model["id"])
         );
 
         // var_dump($success1);
@@ -240,26 +237,26 @@ class EditorH extends Controller
 
         if (isset($_POST['speakLevelList'])) {
             // print_r("gelir3");
-            $wpdb->delete("{$wpdb->prefix}helix_level_categories_record", array('word_id' => $id1));
+            $wpdb->delete("{$wpdb->prefix}helix_level_categories_record", array('word_id' => $this->model["id"]));
             foreach ($_POST['speakLevelList'] as $key => $value) {
                 // print_r("gelir4");
                 $wpdb->insert(
                     $wpdb->prefix . "helix_level_categories_record",
                     array(
-                        'word_id' => sanitize_text_field($id1),
+                        'word_id' => sanitize_text_field( $this->model["id"]),
                         'level_id' => sanitize_text_field($value),
                     ),
                 );
             }
         } else {
-            $wpdb->delete("{$wpdb->prefix}helix_level_categories_record", array('word_id' => $id1));
+            $wpdb->delete("{$wpdb->prefix}helix_level_categories_record", array('word_id' =>  $this->model["id"]));
         }
 
 
         // if ($success1) {
         //   print_r("gelir last");
         $_SESSION['helix_map_flash_msg'] = __('Record Updated', 'helix-lng');
-        wp_redirect('/wp-admin/admin.php?page=editorH&trigger=edit&id=' . $id1, 302);
+        wp_redirect('/wp-admin/admin.php?page=editorH&trigger=edit&id=' .  $this->model["id"], 302);
         die;
         // }
     }
