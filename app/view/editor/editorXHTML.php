@@ -41,10 +41,6 @@ include("common_header.php");
                 <div class="card" style="max-width:100%">
                     <div class="card-body">
 
-
-
-
-
                         <div class="form-group">
                             <span>Ne tur bir konusma metni? </span>
                             <?php if ((isset($_GET['trigger'])) && ($_GET['trigger'] === 'edit')) { ?>
@@ -227,6 +223,4 @@ include("common_header.php");
 
         <?php echo '</form>' ?>
     </div>
-
-
 </main>
